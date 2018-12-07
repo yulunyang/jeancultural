@@ -1,0 +1,36 @@
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+$lightgray_color:#eeeeee;
+
+.K_box_cart_success{
+    background-color: #fff;
+    margin-top: 390px;
+}
+.K_container_cart_success{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.K_order_success{   
+    font-size: 24px;
+    line-height: 64px;
+    color: $gray_color;
+    text-align: center;
+    margin: 50px 0;
+}
+.go_shopping_btn{   
+    margin: 0px auto 100px auto;
+    font-size: 20px;
+    color: $orange_color;
+    border: 1px solid $orange_color;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 20px 24px;
+    background-color: #fff;
+}
+.go_shopping_btn :visited{
+    color: $orange_color;
+}

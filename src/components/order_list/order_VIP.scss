@@ -1,0 +1,38 @@
+
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+$white_color: #EEEEEE;
+$lightgray: #D3CECA;
+
+
+// ------------------會員VIP等級表--------------------
+
+
+
+
+.O_VIP_way {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 50px 0px;
+    border: 1px dotted $gray_color;
+    border-collapse: collapse;
+    border-top: hidden;
+    border-bottom:hidden; 
+    border-left:hidden;
+    border-right:hidden;
+    background-color: $white_color;
+    
+}
+.O_VIP_way th,.O_VIP_way td{
+    padding: 30px 0px;
+    border: 1px dotted $gray_color;
+    
+}
+
+.O_VIP_way img{
+    width: 30px;
+    height: 30px;
+}

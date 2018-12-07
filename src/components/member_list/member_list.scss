@@ -1,0 +1,82 @@
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+$white_color: #EEEEEE;
+$lightgray: #D3CECA;
+
+.O_container{
+    width: 85%;
+        
+}
+.O_member_list_info{
+    margin-top: -420px;
+}
+
+
+.O_latest_order_data_T,.O_member_data_T,.O_VIP_way_T{
+    width: 100%;
+    padding: 10px ;
+    background-color: $orange_color;
+    color: $white_color;
+    font-size: 1.5em;
+    box-sizing: border-box;
+    margin: 90px 0px 70px 0px;
+    
+}
+.O_latest_order_data_T{
+    margin-top: 70px;    
+}
+
+
+// ------------------最新訂單--------------------
+
+
+.O_latest_order{
+    width: 100%;
+   
+}
+
+.O_latest_order_table{
+    width: 100%;
+    margin: 50px auto 0px auto;
+    text-align: center;
+    padding: 10px;
+    
+}
+.O_latest_order_table_th{
+    padding: 10px;
+    border-bottom: 1px solid $gray_color;
+}
+.O_latest_order_table_td{
+    padding: 10px;
+    border-bottom: 1px dashed $gray_color;
+}
+
+
+// ------------------修改資料和訂單詳情字--------------------
+.O_latest_order_p,.O_member_info_change{
+    float: right;
+    margin: 0px 0px 30px 0px;
+    text-decoration: underline;
+    
+}
+
+
+
+
+
+
+
+
+
+
+////----白底---
+
+
+.O_background_white_member_list{
+   background-color: #ffffff;
+   margin-top: 450px;
+   padding: 0px 0px 20px 0px;
+}
+

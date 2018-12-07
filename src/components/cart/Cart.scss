@@ -1,0 +1,193 @@
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+$lightgray_color:#eeeeee;
+
+body{
+    width: 100vw;
+    overflow-x: hidden;
+}
+.K_box_cart{
+    background-color: #fff;
+    margin-top: 390px;
+}
+.K_container_cart{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+/* Cart_step */
+.K_step_circle1{
+    background-color: $orange_color;
+    color: $lightgray_color;
+}
+/* -------------------K_cart_product_table start------------------- */
+.K_cart_product_table{
+    width: 100%;
+    text-align: center;
+    border-spacing: 0;
+    margin-top: 36px;
+}
+.K_cart_product_table thead{
+    color: $lightgray_color;
+    background-color: $orange_color;
+}
+.K_cart_product_table thead tr th{
+    font-size: 18px;
+    width: 8%;
+    padding: 16px 0;
+}
+.K_cart_product_table thead tr th:first-child{  
+    width: 52%;
+    text-align: left; 
+    font-size: 28px;
+    padding-left: 50px;
+}
+.K_cart_product_table tbody{
+    background-color: $lightgray_color;
+}
+.K_cart_product_table tbody tr td{
+    color: $gray_color;
+    padding: 24px 0;
+}
+.K_cart_product_table tbody tr td:first-child{
+    font-size: 18px;
+    color: #c19991;
+    width: 5%;
+}
+.K_cart_product_table tbody tr td:nth-child(3){
+    line-height: 24px;
+    text-align: left;
+    padding: 0 50px; 
+}
+.K_cart_product_table tbody h3{
+    font-size: 18px;
+    color: #3f3f3f;
+    margin-bottom: 16px;
+}
+.K_cart_product_table tbody tr td select{
+    color: $gray_color;
+}
+.K_product_pic_l img{
+    width: 200px;
+}
+.K_product_pic_s img{
+    width: 120px;
+}
+.K_table_icon{
+    width: 30px;
+    cursor: pointer;
+}
+.K_free_shipping img{
+    width: 140px;
+    float: right;
+    margin: -50px -32px 40px 0;
+}
+/* -------------------K_cart_product_table end------------------- */
+
+/* -------------------K_pay_way start------------------- */
+.K_form-group_cart{
+    color: $gray_color;
+    margin: 16px 0 16px 36px;
+    display: flex;
+}
+.K_form-group_cart label{
+    width: 12%;
+}
+.K_form-group_cart input, .K_form-group_cart select{
+    color: $gray_color;
+    margin-right: 10px; 
+}
+.K_check_coupon_btn{
+    font-size: 16px;
+    color: #fff;
+    border: 1px solid $orange_color;
+    border-radius: 5px;
+    background-color: $orange_color;
+    padding: 3px 20px;
+    cursor: pointer;
+}
+.K_cart_notice{
+    margin: 36px ;
+    color: #88a044;
+}
+.K_line_cart{
+    width: 100%;
+    border: solid #bcb7b1;
+    border-width: 1px 0 0 0;
+    margin: 36px 0;
+}
+/* -------------------K_pay_way end------------------- */
+
+/* -------------------K_total_pay_detail start------------------- */
+.K_total_pay{
+    color: $gray_color;
+}
+.K_total_pay_detail{
+    display: flex;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+.K_total_pay_detail h5{
+    font-size: 18px;
+    font-weight: 500;
+    width: 12%;
+}
+.K_total_pay_detail span{
+    font-size: 18px;
+    text-align: center;
+    width: 12%;
+}
+.K_total_pay_sum{
+    color: #3f3f3f;
+    clear: right;
+}
+.K_line_cart_s{
+    width: 28%;
+    border: solid #bcb7b1;
+    border-width: 1px 0 0 0;
+    margin-bottom: 20px;
+    float: right;
+}
+/* -------------------K_total_pay_detail end------------------- */
+
+/* K_cart_btn */
+.K_cart_btn{
+    margin: 64px auto 100px auto;
+    display: flex;
+    justify-content: center;
+}
+.K_cart_btn button {
+    width: 160px;
+    font-size: 20px;
+    color: #fff;
+    border: 1px solid $orange_color;
+    border-radius: 5px;
+    background-color: $orange_color;
+    margin: 0 100px;
+    padding: 10px;
+}
+.K_cart_btn button :visited{
+    color: #fff;
+}
+
+/* step active */
+.active{
+    background-color: $orange_color;
+    color: $lightgray_color;
+}
+.couponNum{
+    display: none;
+}
+.errorMsg{
+    font-size: 16px;
+    color: #ff0000;
+    margin-left: 12px;
+    display: none;
+}
+
+
+

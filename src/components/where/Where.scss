@@ -1,0 +1,134 @@
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+// *{
+//     border:solid 1px;
+// }
+.F_container_where {
+    width: 85%;
+    margin: auto;
+    top: -80px;
+}
+
+.F_where_store_p {
+    line-height: 50px;
+}
+
+//據點盒子
+.F_where_store_p{
+    color: $orange_color;
+    font-size: 24px;
+    font-weight: bold;
+    margin: -20px;
+}
+.F_where_box {
+    background-color: #eee;
+    border-radius: 10px;
+    padding: 50px;
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+}
+
+.F_where_pic {
+    border: solid 10px #fff;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+}
+.F_where_pic img{
+    object-fit: cover;
+    width: 350px;
+    height: 300px;
+}
+.F_where_map {
+    width: 300px;
+    height: 250px;
+    border: solid 10px #fff;
+    overflow: hidden;
+    cursor: pointer;
+}
+.F_where_map img{
+    object-position: -80px;
+}
+.F_where_text_box {
+    line-height: 42px;
+    color: $gray_color;
+    font-weight: bold;
+    margin: 0 20px;
+}
+
+.F_where_text_box h3 {
+    color: $darkgreen_color;
+    line-height: 46px;
+}
+
+.F_where_text_box_detail {
+    display: flex;
+}
+
+.F_where_text_small_title {
+    background-color: $orange_color;
+    border-radius: 3px;
+    width: 60px;
+    text-align: center;
+    color: #fff;
+    margin: 5px 0px;
+}
+
+.F_p_where_bc {
+    background-color: transparent;
+    margin: 5px 10px;
+}
+
+/*其他銷售通路*/
+
+.material-icons.orange600 {
+    color: $orange_color;
+    font-size: 36px;
+}
+.F_where_small_text{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    color: $darkgreen_color;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 40px;
+    cursor: crosshair;
+}
+/*對話框*/
+.F_where_talk_box{
+    position: absolute;
+    bottom: -70px;
+    display: none;
+}
+/*箭頭上*/
+.mwt_border{
+    background-color: #eee;
+    color: $gray_color;
+    padding: 20px;
+    font-size: 18px;
+    width: 250px;
+    border-radius: 8px;
+    padding:20px;
+}
+.mwt_border .arrow_t_int{
+    width:0px;
+    height:0px;
+    border-width:15px;
+    border-style:solid;
+    border-color:transparent transparent #eee transparent ;
+    position:absolute;
+    top:-30px;
+    left:40px;
+}
+.F_where_small_store_box{
+    display: flex;
+    flex-wrap: wrap;
+}
+.F_where_store_p_small{
+    margin-top: 60px;
+}

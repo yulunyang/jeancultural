@@ -1,0 +1,151 @@
+$orange_color: #e8aa67;
+$lightgreen_color: #c7cc62;
+$darkgreen_color: #879d4d;
+$gray_color: #606060;
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+.T_container {
+  width: 85%;
+  margin: auto;
+}
+.T_product_box {
+  width: 100%;
+  display: flex;
+}
+//商品
+.T_product_pic {
+  width: 90%;
+  padding-top: 10%;
+}
+.T_product_pic img {
+  width: 100%;
+  object-fit: cover;
+}
+//商品細節
+.T_product_type {
+  padding-top: 8%;
+  width: 50%;
+}
+.T_product_logo {
+  width: 30%;
+  object-fit: cover;
+  margin: 0 auto;
+}
+.T_product_logo img {
+  width: 100%;
+}
+.T_product_titles {
+  margin: 0 auto;
+  width: 80%;
+  color: $gray_color;
+  text-align: center;
+  font-size: 20px;
+  margin-top: 3%;
+  font-weight: 600;
+}
+.T_product_describe {
+  margin: 0 auto;
+  width: 50%;
+  margin-top: 3%;
+}
+.T_product_text {
+  color: $gray_color;
+  text-align: left;
+  font-size: 15px;
+}
+.T_product_price {
+  margin-top: 10px;
+}
+.T_product_describe hr {
+  margin-top: 10px;
+  width: 100%;
+  color: $gray_color;
+}
+//商品顏色
+.T_product_select_color {
+  display: flex;
+  width: 80%;
+  height: 30px;
+  border: none;
+  padding: 10px;
+  border-radius: 10%;
+}
+.T_product_select_color .coloritem1 {
+  background-color: blue;
+  margin-right: 20px;
+}
+.T_product_select_color .coloritem2 {
+  background-color: yellow;
+  margin-right: 20px;
+}
+.T_product_select_color .coloritem3 {
+  background-color: orange;
+}
+.T_product_select_quantity {
+  padding: 10px;
+}
+.T_product_select_size,
+.T_product_select_amount {
+  width: 40%;
+  color: $gray_color;
+}
+.T_product_add {
+  display: flex;
+  margin: 10px;
+}
+.T_product_add_cart,
+.T_product_add_likes {
+  background: none;
+  border-radius: 10%;
+  border: 1px solid $gray_color;
+  padding: 8px;
+  color: $gray_color;
+  margin-right: 20px;
+}
+.T_product_add_cart:hover,
+.T_product_add_likes:hover {
+  background: $orange_color;
+  color: #fff;
+  border: none;
+}
+//商品資訊
+.T_about_productbox {
+  width: 320px;
+  height: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+ .T_product_tabs li {
+  display: inline-flex;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  padding:2px 4px 1px 4px;
+  margin-right: 10px;
+}
+.T_about_product_words {
+  margin-top: 10px;
+  text-align: start;
+  color: $gray_color;
+  font-size: 13px;
+  padding: 10px;
+  line-height: 1.5rem;
+  background: #fff;
+  width: 300px;
+  height: 200px;
+  border-radius: 5%;
+}
+.T_product_tabs1 {
+  background-color: $gray_color;
+}
+.T_product_tabs.T_product_tabs_click {
+  background-color: $gray_color;
+}
+.T_product_tab_container {
+}
+.T_tab_content {
+  width: 1050px;
+  display: flex;
+}

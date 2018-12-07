@@ -1,0 +1,108 @@
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+$white_color: #EEEEEE;
+$lightgray: #D3CECA;
+
+.O_container{
+    width: 85%;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+}
+.O_SignUpT{
+    width: 100%;
+    padding: 10px;
+    // height: 45px;
+    background-color: $orange_color;
+    color: $white_color;
+    font-size: 1.3em;
+    box-sizing: border-box;
+    margin-top: -300px !important;
+}
+.O_googleSignUp,.O_FBSignUp,.O_add_btn{
+    width: 200px;
+    height: 50px;
+    // border-radius: 20px;
+    border: none;
+    background-color: $orange_color;
+    color: $white_color;
+    margin: 15px 15px 15px 0px;
+    font-size: 1rem;
+    cursor: pointer;
+}   
+
+.O_emailSignUp{
+    width: 100%;
+    color: $gray_color;
+    background-color: $white_color;
+    margin: 20px auto ;
+    line-height: 3rem;
+    letter-spacing: 3px;
+    font-size: 1rem;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.O_form_big{
+    margin: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    line-height: 4rem;
+    padding: 10px 40px;
+}
+.O_emailSignUpT{
+    width: 70%;
+    margin: 20px 40px;
+}
+
+.O_label {
+    display: inline-block;
+    width: 20%;
+    text-align: left;
+    margin-right: 30px;
+    font-weight: 700;
+    font-size: 20px;
+}
+.O_input{
+    vertical-align: center;
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+.O_select{
+    width: 150px;
+    height: 25px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+.O_dashedLine{
+    border-bottom: 1px dashed #000000;
+    margin: 30px auto;
+    width: 100%;
+}
+.O_add_btn{
+margin: 20px auto !important;
+border-radius: 5px;
+}
+
+
+//改的
+.O_white_background_member_add{
+    background-color: #fff;
+    margin-top: 400px;
+    padding-bottom: 20px;
+}
+
+.O_errorMsg{
+    color: red;
+    display: none;
+    
+}
+
+.O_chk_password{
+    color: red;
+    display: none;
+}

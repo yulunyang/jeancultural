@@ -1,0 +1,24 @@
+
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+$lightgray: #D3CECA;
+
+
+// ------------------無訂單--------------------
+
+
+.O_empty_order{
+    width: 100%;
+    text-align: center;
+    line-height: 300px;
+    height: 400px;
+}
+
+.O_empty_order img{
+    width: 150px;
+    height: 100px;
+    float: left;
+    cursor: pointer;
+}

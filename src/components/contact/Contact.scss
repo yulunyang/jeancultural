@@ -1,0 +1,112 @@
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+// *{
+//     border:solid 1px;
+// }
+.F_container_contact {
+    width: 85%;
+    margin: 80px auto;
+    display: flex;
+}
+
+.F_left_contact,
+.F_right_contact {
+    width: 50%;
+    margin: 0 100px;
+}
+
+.F_left_contact {
+    line-height: 34px;
+    letter-spacing: 2px;
+    color: $gray_color;
+    font-weight: bold;
+}
+
+.F_left_contact h3 {
+    font-size: 30px;
+    border-bottom: $orange_color solid 10px;
+    width: 250px;
+    margin: 30px;
+    padding: 15px 0;
+    color: #333;
+}
+
+.F_left_contact p {
+    margin: 0;
+    padding: 30px;
+}
+
+.F_contact_icon_box {
+    display: flex;
+}
+
+.F_color_contact_icon {
+    width: 80px;
+    margin: 50px 20px;
+}
+
+.F_left_contact_opacity {
+    position: absolute;
+    font-size: 70px;
+    color: rgba(238, 238, 238, 0.548);
+    right: 100px;
+    top: 100px;
+    z-index: -1;
+}
+
+/*右邊的*/
+
+.F_mail_pic {
+    position: absolute;
+    width: 110%;
+    transform: translateX(-10px) rotate(-5deg);
+    z-index: -1;
+    top: 10%;
+    left: -3%;
+}
+
+.F_mail_box {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    margin: 30px auto;
+}
+
+/*input*/
+.F_mail_box{
+    color: $gray_color;
+    font-weight: bold;
+}
+.F_contact_contact_input {
+    resize: none;
+}
+
+.F_input_contact {
+    border-radius: 5px;
+    padding: 7px;
+    border: solid 1px #888;
+}
+.F_contact_label{
+    padding: 10px 0;
+}
+
+/*點擊*/
+.F_button_box_contact{
+    display: flex;
+    justify-content: center;
+}
+.F_contact_btn{
+    text-align: center;
+    width: 30%;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background-color: $orange_color;
+    color:#fff;
+    margin: 0px 30px;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-weight: bold;
+}

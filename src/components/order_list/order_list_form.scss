@@ -1,0 +1,65 @@
+
+
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+$lightgray: #D3CECA;
+$white_color: #EEEEEE;
+
+
+// ------------------最新訂單--------------------
+
+
+.O_latest_order{
+    width: 100%;
+   
+}
+
+.O_latest_order_table{
+    width: 100%;
+    margin: 50px auto 30px auto;
+    text-align: center;
+    padding: 10px;
+    background-color: $white_color;
+    
+}
+.O_latest_order_table_th{
+    padding: 10px;
+    border-bottom: 1px solid $gray_color;
+}
+.O_latest_order_table_td{
+    padding: 10px;
+    border-bottom: 1px dashed $gray_color;
+    
+}
+
+.O_latest_order_table_td_a{
+    padding: 10px;
+    border-bottom: 1px dashed $gray_color;
+}
+
+// .O_latest_order_table_td_a :hover{
+//     border-bottom: #333;
+//     transition-duration: 2s;
+
+// }
+
+.O_latest_order_table_td_a a {
+    text-decoration: none;
+    position: relative;
+    color: #333;
+    }
+    
+    .O_latest_order_table_td_a a:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 0%;
+    border-bottom: 2px solid #333;
+    transition: 0.4s;
+    }
+    .O_latest_order_table_td_a a:hover:after {
+    width: 100%;
+    }

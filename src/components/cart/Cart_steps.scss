@@ -1,0 +1,44 @@
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+$lightgray_color:#eeeeee;
+
+.K_step{
+    display: flex;
+    justify-content: center;
+    margin-top: -150px;
+}   
+.K_step_circle{
+    width: 140px;
+    height: 140px;
+    border-radius: 100%;
+    text-align: center;
+    background-color: $lightgray_color;
+    color: $orange_color;
+    padding: 24px;
+    margin: 0 20px;
+}
+.K_step h5{
+    font-size: 28px;
+    font-weight: 700;
+}
+.K_step p{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    margin-top: 14px;
+}
+.K_step img{
+    width: 50px;
+}
+.K_step_circle_now{
+    width: 140px;
+    height: 140px;
+    border-radius: 100%;
+    text-align: center;
+    background-color: $orange_color;
+    color: $lightgray_color;
+    padding: 24px;
+    margin: 0 20px;
+}

@@ -1,0 +1,93 @@
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+$white_color: #EEEEEE;
+$lightgray: #D3CECA;
+
+
+.O_container{
+    width: 85%;
+
+}
+.O_order_detailed_white_background{
+    background-color: #fff;
+    margin-top: 400px;
+    padding: 10px 0px;
+
+}
+.O_order_detailed_info{
+    margin-top: -380px;
+}
+
+.O_order_detailed_T{
+    width: 100%;
+    padding: 10px ;
+    background-color: $orange_color;
+    color: $white_color;
+    font-size: 25px;
+    box-sizing: border-box;
+    margin: 20px 0px;
+}
+
+.O_order_detailed_table{
+    width: 100%;
+    margin: 30px auto 30px auto;
+    text-align: center;
+    // padding: 10px 0px;
+    font-size: 1.3rem;
+    // border: 1px solid $gray_color;
+    box-sizing: border-box;
+    background-color: $white_color;
+    
+}
+.O_order_detailed_table th{
+    background-color: $lightgray;
+    padding: 10px 0px;
+    border-bottom: 1px solid $gray_color;
+
+}
+.O_order_detailed_table td{
+    border-bottom: 1px dashed $gray_color;
+    padding: 10px 0px;
+    
+
+}
+.O_order_detailed_table tbody tr td:first-child{
+    width: 5%;
+    
+
+}
+.O_order_detailed_table tbody tr td:nth-child(2){
+    width: 25%;
+    
+
+}
+.O_order_detailed_table tbody tr td:nth-child(3){
+    width: 35%;
+    
+
+}
+
+.O_order_detailed_img{
+    width: 250px;
+    height: 150px;
+    margin: 10px 15px;
+}
+
+
+
+.O_order_detailed_count{
+    text-align: right;
+    background-color: $lightgray;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    
+}
+
+.O_order_detailed_count_line{
+    display: inline-block;
+    width: 100px;
+    border-top: 3px solid $gray_color;
+    margin-right: 20px;
+}

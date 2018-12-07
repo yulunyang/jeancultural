@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+        <select id="sel" name="test" onchange="demo()">
+        <option value="1" selected>测试一</option>
+        　　<option value="2">测试二</option>
+        　　<option value="3">测试三</option>
+        　　<option value="4">测试四</option>
+        </select>
+        　<input id="tex" type="text" name="text1" id="text1">
+        
+        <script>
+        
+        document.getElementByIdx_x("sel").value="3";
+        document.getElementByIdx_x("sel").fireEvent("onchange");
+        function demo()
+        {
+        var d=document.getElementByIdx_x("sel").value;
+        document.getElementByIdx_x("tex").value=d;
+        //alert(d);
+        
+        }
+        </script>
+
+</body>
+</html>

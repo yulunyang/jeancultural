@@ -1,0 +1,71 @@
+
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+$white_color: #EEEEEE;
+$lightgray: #D3CECA;
+
+.O_container{
+    width: 85%;
+    margin:20px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.O_SignUpT{
+    width: 100%;
+    padding: 10px;
+    // height: 45px;
+    background-color: $orange_color;
+    color: $white_color;
+    font-size: 1.3em;
+    box-sizing: border-box;
+    margin-top: -300px !important;
+    
+}
+.O_add_btn{
+    width: 200px;
+    height: 50px;
+    border: none;
+    background-color: $orange_color;
+    color: $white_color;
+    margin: 20px 20px 20px 0px;
+    font-size: 1rem;
+    cursor: pointer;
+
+}   
+
+.O_label {
+    display: inline-block;
+    width: 20%;
+    text-align: left;
+    margin-right: 30px;
+    font-weight: 700;
+    font-size: 20px;
+}
+.O_input{
+    vertical-align: center;
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+.O_select{
+    width: 150px;
+    height: 25px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.O_add_btn{
+margin: 10px auto;
+border-radius: 5px;
+}
+
+//改的
+.O_white_background_member_add{
+    background-color: #fff;
+    margin-top: 400px;
+}

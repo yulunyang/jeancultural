@@ -1,0 +1,106 @@
+[
+  {
+    "CategoryID": 1,
+    "ProductID": 1,
+    "ModelNumber": "AGB00104",
+    "ModelName": "eSony Cyber-shot DSC-T5",
+    "UnitCost": 7000.0,
+    "ProductImage": "AGB00104.jpg"
+  },
+  {
+    "CategoryID": 1,
+    "ProductID": 2,
+    "ModelNumber": "AGB00097",
+    "ModelName": "Sony Cyber-shot DSC T7 ",
+    "UnitCost": 12980.0,
+    "ProductImage": "AGB00097.jpg"
+  },
+  {
+    "CategoryID": 1,
+    "ProductID": 3,
+    "ModelNumber": "AGB00099",
+    "ModelName": "SONY DSC-P200",
+    "UnitCost": 12980.0,
+    "ProductImage": "AGB00099.jpg"
+  },
+  {
+    "CategoryID": 1,
+    "ProductID": 4,
+    "ModelNumber": "AGB00098",
+    "ModelName": "SONY DSC-H1 ",
+    "UnitCost": 15980.0,
+    "ProductImage": "AGB00098.jpg"
+  },
+  {
+    "CategoryID": 2,
+    "ProductID": 5,
+    "ModelNumber": "AFH00027",
+    "ModelName": "BenQ E43 雪片機",
+    "UnitCost": 7900.0,
+    "ProductImage": "AFH00027.jpg"
+  },
+  {
+    "CategoryID": 2,
+    "ProductID": 6,
+    "ModelNumber": "AFH00037",
+    "ModelName": "BenQ DC E510 防炫塗丫機",
+    "UnitCost": 10490.0,
+    "ProductImage": "AFH00037.jpg"
+  },
+  {
+    "CategoryID": 2,
+    "ProductID": 7,
+    "ModelNumber": "AFH00034",
+    "ModelName": "BenQ DC E41 音樂塗鴉機",
+    "UnitCost": 5990.0,
+    "ProductImage": "AFH00034.jpg"
+  },
+  {
+    "CategoryID": 3,
+    "ProductID": 8,
+    "ModelNumber": "AFV00058",
+    "ModelName": "Casio EX-Z110",
+    "UnitCost": 9900.0,
+    "ProductImage": "AFV00058.jpg"
+  },
+  {
+    "CategoryID": 3,
+    "ProductID": 9,
+    "ModelNumber": "AFV00059",
+    "ModelName": "CASIO EX-Z500 ",
+    "UnitCost": 11900.0,
+    "ProductImage": "AFV00059.jpg"
+  },
+  {
+    "CategoryID": 3,
+    "ProductID": 10,
+    "ModelNumber": "AFV00057",
+    "ModelName": "Casio EX-S500 ",
+    "UnitCost": 13900.0,
+    "ProductImage": "AFV00057.jpg"
+  },
+  {
+    "CategoryID": 3,
+    "ProductID": 11,
+    "ModelNumber": "AFV00054",
+    "ModelName": "CASIO Exilim PRO EX-P505 ",
+    "UnitCost": 9900.0,
+    "ProductImage": "AFV00054.jpg"
+  },
+  {
+    "CategoryID": 4,
+    "ProductID": 12,
+    "ModelNumber": "AFJ00190",
+    "ModelName": "CANON PowerShot S80 ",
+    "UnitCost": 20900.0,
+    "ProductImage": "AFJ00190.jpg"
+  },
+  {
+    "CategoryID": 4,
+    "ProductID": 14,
+    "ModelNumber": "DGBC01-A900577YY",
+    "ModelName": "Canon EOS 100D 雪白KIT組 公司貨",
+    "UnitCost": 19900.0,
+    "ProductImage": "DGBC01-A900577YY.jpg"
+  }
+]

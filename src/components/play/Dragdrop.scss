@@ -1,0 +1,280 @@
+// tab1
+.Y_pad{
+    padding-top: 40px;
+}
+#tab-1, #tab-2, #tab-3, #tab-4{
+    display: none;
+}
+/* span:target */#tab-1:target,
+#tab-2:target,
+#tab-3:target,
+#tab-4:target{
+border: solid 1px #316DB5;
+
+}
+
+/*頁籤變換*/#tab-1:target ~ #tab > ul li a[href$="#tab-1"],
+#tab-2:target ~ #tab > ul li a[href$="#tab-2"],
+#tab-3:target ~ #tab > ul li a[href$="#tab-3"],
+#tab-4:target ~ #tab > ul li a[href$="#tab-4"] {
+border: solid 1px #316DB5;
+}
+
+/*頁籤內容顯示*/#tab-1:target ~ #tab > div.tab-content-1,
+#tab-2:target ~ #tab > div.tab-content-2,
+#tab-3:target ~ #tab > div.tab-content-3,
+#tab-4:target ~ #tab > div.tab-content-4 {
+border: solid 1px #316DB5;
+}
+
+/* 美化 */
+#tab{
+width: 100%;
+background: #316DB5;
+border-right: solid 16px #316DB5;
+border-left: solid 16px #316DB5;
+border-bottom: solid 16px #316DB5;
+border-top: solid 0px #316DB5;
+// border-radius: 16px;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+// transform: translateY(-8px);
+// color : white;
+}
+/* 頁籤ul */#tab>ul{
+overflow: hidden;
+margin: 0;
+padding: 10px 20px 0 20px;
+
+}
+#tab>ul>li{
+list-style-type: none;
+
+
+}
+#tab>ul>li>a{
+text-decoration: none;
+font-size: 13px;
+// color: #333;
+float: left;
+padding: 10px;
+margin-left: 5px;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+color : white;
+font-size: 18px;
+padding-right: 20px;
+padding-left: 20px;
+}
+
+/*頁籤div內容*/#tab>div {
+clear:both;
+padding:0 15px;
+height:0;
+overflow:hidden;
+visibility:hidden;
+-webkit-transition:all .4s ease-in-out;
+-moz-transition:all .4s ease-in-out;
+-ms-transition:all .4s ease-in-out;
+-o-transition:all .4s ease-in-out;
+transition:all .4s ease-in-out;
+}
+
+/* span:target */#tab-1:target,
+#tab-2:target,
+#tab-3:target,
+#tab-4:target{
+border: solid 1px #316DB5;
+}
+
+/*第一筆的底色*/span:target ~ #tab > ul li:first-child a {
+background:#316DB5;
+}
+span:target ~ #tab > div:first-of-type {
+visibility:hidden;
+height:0;
+padding:0 15px;
+}
+
+/*頁籤變換&第一筆*/
+#tab-1:target ~ #tab > ul li a[href$="#tab-1"] {
+background: #879d4d;
+// width:100px;
+color: white;
+box-shadow:5px 10px rgba(20%,20%,40%,0.5);
+}
+
+#tab-2:target ~ #tab > ul li a[href$="#tab-2"] {
+background: #F7AC1D;
+// width:100px;
+color: white;
+box-shadow:5px 10px rgba(20%,20%,40%,0.5);
+}
+
+#tab-3:target ~ #tab > ul li a[href$="#tab-3"] {
+background: #EE777B;
+// width:100px;
+color: white;
+box-shadow:5px 10px rgba(20%,20%,40%,0.5);
+}
+#tab-4:target ~ #tab > ul li a[href$="#tab-4"] {
+background: #606060;
+// width:100px;
+color: white;
+box-shadow:5px 10px rgba(20%,20%,40%,0.5);
+}
+
+/*頁籤內容顯示&第一筆*/span ~ #tab > div:first-of-type,
+#tab-1:target ~ #tab > div.tab-content-1{
+visibility:visible;
+height:400px;
+// width: 600px;
+background: url(/images/yulun/table1.png);
+border-radius: 6px;
+background-size:cover; 
+// background-clip: padding-box;
+background-position: center center; 
+// position: absolute;
+}
+
+#tab-2:target ~ #tab > div.tab-content-2{
+visibility:visible;
+height:400px;
+background: url(/images/yulun/table2.png);
+border-radius: 6px;
+background-size:cover; 
+// background-clip: border-box;
+background-position: center center; 
+
+}
+
+#tab-3:target ~ #tab > div.tab-content-3{
+visibility:visible;
+height:400px;
+background: url(/images/yulun/table3.png);
+border-radius: 6px;
+background-size:cover; 
+// background-clip: border-box;
+background-position: center center; 
+}
+#tab-4:target ~ #tab > div.tab-content-4 {
+visibility:visible;
+height:400px;
+background: url(/images/yulun/table4.png);
+border-radius: 6px;
+background-size:cover; 
+// background-clip: padding-box;
+background-position: center center; 
+}
+
+ 
+
+
+
+
+
+
+//contents
+.Y_play_contents{
+    width: 110px;
+    height: 110px;
+    margin: 16px;
+    transition: 0.3s;
+}
+.Y_play_contents:hover{
+    opacity: 0.6;
+}
+@media only screen and (max-width: 768px){
+    .Y_play_contents{
+        width: 90px;
+        height: 90px;
+        margin: 8px;
+    }
+}
+// tag2
+#tab-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+    // margin: 0 auto;
+    padding-top: 0px !important;
+    font-family: arial;
+    border: 16px solid #316DB5;
+    // border-collapse: collapse;
+    border-spacing:0;
+    z-index: 2;
+    border-top: 0px;
+    transform: translateY(-30px);
+}
+#tab-panel .tabs {
+    // margin-bottom: 20px;
+    background: #4C4C4C;
+    overflow: hidden;
+    text-align: center;
+    border: 0px solid #4C4C4C !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-collapse:separate;
+    border-spacing:0;
+}
+#tab-panel .tabs a {
+    float: left;
+    display: block;
+    width: 20%;
+    padding: 15px 0;
+    border: 0px solid transparent !important;
+    font-size: 16px;
+    color: white;
+    box-sizing: border-box;
+    transition: all .3s;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-collapse:separate;
+}
+#tab-panel .tabs a.active {
+    background: white;
+    color: black;
+}
+#tab-panel .tab-content {
+    // border: 1px solid #CCC;
+    // padding: 8px 0;
+    display: flex ;
+    justify-content:center;
+}
+#tab-panel .tab-content > li {
+    display: none;
+    // padding: 20px;
+    font-size: 14px;
+    color: #666;
+    line-height: 25px;
+    display: flex ;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+.Y_drag_bg{
+width: 100%;
+height: 40px;
+background: #316DB5;
+z-index: 0;
+transform: translateY(30px);
+}
+//goods
+.Y_display_none{
+    display: none;
+}
+
+.item{
+    cursor: pointer;
+}
+
+#tab>div{
+    display: flex;
+
+}
+#tab img{
+    width: 80px;
+    height: 80px;
+
+}

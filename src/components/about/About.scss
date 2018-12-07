@@ -1,0 +1,218 @@
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+
+.F_about_container {
+    width: 85%;
+    margin: auto;
+}
+
+.F_customization_banner {
+    height: 350px;
+    text-align: center;
+    color: #fff;
+    letter-spacing: 5px;
+}
+
+.F_about_banner_pic{
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.F_about_banner_pic img {
+    width: 100%;
+    object-fit: cover;
+    object-position: 0px -200px;
+    filter: brightness(.75);
+}
+
+.F_customization_banner h2 {
+    font-size: 58px;
+    line-height: 60px;
+    padding-top: 100px;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, .1);
+}
+
+.F_customization_banner h2 span {
+    font-size: 34px;
+    font-weight: 550;
+}
+
+.F_customization_color {
+    width: 175px;
+    margin: 20px auto;
+}
+
+.F_triangle_banner {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 12px 16px 16px;
+    border-color: #fff transparent transparent transparent;
+    margin: auto;
+}
+
+.F_long_color {
+    width: 100%;
+    height: 15px;
+    margin-top: 25px;
+    background: #fff url(./images/color_line.svg)repeat-x 0 0;
+}
+//上方
+.F_about_us{
+    margin: 100px auto;
+    display: flex;
+    justify-content: space-between;
+}
+.F_about_pic_box,.F_about_text_box{
+    width: 47%;
+    margin: 10px;
+}
+.F_about_pic_small,.F_about_pic_tipe{
+    position: absolute;
+    top: 0;
+}
+.F_about_pic_small{
+    right: -10%;
+    width: 60%;
+    transform: rotate(5deg);
+}
+.F_about_pic_tipe{
+    left: 40px;
+    top: 30px;
+    width: 35%;
+}
+.F_about_pic_top{
+    width: 100%;
+    margin: 180px auto 30px; 
+}
+.F_about_pic_top img{
+    object-fit: cover;
+    width: 100%;
+}
+.F_about_text_box{
+    margin: 100px auto 30px; 
+}
+.F_about_back_box{
+    font-size: 34px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin: 30px;
+    margin-left: 60px; 
+    color: #333;
+}
+.F_about_back_box span{
+    font-size: 24px;
+    color: $gray_color;
+}
+.F_about_back_color{
+    width: 160px;
+    margin: -20px 60px;
+}
+.F_about_back_p{
+    color: $gray_color;
+    padding: 50px 10px;
+    margin: 30px;
+    margin-left: 50px; 
+    line-height: 46px;
+    font-size: 18px;
+    font-weight: 400;
+}
+/*會動的背景*/
+.F_move_back_test{
+    background: url(images/about_background.jpg)fixed no-repeat 0 0;
+    padding: 40px 0;
+    overflow: hidden;
+}
+.F_white_back_about {
+    position: relative;
+    background-color: #fff;
+    width: 80%;
+    display: flex;
+    margin: 100px 0;
+    float: left;
+    justify-content: space-between;
+}
+
+.F_brand_pic{
+    width: 20%;
+}
+.F_brand_pic{
+    position: absolute;
+    width: 600px;
+    left: -200px;
+    top: -70px;
+    overflow: hidden;
+}
+.F_brand_pic_right{
+    left: -400px;   
+}
+.F_brand_pic_long_box{
+    width: 1800px;
+    display: flex;
+    left: 0;
+    transition: .7s;
+}
+.F_brand_circle_all{
+    display: flex;
+    position: absolute;
+    top: 300px;
+    left: 40px;
+}
+.F_brand_circle_all_right{
+    left: -140px;
+}
+.F_brand_circle{
+    width: 10px;
+    height: 10px;
+    border: solid 3px #8d8d8d;
+    border-radius: 50%;
+    margin: 8px;
+    cursor: pointer;
+}
+.F_brand_circle1{
+    background-color: $gray_color;
+}
+.F_brand_circle.F_brand_circle_click{
+    background-color: $gray_color;
+}
+.F_white_back_left{
+    margin-left: 250px; 
+}
+.F_brand_text{
+   width: 60%;
+}
+.F_brand_logo{
+    width: 200px;
+    margin: 50px 10px 10px;
+}
+.F_brand_logo_right{
+    margin: 50px 30px 10px;
+}
+.F_brand_logo_text{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    transform: translate(-50%,-50%);
+}
+.F_brand_p,.F_brand_know_more{
+    padding: 20px 40px;
+    line-height: 34px;
+    font-size: 15px;
+    color: $gray_color;
+}
+
+.F_brand_know_more{
+    text-align: right;
+    cursor: pointer;  
+}
+.F_brand_know_more_right{
+    text-align: left;
+}

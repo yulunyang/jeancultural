@@ -1,0 +1,69 @@
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+$white_color: #EEEEEE;
+$lightgray: #D3CECA;
+
+
+.O_container{
+    width: 85%;
+    
+}
+.O_white_background_order_list{
+    background-color: #fff;
+    margin-top: 450px;
+    padding-bottom: 10px;
+
+}
+.O_order_list_info{
+    margin-top: -353px;
+}
+.O_order_list_T{
+    width: 100%;
+    padding: 10px ;
+    background-color: $orange_color;
+    color: $white_color;
+    font-size: 25px;
+    box-sizing: border-box;
+    margin: 20px 0px;
+}
+
+.O_logistics_status{
+   text-align: right;
+}
+
+
+
+.O_page_number {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.O_page_number li {
+    display: inline;
+}
+
+.O_page_number li a {
+    color: $gray_color;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+}
+
+.O_page_number li a.active {
+    
+    color: $gray_color;
+    border-bottom: 3px solid $orange_color;
+}
+
+.O_page_number li a:hover:not(.active) {
+    background-color: #ddd;}
+
+.O_page_mark {
+    text-align: center;
+    margin: 20px auto;
+}

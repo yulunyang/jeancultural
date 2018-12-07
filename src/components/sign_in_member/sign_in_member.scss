@@ -1,0 +1,153 @@
+*{
+    padding: 0;
+    margin: 0;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif, 微軟正黑體;
+    text-decoration: none;
+    list-style: none;
+    // border:solid 1px;
+}
+
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+$white_color: #EEEEEE;
+$lightgray: #D3CECA;
+
+.O_container{
+    margin-top: 65px; 
+}
+
+.O_banner_logo{
+    
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    
+}
+.O_logo_black{
+    width: 500px;
+    height: 200px;
+}
+.O_color_line{
+    width: 250px;
+    margin: 0px auto;
+}
+
+.O_sign_in_form{
+    color: $gray_color;
+    display: flex;
+    flex-direction: row;
+    margin: -220px 20px 50px;
+    // border: 1px solid;
+}
+
+.O_sign_in_form_left,.O_sign_in_form_right{
+    // border: 1px solid;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    line-height: 1.3rem;
+    
+}
+
+.O_form-control{
+    margin: 10px 0px;
+    width: 250px;
+    border: 1px solid $gray_color;
+    height: 30px;
+}
+.O_sign_in_form_left_btn{
+    width: 100px;
+    
+}
+
+.O_checkbox{
+    margin: 20px 0px;
+}
+.O_checkbox_input{
+    width: 15px;
+    height: 15px;
+    
+}
+.O_checkbox_label{
+    font-size: 15px;
+}
+
+
+.O_sign_btn{
+    width: 200px;
+    height: 50px;
+    border: none;
+    background-color: $orange_color;
+    color: $white_color;
+    margin: 10px 10px 10px 0px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.O_SNS_sign{
+    flex-direction: row;
+}
+.O_SNS_sign_btn{
+    width: 150px;
+    height: 50px;
+    // border-radius: 20px;
+    border: none;
+    background-color: $darkgreen_color;
+    color: $white_color;
+    margin: 10px 10px 10px 0px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.O_sign_in_form_right{
+    line-height: 2.6rem;
+    margin-right: -20px;
+}
+
+.O_register_btn{
+    width: 300px;
+    height: 40px;
+    background-color: #FFF;
+    border: none;
+    border-bottom: 1px solid $orange_color;
+    letter-spacing: 2px;
+    color: $gray_color;
+    font-size: 1.5rem;
+    text-align: left;
+}
+.O_sign_up_btn{
+    margin: 35px 0px;
+    
+}
+.O_sign_up_btn img{
+    widows: 20px;
+    height: 20px;
+    // margin: 5px;
+}
+.O_register_btn{
+    cursor: pointer;
+}
+
+.O_to_home{
+    text-align: center;
+    text-decoration: none;
+}
+
+//改的
+.F_white_background_member_sign{
+    background-color: #fff;
+    padding: 30px 0 100px;
+    margin-top: 200px;
+}
+
+.O_input{
+    vertical-align: center;
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    
+    font-size: 16px;
+}

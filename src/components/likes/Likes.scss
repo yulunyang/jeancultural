@@ -1,0 +1,77 @@
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+$lightgray_color:#eeeeee;
+
+body{
+    width: 100vw;
+    overflow-x: hidden;
+}
+.K_box_likes{
+    background-color: #fff;
+    margin-top: 390px;
+}
+.K_container_likes{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.K_likes_product_table{
+    width: 100%;
+    text-align: center;
+    border-spacing: 0;
+    margin-top: -150px;
+    margin-bottom: 100px;
+}
+.K_likes_product_table thead{
+    color: $lightgray_color;
+    background-color: $orange_color;
+}
+.K_likes_product_table thead tr th{
+    font-size: 18px;
+    width: 8%;
+    padding: 16px 0;
+}
+.K_likes_product_table thead tr th:first-child{  
+    width: 52%;
+    text-align: left; 
+    font-size: 28px;
+    padding-left: 50px;
+}
+.K_likes_product_table tbody{
+    background-color: $lightgray_color;
+}
+.K_likes_product_table tbody tr td{
+    color: $gray_color;
+    padding: 24px 0;
+}
+.K_likes_product_table tbody tr td:first-child{
+    font-size: 18px;
+    color: #c19991;
+    width: 5%;
+}
+.K_likes_product_table tbody tr td:nth-child(3){
+    line-height: 24px;
+    text-align: left;
+    padding: 0 50px; 
+}
+.K_likes_product_table tbody h3{
+    font-size: 18px;
+    color: #3f3f3f;
+    margin-bottom: 16px;
+}
+.K_likes_product_table tbody tr td select{
+    color: $gray_color;
+}
+.K_product_pic_l img{
+    width: 200px;
+}
+.K_product_pic_s img{
+    width: 120px;
+}
+.K_table_icon{
+    width: 30px;
+    cursor: pointer;
+}
