@@ -1,0 +1,12 @@
+{
+    "name": "user/teat-php",
+    "authors": [
+        {
+            "name": "yulunyang",
+            "email": "jolinsyl@hotmail.com"
+        }
+    ],
+    "require": {
+        "facebook/graph-sdk": "^5.6"
+    }
+}
