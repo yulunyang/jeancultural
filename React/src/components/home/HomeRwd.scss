@@ -1,0 +1,208 @@
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+@media screen and (max-width: 1679px) {
+    //按鈕問題
+    .F_arrange {
+        margin-top: 15%;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    //按鈕問題
+    .F_play_pic {
+        margin-top: 40px;
+    }
+    .F_triangle {
+        right: -20px;
+        border-width: 0 370px 200px 0;
+        border-color: transparent #e8aa676b transparent transparent;
+    }
+    .F_triangle_top {
+        z-index: -1;
+        left: -20px;
+        border-width: 200px 370px 0 0;
+        border-color: #e8aa676b transparent transparent transparent;
+    }
+}
+
+@media screen and (max-width: 1285px) {
+    //brand排版
+    .F_shop_all {
+        flex-wrap: wrap;
+        margin-top: 80px;
+    }
+    .F_shop_box {
+        width: 100%;
+    }
+    .F_shop_hover {
+        width: 50%;
+    }
+    .F_wood,
+    .F_wood img,
+    .F_shop_brand,
+    .F_shop_brand img {
+        height: 400px;
+    }
+    .F_shop_brand {
+        margin: 20px 0;
+    }
+    //new
+    .F_news_box{
+        width: 38%;
+    }
+    .F_news_box_rwd{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1174px) {
+    //清掉
+    .F_play_home {
+        display: none;
+    }
+    .F_play_home_rwd {
+        display: block;
+    } //玩玩部分整個重排
+    .F_play_pic,
+    .F_play_text_rwd {
+        width: 100%;
+        margin: 20px 0;
+    }
+    .F_paly_rwd {
+        margin: 40px;
+        line-height: 40px;
+    }
+    .F_play_text_rwd{
+        margin-top: 80px;
+    } 
+    .F_muise_box_box_top{
+        top: -80px;
+    }
+    .F_colorful_line2{
+        margin: 12px 39px;
+    }
+    //下面玩玩
+    .F_paly_box_rwd_bottom {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        margin-top: 80px;
+    }
+    .F_triangle_bottom {
+        left: -20px;
+        border-width: 200px 370px 0 0;
+        border-color: #e8aa676b transparent transparent transparent;
+    }
+    .F_h3_bottom_rwd {
+        font-size: 24px;
+        letter-spacing: 1px;
+        margin: 10px 40px;
+    }
+    .F_muise_box_box_bottom{
+        top: -100px;
+        right: 0;
+    }
+    .F_know_more_rwd{
+        margin: 80px 0;
+        padding: 24px 10px;
+        width: 100%;
+        border-radius: 10px;
+        background-color: #e8aa67;
+        color: #fff;
+        text-align: center;
+        font-weight: bold;
+        letter-spacing: 1px;
+        line-height: 24px;
+        box-sizing: border-box;
+        font-size: 24px;
+    }
+    .F_know_more_rwd:hover{
+        background-color: #df9240;
+    }
+}
+
+@media screen and (max-width: 918px) {
+    //new
+    .F_news_box{
+        width: 90%;
+    }
+    .F_news_box_rwd_2{
+        display: none;
+    }
+    .F_news_container{
+        justify-content: center;
+    }
+    .F_news_btn{
+        width: 70%;
+        padding: 24px 10px;
+    }
+    .F_circle_pic img{
+        height: 450px;
+    }
+    .F_circle_pic{
+        width: 60%;
+        padding-bottom: 60%;
+    }
+    .F_news_box h5 {
+        margin: 165px auto 20px;
+    }
+    //brand
+    .F_index_title{
+        width: 200%;
+    }
+    .F_brand{
+        margin-left: -50%;
+    }
+    .F_play_title,.F_news_title{
+        margin-left: -56%;
+    }
+    //商店
+    .F_container_shop{
+        width: 100%;
+    }
+    //玩玩
+    .F_triangle {
+        right: -20px;
+        border-width: 50px 170px 0 0;
+        border-color: #e8aa676b transparent transparent transparent;
+    }
+    //
+    .F_sticky{
+        display: none;
+    }
+    .F_toTop{
+        right: 20px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    
+    //brand
+    .F_index_title{
+        width: 200%;
+    }
+    .F_brand{
+        margin-left: -50%;
+    }
+    .F_play_title,.F_news_title{
+        margin-left: -56%;
+    }
+    //商店
+    .F_container_play_rwd{
+        width: 100%;
+        overflow: hidden;
+    }
+    //玩玩
+    .F_triangle {
+        right: -20px;
+        border-width: 50px 170px 0 0;
+        border-color: #e8aa676b transparent transparent transparent;
+    }
+    .F_know_more_rwd{
+        width: 90%;
+        margin: auto;
+    }
+    
+}

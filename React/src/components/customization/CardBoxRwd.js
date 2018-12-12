@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Customization.scss';
 import $ from 'jquery';
 
-class CardBox extends Component {
+class CardBoxRwd extends Component {
     constructor(props) {
         super(props)
     }
@@ -12,9 +12,9 @@ class CardBox extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className="F_items_buy_car_box">
+                <div className="F_items_buy_car_box F_items_buy_car_box_rwd">
                     <div className="F_items_buy_car_text">您選擇的組合是</div>
-                    <div className="F_items_buy_car_small_box">
+                    <div className="F_items_buy_car_small_box F_items_buy_car_small_box_rwd">
                         <div className="F_buy_car_title F_buy_car_title_top">音樂盒:</div>
                         <div className="F_buy_car_details" id="F_buy_car_details_box">
                             <p className="F_number F_number_box" id="F_number_box"></p>
@@ -197,4 +197,4 @@ class CardBox extends Component {
 
 }
 
-export default CardBox;
+export default CardBoxRwd;

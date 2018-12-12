@@ -1,3 +1,145 @@
-@media screen and (max-width: 1285px){
-    
-} 
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+@media screen and (max-width: 1330px) {
+    * {
+        //border: solid 1px;
+    }
+ 
+    //nav//整大塊
+    .F_index_nav_box,
+    .F_index_nav {
+        overflow: visible;
+    }
+   //設定的
+    .F_nav_box_forrwd {
+        display: block;
+        width: 100vw;
+        position: absolute;
+        background-color: rgba(245, 245, 245, .95);
+        top: 0;
+        right: 0;
+        padding: 76px 0;
+        z-index: 15;
+        overflow: hidden;
+    }
+    .F_nav_box,
+    .F_nav_icon {
+        width: 0;
+        overflow: hidden;
+    }
+    .F_nav_box_rwd {
+        width: 100%;
+        display: block;
+    }
+    .F_nav_icon_rwd {
+        width: 100%;
+        margin: 0;
+        justify-content: center;
+    }
+    .F_nav_icon_rwd_log {
+        margin-top: -20px;
+    }
+    .F_none_block {
+        display: none;
+    }
+    /*click*/
+    .F_three_box {
+        display: block;
+        width: 45px;
+        margin: 0 45px;
+        cursor: pointer;
+        z-index: 16;
+    }
+    .F_three_line {
+        height: 5px;
+        background-color: #e8aa67cb;
+        margin: 10px 0;
+        transition: .5s;
+    }
+    .F_nav_logo {
+        z-index: 16;
+    }
+    .F_three_line.F_three_line1_click {
+        transform: translateY(15px)rotate(45deg);
+    }
+    .F_three_line.F_three_line2_click {
+        display: none;
+    }
+    .F_three_line.F_three_line3_click {
+        transform: rotate(-45deg)
+    }
+    /*文字nav*/
+    .nav-link_text_rwd,
+    .F_nav_item_rwd {
+        text-align: center;
+        width: 100%;
+        font-size: 24px;
+        letter-spacing: 1px;
+        font-weight: 520; //border:solid 2px;
+    }
+    .F_nav_item_rwd {
+        padding: 20px 0;
+        cursor: pointer;
+    }
+    .F_nav_item_icon_rwd {
+        padding: 20px;
+    }
+    /*hover*/
+    .F_nav_item_rwd:hover {
+        background: url(./components/images/background.png)repeat 0 0 !important;
+    }
+    .F_nav_item :hover {
+        background: transparent;
+    }
+    /*註冊登入*/
+    .F_nav_item_rwd_log {
+        width: auto;
+        padding: 35px 0;
+        cursor: pointer;
+    }
+    .F_nav_item_rwd_log:hover {
+        color: #b17637;
+    } //footer
+    .F_footer_container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .F_footer_text_box {
+        width: 25%;
+    }
+    .F_footer_text_box_logo {
+        width: 100%;
+        text-align: center;
+        margin: auto;
+        padding: 0;
+        margin-bottom: 50px;
+    }
+    .F_footer_logo,
+    .F_footer_logo img {
+        text-align: center;
+        margin: auto;
+    }
+    .F_icon_range {
+        margin: 5px 20px;
+    }
+}
+
+@media screen and (max-width: 1079px) {
+    //footer
+    .F_footer_text_box {
+        display: none;
+    }
+    .F_footer_text_box_logo {
+        display: block;
+        margin: 30px auto 10px;
+    }
+    .F_footer_rwd {
+        display: block;
+        line-height: 28px;
+        font-size: 18px;
+        font-weight: 500;
+        margin: 20px auto;
+    }
+}

@@ -1,0 +1,43 @@
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+@media screen and (max-width: 1330px) {
+    .F_container_contact {
+        display: initial;
+        width: 85%;
+        overflow: hidden;
+    }
+
+    .F_left_contact,
+    .F_right_contact {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .F_right_contact{
+        width: 70%;
+        margin-bottom: 100px; 
+    }
+    .F_left_contact_opacity{
+        left: 50%;
+        transform: translateX(-50%);
+        line-height: 40px;
+    } 
+    .F_left_contact{
+        text-align: center;
+    }
+    .F_left_contact h3 {
+        margin: 50px auto;
+    }
+    .F_contact_icon_box_inline{
+        display: inline-block;
+        margin: auto
+    }
+}
+
+//container
+@media screen and (max-width: 720px) {
+    .F_left_contact_opacity {
+        opacity: 0;    
+    }
+}

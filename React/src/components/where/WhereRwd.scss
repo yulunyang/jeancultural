@@ -1,0 +1,100 @@
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+
+@media screen and (max-width: 1330px) {
+    .F_where_pic {
+        border: solid 10px #fff;
+        border-radius: 10px;
+        width: 400px;
+        height: 250px;
+        margin-right: 40px;
+    }
+    .F_where_pic img{
+        width: 100%;
+    }
+    .F_where_map{
+        display: none;
+    }
+    .F_map_icon,.F_map_icon_top{
+        position: absolute;
+        display: block;
+        width: 60px;
+        overflow: hidden;
+        bottom: -30px;
+        right: -30px;
+    }
+    .F_map_icon_img{
+        width: 120px;
+    }
+    .F_map_icon:hover .F_map_icon_img{
+        left: -60px;
+    }
+    .F_map_icon_top{
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width: 1079px) {
+    
+    .F_where_box_big{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .F_where_box_rwd {
+        display: inline-block;
+        margin: 30px auto;
+    }
+    .F_where_text_box{
+        margin-top: 30px;
+    }
+    .F_map_icon{
+        display: none;
+    }
+    .F_map_icon_top{
+        display: block;
+        left: 400px;
+    }
+    .F_map_icon_top:hover .F_map_icon_img{
+        left: -60px;
+    }
+}
+
+//container
+@media screen and (max-width: 720px) {
+    .F_container_where{
+        width: 85%;
+        overflow: hidden;
+    }
+    .F_where_box {
+        padding: 20px;
+        width: 100%;
+    }
+    .F_where_pic{
+        width: 90%;
+        margin: auto;
+    }
+    .F_map_icon_top{
+        display: none;
+    }
+    .F_map_icon{
+        display: block;
+        position: relative;
+        right: 0;
+        top: 10px;
+        margin: 10px;
+        float: right;
+    }
+    .F_where_store_p_small{
+        margin: 0;
+    }
+    .F_where_small_store_box{
+        justify-content: center;
+    }
+    .F_where_small_text,.F_where_store_p{
+        margin: 20px 0;
+    }
+}

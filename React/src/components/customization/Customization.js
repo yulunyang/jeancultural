@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Customization.scss';
+import './CustomizationRwd.scss';
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import $ from 'jquery';
 
@@ -10,7 +11,7 @@ import Step1 from './Step/Step1';
 import Step2 from './Step/Step2';
 import Step3 from './Step/Step3';
 import CardBox from './CardBox';
-import './Click.js';
+
 
 class Customization extends Component {
     constructor(props) {
@@ -114,6 +115,7 @@ class Customization extends Component {
         }
 
     }//尾端
+
     UpDown() {
         //綠盒子和上下步的判斷式
         $(document).ready(function () {
@@ -202,9 +204,12 @@ class Customization extends Component {
                             <CardBox />
                         </div>
                     </div>
+                    {/* <CardBoxRwd /> */}
                     <div className="F_for_margin">
                         <div className="F_to_up">〈〈上一步</div>
+                        <Link to="/customization/muise">
                         <div className="F_to_down" onClick={this.clickStep()}>下一步 〉〉</div>
+                        </Link>
                     </div>
                 </div>
             </React.Fragment >
@@ -240,6 +245,7 @@ class Customization extends Component {
 
     componentDidUpdate = () => {
         this.UpDown();
+        this.clickStep();
     }
 
 }
