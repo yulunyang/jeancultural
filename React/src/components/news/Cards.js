@@ -181,18 +181,19 @@ class Cards extends Component {
                     
                     this.state.showme ?
                         <div className="">
-                            <div className="Y_newsIframe"></div>
+                            <div onClick={() => this.showhide_i()} className="Y_newsIframe"></div>
                             {/* <iframe className="Y_newsIframe_inner" src="<NewsCard />" ></iframe> */}
                             <div className="Y_newsIframe_inner Y_newsIframe_inner_r">
                             <div className="">
                                 <NewsCard new={this.state.new} NewsCard={this.state.NewsCard}/>
 
-                                 <div className="Y_newsIframe_inner_ab"
+                                
+                            </div>
+                            <div className="Y_newsIframe_inner_ab"
                                 onClick={() => this.showhide_i()
                                 } 
                                 id="Y_newsIframe_fas"><a href="#"><i class="fas fa-times Y_newsIframe_fas"></i></a>
                                 </div>
-                            </div>
                             
                             </div>
                            
