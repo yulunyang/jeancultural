@@ -28,10 +28,12 @@ $gray_color:#606060;
 .F_about_banner_pic img {
     width: 100%;
     object-fit: cover;
-    object-position: 0px -200px;
+    //object-position: 0px -200px;
     filter: brightness(.75);
 }
-
+.F_about_banner_pic img {
+    height: 350px;
+}
 .F_customization_banner h2 {
     font-size: 58px;
     line-height: 60px;
@@ -215,4 +217,8 @@ $gray_color:#606060;
 }
 .F_brand_know_more_right{
     text-align: left;
+}
+//
+.F_about_container_rwd{
+    display: none;
 }

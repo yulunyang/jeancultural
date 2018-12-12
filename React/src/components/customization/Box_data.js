@@ -62,6 +62,7 @@ class BoxData extends Component {
 
         return (
             <React.Fragment>
+                {/* <div className="F_bigbox"> */}
                 {this.props.customization.map(customization =>
                     <div className="F_item_box">
                         <div className="F_item_pic F_item_pic_box" id={customization.muise_box_numbering} onClick={this.clickHandlerPic} data-name={customization.muise_box_name}
@@ -90,6 +91,7 @@ class BoxData extends Component {
                             onClick={this.clickHandlerBtn.bind(this)}>選擇</div>
                     </div>
                 )}
+                 {/* </div> */}
             </React.Fragment>
         );
     }

@@ -2,9 +2,7 @@ $orange_color:#e8aa67;
 $lightgreen_color:#c7cc62;
 $darkgreen_color:#879d4d;
 $gray_color:#606060;
-// *{
-//     border:solid 1px;
-// }
+
 .F_container_where {
     width: 85%;
     margin: auto;
@@ -72,15 +70,21 @@ $gray_color:#606060;
 .F_where_text_small_title {
     background-color: $orange_color;
     border-radius: 3px;
-    width: 60px;
+    width: 65px;
     text-align: center;
     color: #fff;
     margin: 5px 0px;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
 .F_p_where_bc {
     background-color: transparent;
     margin: 5px 10px;
+}
+
+.F_map_icon,.F_map_icon_top{
+    display: none;
 }
 
 /*其他銷售通路*/
@@ -91,13 +95,16 @@ $gray_color:#606060;
 }
 .F_where_small_text{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin: 20px;
     color: $darkgreen_color;
     font-size: 24px;
     font-weight: bold;
     padding: 40px;
     cursor: crosshair;
+}
+.F_where_small_text{
+    width: 270px;
 }
 /*對話框*/
 .F_where_talk_box{
@@ -132,3 +139,5 @@ $gray_color:#606060;
 .F_where_store_p_small{
     margin-top: 60px;
 }
+
+

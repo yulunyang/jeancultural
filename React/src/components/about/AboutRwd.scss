@@ -1,0 +1,91 @@
+$orange_color:#e8aa67;
+$lightgreen_color:#c7cc62;
+$darkgreen_color:#879d4d;
+$gray_color:#606060;
+
+@media screen and (max-width: 1330px) {
+    .F_about_container_about{
+        display: none;
+    }
+    .F_about_container_rwd{
+        display: block;
+    }
+    //開始改
+    .F_white_back_about_rwd{
+        overflow: hidden;
+        background-color: #fff;
+        margin: 50px auto;
+        width: 80%;
+        text-align: center;
+    }
+    .F_brand_pic_rwd{
+        width: 600px;
+        height: 360px;
+        overflow: hidden;
+        margin: 40px auto;
+    }
+    .F_brand_pic_long_box img{
+        height: 360px;
+        width: 600px
+    }
+    //圈圈
+    .F_brand_circle_all{
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 20px auto;
+        width: 100px;
+    }
+    //文字
+    .F_brand_text{
+        width: 100%;
+        text-align: left;
+    }
+    .F_brand_logo{
+        margin-left: 20px; 
+    }
+
+    //上方
+    .F_about_us{
+        display: inline-block;
+    }
+    .F_about_pic_box{
+        width: 90%;
+        margin: -100px auto;
+    }
+    .F_about_pic_tipe_rwd{
+        width: 35%;
+    }
+    .F_about_pic_small,.F_about_pic_tipe{
+        display: none;
+    }
+    .F_about_text_box{
+        width: 100%;
+        margin: 150px auto 50px;
+    }
+    .F_about_back_p,.F_about_back_box{
+        margin-left: 0;
+        padding: 20px;
+    }
+    .F_about_back_color{
+        margin: 20px;
+    } 
+}
+
+//container
+@media screen and (max-width: 720px) {
+    // .F_about_container_rwd,.F_about_container{
+    //     width: 90%;
+    // }
+    .F_white_back_about_rwd{
+        width: 100%;
+        box-sizing: border-box;    
+    }
+    .F_about_pic_tipe_rwd{
+        width: 50%;
+    }
+    .F_about_pic_box {
+        width: 100%;
+        margin: -150px auto;
+    }
+}

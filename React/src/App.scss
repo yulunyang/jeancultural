@@ -13,7 +13,9 @@ $lightgreen_color:#c7cc62;
 $darkgreen_color:#879d4d;
 $gray_color:#606060;
 
-
+.F_container{
+    overflow: hidden;
+}
 .F_big_body{
     width: 100vw;
     margin: 0;
@@ -25,6 +27,7 @@ $gray_color:#606060;
 /*nav*/
 .F_index_nav_box{
     height: 25px;
+    z-index: 10;
 }
 
 .F_nav_logo {
@@ -69,7 +72,6 @@ $gray_color:#606060;
     align-items: center;
     overflow: hidden;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, .07);
-    z-index: 99;
     width: 100vw;
 }
 .F_index_nav.F_index_nav_to_fixed{
@@ -90,6 +92,10 @@ $gray_color:#606060;
 }
 .F_icon_registered,.F_icon_login{
     width: 50px !important;
+}
+
+.F_nav_logo_black{
+    z-index: 10;
 }
 
 /*隱藏nav*/
@@ -119,7 +125,10 @@ $gray_color:#606060;
 .F_none_block ul li{
     padding:24px 30px;
 }
-
+/*點擊的*/
+.F_three_box{
+    display: none;
+}
 /*nav*/
 /*footer*/
 .F_footer {
@@ -205,5 +214,18 @@ $gray_color:#606060;
     text-align: center;
     color: #eee;
     font-size: 12px;
-    padding: 3px;
+    padding: 8px;
+}
+
+.F_footer_gray span{
+    position: absolute;
+    right: 40px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+//rwdnav&footer//
+.F_nav_box_forrwd,.F_footer_rwd{
+    display: none;
 }

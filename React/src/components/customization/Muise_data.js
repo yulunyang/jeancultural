@@ -77,6 +77,7 @@ class MuiseData extends Component {
     render() {
         return (
             <React.Fragment>
+                {/* <div className="F_bigbox"> */}
                 {this.props.custommuise.map(custommuise =>
                     <div className="F_item_box">
                         <div className="F_item_pic F_item_pic_muise" data-name={custommuise.muise_muise_name}
@@ -113,6 +114,7 @@ class MuiseData extends Component {
                             onClick={this.MuiseHandlerBtn}>選擇</div>
                     </div>
                 )}
+                {/* </div> */}
             </React.Fragment>
         );
     }

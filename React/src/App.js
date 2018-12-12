@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import $ from 'jquery';
 
 import "./App.scss";
 import "./AppRwd.scss";
@@ -10,6 +11,8 @@ import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
 import Customization from './components/customization/Customization';
 import Where from './components/where/Where';
+import Fixed from './components/home/fixed';
+import Top from './components/home/Top';
 //小君的部分
 import Add_member from './components/add_member/add_member';
 import Change_member_info from './components/add_member/change_member_info';
@@ -38,7 +41,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="_big_body">
+        <div className="F_big_body">
           <Route exact path="/" component={Head} />
           <Route path="/home" component={Head} />
           <Nav />
@@ -73,9 +76,12 @@ class App extends Component {
             <Route path="/news" component={News} />
             <Route path="/play" component={Play} />
 
+            <Fixed />
+
           </div>
+          {/* <Top /> */}
           <div className="F_footer">
-            <div className="F_container F_footer_container">
+            <div className="F_container F_footer_container" id="F_home_footer">
               <div className="F_footer_text_box F_footer_text_box_about">
                 <h4>關於知音<br /><span>ABOUT US</span></h4>
                 <ul className="F_footer_about">
@@ -122,7 +128,7 @@ class App extends Component {
               <div className="F_footer_text_box F_footer_text_box_contact">
                 <h4>聯絡我們<br /><span>CONTACT US</span></h4>
                 <ul className="F_footer_contact">
-                  <li>02-2917-1700</li>
+                  <li>+886 2-2917-1700</li>
                   <li>Jeancard@gmail.com</li>
                   <li>服務時間：8:00~19:00</li>
                   <li>Line：@jeancard</li>
@@ -136,14 +142,25 @@ class App extends Component {
                   <a href="https://github.com"><figure className="F_icon_range"><img src="/images/IG.png" alt="IG" /></figure></a>
                   <a href="https://github.com"><figure className="F_icon_range"><img src="/images/LINE.png" alt="LINE" /></figure></a>
                 </li>
+                <div className="F_footer_rwd">
+                知音文創產業股份有限公司<br/>
+                新北市新店區寶中路95之6號．TEL : +886 2-2917-1700<br/>
+                服務時間：8:00~19:00
+                </div>
               </div>
             </div>
           </div>
-          <div className="F_footer_gray">ⓒ 2018 Mercci22 CO., LTD. All RIGHTS RESERVED.</div>
+          <div className="F_footer_gray">ⓒ 2018 Mercci22 CO., LTD. All RIGHTS RESERVED. 
+          {/* <span>Top⧋</span> */}
+          </div>
         </div >
       </BrowserRouter >
 
     );
+  }
+  componentDidMount = () => {
+    
+
   }
 }
 

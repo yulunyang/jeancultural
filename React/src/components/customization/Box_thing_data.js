@@ -23,7 +23,7 @@ class ThingsData extends Component {
             $(".F_pay_item_1").text("$" + pay);
             //刪除
             $(".F_del_item_1").text("X");
-            $(".F_hidden_qty").text("1");
+            $(".F_hidden_qty1").text("1");
         } else if ($(".F_number_item_2").text() == "") {
             //編號
             $(".F_number_item_2").text(numbering);
@@ -31,7 +31,7 @@ class ThingsData extends Component {
             $(".F_pay_item_2").text("$" + pay);
             //刪除
             $(".F_del_item_2").text("X");
-            $(".F_hidden_qty").text("1");
+            $(".F_hidden_qty2").text("1");
         } else if ($(".F_number_item_3").text() == "") {
             //編號
             $(".F_number_item_3").text(numbering);
@@ -39,7 +39,7 @@ class ThingsData extends Component {
             $(".F_pay_item_3").text("$" + pay);
             //刪除
             $(".F_del_item_3").text("X");
-            $(".F_hidden_qty").text("1");
+            $(".F_hidden_qty3").text("1");
             //
             alert("選擇三個配件囉!請刪減選擇的配件~~或直接加入購物車~~~")
             $(".F_buy_button").css("display", "none")
@@ -93,7 +93,7 @@ class ThingsData extends Component {
             <React.Fragment>
                
                 {this.props.customthing.map(customthing =>
-                    <div className="F_item_box" data-thing-value={customthing.muise_thing_value}>
+                    <div className="F_item_box F_item_box" data-thing-value={customthing.muise_thing_value}>
                         <div className="F_item_pic F_item_pic_item" >
                             <img src={require(`./images/muise_animals/${customthing.muise_thing_pic}.jpg`)} />
                         </div>
@@ -116,6 +116,7 @@ class ThingsData extends Component {
 
                     </div>
                 )}
+               
 
             </React.Fragment>
         );

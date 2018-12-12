@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Home.scss';
+import './HomeRwd.scss';
 
 class Brand extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class Brand extends Component {
                     <img src="/images/home/brand.svg" alt="brand" className="F_index_title F_brand" />
                     <img src="/images/home/long_text.svg" alt="裝飾文字" className="F_long_text_home F_long_text_home_left" />
                     <img src="/images/home/long_text.svg" alt="裝飾文字" className="F_long_text_home F_long_text_home_right" />
-                    <div className="F_container">
+                    <div className="F_container F_container_shop">
                         <div className="F_shop_all">
                             <div className="F_shop_box F_shop_box_left">
                                 <a href="" className="F_shop_hover">
@@ -27,9 +28,9 @@ class Brand extends Component {
                                 </a>
                                 <a href="" className="F_shop_hover">
                                     <figure className="F_shop_brand F_carving">
-                                        <img src="images/home/carving.jpg" alt="手工" />
+                                        <img src="images/home/wood.jpg" alt="手工" />
                                         <div className="F_shop_hover_box"></div>
-                                        <div className="F_shop_hover_text">紙膠帶
+                                        <div className="F_shop_hover_text">木器
                                 <h5>More choise more fun</h5>
                                         </div>
                                     </figure>
@@ -38,9 +39,9 @@ class Brand extends Component {
                             <div className="F_shop_box">
                                 <a href="" className="F_shop_hover">
                                     <figure className="F_shop_brand F_wood">
-                                        <img src="images/home/wood.jpg" alt="木製" />
+                                        <img src="images/home/muisebox.jpg" alt="木製" />
                                         <div className="F_shop_hover_box"></div>
-                                        <div className="F_shop_hover_text">紙膠帶
+                                        <div className="F_shop_hover_text">音樂盒
                                 <h5>More choise more fun</h5>
                                         </div>
                                     </figure>
@@ -51,7 +52,7 @@ class Brand extends Component {
                                     <figure className="F_shop_brand F_embroidery">
                                         <img src="images/home/embroidery.jpg" alt="織" />
                                         <div className="F_shop_hover_box"></div>
-                                        <div className="F_shop_hover_text">紙膠帶
+                                        <div className="F_shop_hover_text">十字繡
                                 <h5>More choise more fun</h5>
                                         </div>
                                     </figure>
@@ -60,7 +61,7 @@ class Brand extends Component {
                                     <figure className="F_shop_brand F_paper">
                                         <img src="images/home/paper.JPG" alt="玩玩紙雕" />
                                         <div className="F_shop_hover_box"></div>
-                                        <div className="F_shop_hover_text">紙膠帶
+                                        <div className="F_shop_hover_text">紙風景
                                 <h5>More choise more fun</h5>
                                         </div>
                                     </figure>
