@@ -110,17 +110,17 @@ class NewsCard extends Component{
                     <p className="legend">Legend 3</p>
                 </div>
             </Carousel></div>
-<div className="Y_NewsCard_move"><p>←左右滑動看更多→</p></div>
-<hr />
-<div className="Y_NewsCard_container_p">
-<h3 id="title7"className="Y_NewsCard_title2">{news_title.content_2}</h3>
-<h4 id="title8" className="Y_NewsCard_title2">{news_title.shop_active}<br/>
-</h4>
-<h4 id="title9"className="Y_NewsCard_title2">{news_title.shop_content}</h4>
+            <div className="Y_NewsCard_move"><p>←左右滑動看更多→</p></div>
+            <hr />
+            <div className="Y_NewsCard_container_p">
+            <h3 id="title7"className="Y_NewsCard_title2">{news_title.content_2}</h3>
+            <h4 id="title8" className="Y_NewsCard_title2">{news_title.shop_active}<br/>
+            </h4>
+            <h4 id="title9"className="Y_NewsCard_title2">{news_title.shop_content}</h4>
 
 
-</div>
-<div className="Y_NewsCard_socialbar"></div>
+            </div>
+            <div className="Y_NewsCard_socialbar"></div>
 
 
 

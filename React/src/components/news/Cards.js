@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import './News.scss';
 import $ from 'jquery';
 import SelectBox from './select-box/SelectBox.js';
-
+import './loader.js';
 import ReactDOMServer from 'react-dom/server';
 import NewsCard from './NewsCard';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
@@ -176,20 +176,27 @@ class Cards extends Component {
 
                 </div>
 
-                {/* <script src="loader.js"></script>  */}
+                <script src="loader.js"></script> 
                 {
                     
                     this.state.showme ?
                         <div className="">
                             <div className="Y_newsIframe"></div>
                             {/* <iframe className="Y_newsIframe_inner" src="<NewsCard />" ></iframe> */}
-                            <div className="Y_newsIframe_inner">
+                            <div className="Y_newsIframe_inner Y_newsIframe_inner_r">
+                            <div className="">
                                 <NewsCard new={this.state.new} NewsCard={this.state.NewsCard}/>
+
+                                 <div className="Y_newsIframe_inner_ab"
+                                onClick={() => this.showhide_i()
+                                } 
+                                id="Y_newsIframe_fas"><a href="#"><i class="fas fa-times Y_newsIframe_fas"></i></a>
+                                </div>
                             </div>
-                            <div 
-                            onClick={() => this.showhide_i()
-                            } 
-                            id="Y_newsIframe_fas"><a href="#"><i class="fas fa-times Y_newsIframe_fas"></i></a></div>
+                            
+                            </div>
+                           
+                            
 
 
                         </div>

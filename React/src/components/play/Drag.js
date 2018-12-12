@@ -45,10 +45,12 @@ class Drag extends Component{
             var zones =  document.querySelectorAll("#tab-content-1");
             for(var i=0,max=zones.length;i<max;i++){
                 zones[i].addEventListener("dragover",function(evt){
-                    evt.preventDefault();               
+                    evt.preventDefault();    
+                               
                 })
                 //zones[i].addEventListener("drop",dropHandler);
             }
+           
             function dropHandler(evt){
                 evt.preventDefault();
                 evt.stopPropagation();
@@ -153,77 +155,77 @@ class Drag extends Component{
                     
                     </li>
                     <li >
-                    <div id="item21" draggable="true" className="item" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div id="21" draggable="true" className="item" ondrop="drop(event)" ondragover="allowDrop(event)">
                             <img className="Y_play_contents" src="/images/yulun/PP1.svg" draggable="true" ondragstart="drag(event)"/>
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item22" draggable="true" className="item" >
+                        <div id="22" draggable="true" className="item" >
                             <img className="Y_play_contents" src="/images/yulun/PP2.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item23" draggable="true" className="item">
+                        <div id="23" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/PP3.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item24" draggable="true" className="item">
+                        <div id="24" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/PP4.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item25" draggable="true" className="item">
+                        <div id="25" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/PP5.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item26" draggable="true" className="item">
+                        <div id="26" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/PP6.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item27" draggable="true" className="item">
+                        <div id="27" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/PP7.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item28" draggable="true" className="item">
+                        <div id="28" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/PP8.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item29" draggable="true" className="item">
+                        <div id="29" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/PP9.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                         <div id="item30" draggable="true" className="item">
+                         <div id="30" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/PP10.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item30" draggable="true" className="item">
+                        <div id="30" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/PP11.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
@@ -235,49 +237,49 @@ class Drag extends Component{
                     </li>
                     <li className="Y_tab-content_flex"> 
 
-                        <div id="item31" draggable="true" className="item" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div id="31" draggable="true" className="item" ondrop="drop(event)" ondragover="allowDrop(event)">
                             <img className="Y_play_contents" src="/images/yulun/PPB1.svg" draggable="true" ondragstart="drag(event)"/>
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item32" draggable="true" className="item" >
+                        <div id="32" draggable="true" className="item" >
                             <img className="Y_play_contents" src="/images/yulun/PPB2.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item33" draggable="true" className="item">
+                        <div id="33" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/PPB3.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item34" draggable="true" className="item">
+                        <div id="34" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/PPB4.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item35" draggable="true" className="item">
+                        <div id="35" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/PPB5.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item36" draggable="true" className="item">
+                        <div id="36" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/PPB6.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item37" draggable="true" className="item">
+                        <div id="37" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/PPB7.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
@@ -287,56 +289,56 @@ class Drag extends Component{
                     </li>
                     <li>
 
-                        <div id="item11" draggable="true" className="item" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div id="11" draggable="true" className="item" ondrop="drop(event)" ondragover="allowDrop(event)">
                             <img className="Y_play_contents" src="/images/yulun/CC1.svg" draggable="true" ondragstart="drag(event)"/>
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item12" draggable="true" className="item" >
+                        <div id="12" draggable="true" className="item" >
                             <img className="Y_play_contents" src="/images/yulun/CC2.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item13" draggable="true" className="item">
+                        <div id="13" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/CC3.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item14" draggable="true" className="item">
+                        <div id="14" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/CC4.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item15" draggable="true" className="item">
+                        <div id="15" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/CC5.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item16" draggable="true" className="item">
+                        <div id="16" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/CC6.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item17" draggable="true" className="item">
+                        <div id="17" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/CC7.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item18" draggable="true" className="item">
+                        <div id="18" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/CC8.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
@@ -345,63 +347,63 @@ class Drag extends Component{
                         </div>
                     </li>
                     <li>
-                    <div id="item41" draggable="true" className="item" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div id="41" draggable="true" className="item" ondrop="drop(event)" ondragover="allowDrop(event)">
                             <img className="Y_play_contents" src="/images/yulun/BB1.svg" draggable="true" ondragstart="drag(event)"/>
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item42" draggable="true" className="item" >
+                        <div id="42" draggable="true" className="item" >
                             <img className="Y_play_contents" src="/images/yulun/BB2.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item43" draggable="true" className="item">
+                        <div id="43" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/BB3.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item44" draggable="true" className="item">
+                        <div id="44" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/BB4.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item45" draggable="true" className="item">
+                        <div id="45" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/BB5.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item46" draggable="true" className="item">
+                        <div id="46" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/BB6.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item47" draggable="true" className="item">
+                        <div id="47" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/BB7.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item48" draggable="true" className="item">
+                        <div id="48" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/BB8.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>
                                 <p><span>3000</span></p>
                             </div>
                         </div>
-                        <div id="item49" draggable="true" className="item">
+                        <div id="49" draggable="true" className="item">
                             <img className="Y_play_contents" src="/images/yulun/BB9.svg" />
                             <div className="Y_display_none" display="none">
                                 <p>音樂鈴</p>

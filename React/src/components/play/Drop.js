@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Dragdrop.scss';
 import './gragDrop.js';
 import $ from 'jquery';
+import interact from 'interactjs'
 
 class Drop extends Component{
     constructor(props){
@@ -20,7 +21,7 @@ class Drop extends Component{
     componentDidMount() {
         this.getDrag();
         this.getTab();
-
+        // this.getMove();
         
     }
     getTab(){
@@ -42,64 +43,20 @@ class Drop extends Component{
 
 
 
-    getDrag() {
-        // var theTab = document.querySelector('#tab');
-        // theTab.addEventListener('dragover',function(event){
-        //     event.preventDefault();
-
-        // });
-        // theTab.addEventListener('drop',(event) => {
-        //     console.log("drop");
-        //     this.props.handleDrop(); //通知父元件  
-        //     var zones =  document.querySelectorAll("#tab-content-1");
-        //     var clone, clonenot;
-        //     event.preventDefault();
-        //     event.stopPropagation();               
-        //     var id = event.dataTransfer.getData("text/plain");
-        //     console.log("id：" + window.dragTarget.id)
-        //     if(window.dragTarget){
-        //         if(window.dragTarget.getAttribute("data-clone") != '1'){
-        //             clone = window.dragTarget.cloneNode(true);
-        //             clone.setAttribute("data-clone", "1");
-        //             event.target.appendChild(clone);
-        //         }
-        //       var id =window.dragTarget.id;
-        //       var name=window.dragTarget.querySelector('p:first-child').textContent;
-        //       var price=window.dragTarget.querySelector('span:first-child').textContent;
-        //       var item= {"itemName":name,"qty":qty,"price":price}
-        //       var theValue = localStorage.getItem(window.dragTarget.id)  //key:value 
-        //       console.log(localStorage.length)
-        //         if(theValue){
-        //           //購物車有此商品，數量+1
-        //           var qty = JSON.parse(theValue).qty + 1
-        //           var item= {"itemName":name,"qty":qty,"price":price}
-        //           localStorage.setItem(id,JSON.stringify(item))
-           
-        //         }else{       
-        //           item = {"itemName":name,"qty":1,"price":price}
-        //           localStorage.setItem(id,JSON.stringify(item))
-
-        //         }     
-        //     }     
-
-
-
-
-
-
-     
-
+    getDrag() { 
         var zone =  document.querySelector("#tab-content-1");   
         zone.addEventListener("dragover",function(event){
             event.preventDefault();
+            // localStorage.clear();
+            
         });
        zone.addEventListener("drop", (evt) => {
-       
+        
         var clone, clonenot;
         evt.preventDefault();
         evt.stopPropagation();               
         var id = evt.dataTransfer.getData("text/plain");
-
+        getMove();
         //不能複製
         console.log(window.dragTarget);
         if(window.dragTarget){
@@ -109,6 +66,7 @@ class Drop extends Component{
                 clone.setAttribute("data-clone", "1");
                 evt.target.appendChild(clone);
             }
+            // getMove();
           var id =window.dragTarget.id;
           var name=window.dragTarget.querySelector('p:first-child').textContent;
           var price=window.dragTarget.querySelector('span:first-child').textContent;
@@ -117,11 +75,13 @@ class Drop extends Component{
           
             if(theValue){
               //購物車有此商品，數量+1
+              
               var qty = JSON.parse(theValue).qty + 1
               var item= {"itemName":name,"qty":qty,"price":price}
               localStorage.setItem(id,JSON.stringify(item))
        
-            }else{       
+            }else{  
+                
               item = {"itemName":name,"qty":1,"price":price}
               localStorage.setItem(id,JSON.stringify(item))
 
@@ -130,6 +90,7 @@ class Drop extends Component{
         }     
 
         window.dragTarget = null;
+        
        });
 
            
@@ -143,17 +104,114 @@ class Drop extends Component{
                 return num;
             }
         
-
+            //Move
+            function getMove(){
+                interact('#tab-content-1 .Y_play_contents')
+                .draggable({
+                  // enable inertial throwing
+                  inertia: true,
+                  // keep the element within the area of it's parent
+                  restrict: {
+                    restriction: "parent",
+                    endOnly: true,
+                    elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+                  },
+                  // enable autoScroll
+                  autoScroll: true,
+              
+                  // call this function on every dragmove event
+                  onmove: dragMoveListener,
+                  // call this function on every dragend event
+                //   onend: function (event) {
+                //     var textEl = event.target.querySelector('p');
+              
+                //     textEl && (textEl.textContent =
+                //       'moved a distance of '
+                //       + (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
+                //                    Math.pow(event.pageY - event.y0, 2) | 0))
+                //           .toFixed(2) + 'px');
+                //   }
+                });
+              
+                function dragMoveListener (event) {
+                    let target = event.target,
+                        // keep the dragged position in the data-x/data-y attributes
+                        x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+                        y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+                
+                    // translate the element
+                    target.style.webkitTransform =
+                    target.style.transform =
+                      'translate(' + x + 'px, ' + y + 'px)';
+                
+                    // update the posiion attributes
+                    target.setAttribute('data-x', x);
+                    target.setAttribute('data-y', y);
+                    // target.style.left=data-x+'px';
+                    // target.style.top =data-y+'px';
+                    console.log(target);
+                  }
+              
+                // this is used later in the resizing and gesture demos
+                window.dragMoveListener = dragMoveListener;
+            }
     }
+    // getMove(){
+    //     interact('.Y_play_contents')
+    //     .draggable({
+    //       // enable inertial throwing
+    //       inertia: true,
+    //       // keep the element within the area of it's parent
+    //       restrict: {
+    //         restriction: "parent",
+    //         endOnly: true,
+    //         elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+    //       },
+    //       // enable autoScroll
+    //       autoScroll: true,
+      
+    //       // call this function on every dragmove event
+    //       onmove: dragMoveListener,
+    //       // call this function on every dragend event
+    //       onend: function (event) {
+    //         var textEl = event.target.querySelector('p');
+      
+    //         textEl && (textEl.textContent =
+    //           'moved a distance of '
+    //           + (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
+    //                        Math.pow(event.pageY - event.y0, 2) | 0))
+    //               .toFixed(2) + 'px');
+    //       }
+    //     });
+      
+    //     function dragMoveListener (event) {
+    //       var target = event.target,
+    //           // keep the dragged position in the data-x/data-y attributes
+    //           x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+    //           y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+      
+    //       // translate the element
+    //       target.style.webkitTransform =
+    //       target.style.transform =
+    //         'translate(' + x + 'px, ' + y + 'px)';
+      
+    //       // update the posiion attributes
+    //       target.setAttribute('data-x', x);
+    //       target.setAttribute('data-y', y);
+    //     }
+      
+    //     // this is used later in the resizing and gesture demos
+    //     window.dragMoveListener = dragMoveListener;
+    // }
     render(){
         return(
             <React.Fragment> 
        <div  id="cart" className="Y_container  Y_pad">
             <span id="tab-1" >1</span>
-            <span id="tab-2">2</span>
+            {/* <span id="tab-2">2</span>
             <span id="tab-3" >3</span>
             <span id="tab-4" >4</span>
-             
+              */}
             <div id="tab" ondrop="drop(event)" ondragover="allowDrop(event)">
             
             <ul>

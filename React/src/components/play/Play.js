@@ -28,8 +28,8 @@ class Play extends Component{
         <div className="Y_container">
         <div className="Y_container Y_triangle2_bg"> 
         <div className="Y_triangle2"></div>
-        </div></div>
-        <Drag  />
+        </div></div> 
+       <Drag  />
        {/* <Management /> */}
          </React.Fragment>
         

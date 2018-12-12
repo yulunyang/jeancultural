@@ -56,7 +56,6 @@ class Play_nav extends Component {
             var id = localStorage.key(i);  //key(0)回傳keyname
             var item = JSON.parse(localStorage.getItem(id)); //{}
             // var postData = JSON.stringify(localStorage.getItem(id));
-            // alert(postData)
             // var items=localStorage.getItem('item1') ;     
             var name = localStorage.getItem('itemName');
             var qty = localStorage.getItem('qty');
@@ -120,12 +119,12 @@ class Play_nav extends Component {
             console.log(myList)
 
             // var data = JSON.stringify({"sid":"7","qty":"2"})
-            fetch("http://localhost/jeancultural/cart.php", {
+            fetch("http://localhost:3000/api/cart", {
                 method: 'POST',
                 mode: 'cors',
                 body: myList,               
                 headers: new Headers({
-                    "Content-Type": "text/plain",
+                    "Content-Type": "application/json",
                     "Accept": "application/json"
                 })
             }).then(res => res.json())
