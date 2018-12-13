@@ -69,7 +69,7 @@ class Pag_items extends Component {
     this.getProducts($(e.target).text())
   }
   getProducts(page) {
-    fetch("http://localhost:3000/api/goods/" + page)
+    fetch("/api/goods/" + page)
       .then(res => res.json())
       .then(goods => {
         this.setState({

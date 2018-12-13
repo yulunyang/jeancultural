@@ -4,7 +4,7 @@ $(document).ready(function(){
     $(".Y_know_more").click(function(){
         var sid = $(this).data('sid');
         //ajax
-        $.getJSON('http://localhost:3000/api/news/' + sid,function(data){
+        $.getJSON('/api/news/' + sid,function(data){
            $('#div1>h5').text(data[0].title)
            $('#div2>h5').text(data[0].detailed_description)
            $('#title1').text(data[0].title1)
@@ -19,7 +19,7 @@ $(document).ready(function(){
            $('#title10').text(data[0].title10)
            
         })
-        // fetch("http://localhost:3000/api/news/"+ sid, {
+        // fetch("/api/news/"+ sid, {
         //                     method: 'GET'
         //                 }).then(res => res.json())
         //                     .then(data => {

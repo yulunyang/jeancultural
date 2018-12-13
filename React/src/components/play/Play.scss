@@ -256,19 +256,13 @@ $gray_color:#606060;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    animation: 0.5s;
-
-    &:hover{
-        background-color: $gray_color;
-        color: white;
-    }
 }
 
-// .Y_addCartbutton:hover,
-// .Y_addListbutton:hover {
-//     background-color: $gray_color;
-//     color: white;
-// }
+.Y_addCartbutton:hover,
+.Y_addListbutton:hover {
+    background-color: $gray_color;
+    color: white;
+}
 
 //cards
 .Y_news {
@@ -481,14 +475,6 @@ $gray_color:#606060;
         }
         p {
             margin: 0;
-        }
-        a{
-            animation: 0.4s;
-            padding-right:8px;
-            padding-left: 8px; 
-        }
-        a:hover{
-            // background: gray;
         }
     }
 }

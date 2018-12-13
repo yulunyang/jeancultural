@@ -22,7 +22,7 @@ class Sidemenu extends Component {
   
   }
   getProducts_brand = (sid) => {
-    fetch("http://localhost:3000/api/goods_list/"+sid)
+    fetch("/api/goods_list/"+sid)
       .then(res => res.json())
       .then(Products_brands => this.setState({
         Products_brands:Products_brands,

@@ -2,57 +2,60 @@ import React, { Component } from 'react';
 import "./sign_in_member.scss";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import cookie from 'react-cookies'
-
+import $ from 'jquery';
 
 class Sign_in_member extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            
             member_email:"",
-            member_keyword:"",
-            
+            member_password:"",
         }
-        console.log(this.props.history)
+        
     }
     
 
+    check_Member = (evt) =>{
+        evt.preventDefault();
+        console.log(this.state)
+        // var email = this.state.member_email;
+        // console.log(email)
+        // var password = this.state.member_password;
+        //  console.log(password)
+        // var userData = JSON.stringify({ "member_email": email, "member_password": password });
+        var userData = JSON.stringify(this.state);
+        console.log(userData);
 
-    fetchMember(data){
-        return fetch("http://localhost:3000/api/checkmembers")
-        // .then(res=>res.json())
-        // .then(data=>{
-        //     console.log(data)
-        // })
+        fetch("/api/login/",{
+            method:"POST",
+            mode: 'cors',
+            body: userData,
+            headers:new Headers({
+                "Content-Type":"application/json",
+                "Accept": "application/json"
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.message=="登入成功"){
+                alert(data.message)
+                this.props.history.push("/home");
+            }else{
+                alert(data.message)
+            }
+        })
     }
-
-    // check_Member = (evt) =>{
-    //     let {member_email,member_keyword} = this.state;
-    //     // console.log(member_email,member_keyword)
-
-    //     this.fetchMember(member_email,member_keyword)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         if(data.length==1){
-
-    //             cookie.save('userId', data);                
-    //             this.props.history.push("/home"); //是的話轉跳到首頁
-               
-    //         }else{
-    //               alert("帳號或密碼錯誤")
-    //         }            
-    //     })
-        
-        
-    //     evt.preventDefault();
-        
-    // }
 
 
 
     onChange=(e)=>{
-        this.setState({[e.target.name]:e.target.value});
-        console.log(this.state);
+        let key = e.target.name;
+        let data = e.target.value;
+        this.setState({
+            [key]:data
+        })
+        // this.setState({[e.target.name]:e.target.value});
+        // console.log(this.state);
         // console.log("YEE");
     }
 
@@ -70,43 +73,46 @@ class Sign_in_member extends Component {
                     <div className="O_container">
                         <div className="O_sign_in_form">
                             <div className="O_sign_in_form_left">
+                            <form>
                                 <h2>Sign In 登入</h2><br></br>
                                 <p>登入知音文創會員即可快速結帳</p>
                                 <br></br>
-                                <input type="email" id="member_email" className="O_form-control O_input"
+                                <input type="email" className="O_form-control O_input"
                                  placeholder="&nbsp;&nbsp;E-mail 登入信箱" name="member_email"
                                  value={this.state.member_email} onChange={this.onChange} />
 
-                                <input type="password" id="member_keyword" className="O_form-control O_input"
-                                 placeholder="&nbsp;&nbsp;Password 請輸入密碼" name="member_keyword"
-                                 value={this.state.member_keyword} onChange={this.onChange} />
+                                <input type="password" className="O_form-control O_input"
+                                 placeholder="&nbsp;&nbsp; Password 請輸入密碼" name="member_password"
+                                 value={this.state.member_password} onChange={this.onChange} />
 
                                 <input type="text" id="Verification_code" className="O_form-control O_input"
                                  placeholder="&nbsp;&nbsp;Verification_code 請輸入驗證碼" name="Verification_code"  />
 
-
+                                <br></br>
                                 <button className="O_sign_in_form_left_btn">驗證碼</button>
                                 <div className="O_checkbox">
                                     <input type="checkbox" className="O_checkbox_input"></input>
                                     <label for="remember" className="O_checkbox_label">記住我</label>
                                 </div>
 
-                                <button className="O_sign_btn" onClick={this.fetchMember}>立即登入</button>
+                                <button type="click" className="O_sign_btn" onClick={this.check_Member}>立即登入</button>
 
 
-                                <div className="O_SNS_sign">
+                                {/* <div className="O_SNS_sign">
                                     <button className="O_SNS_sign_btn">Facebook登入</button>
                                     <button className="O_SNS_sign_btn">Google登入</button>
-                                </div>
+                                </div> */}
+                                </form>
                             </div>
+                        
                             <div className="O_sign_in_form_right">
                                 <h2>REGISTER 註冊</h2>
                                 <p>
+                                    還不是會員嗎 ? <br></br>                                                                         
+                                    留下個人資料，系統將快速將您註冊為會員。<br></br>
                                     登入知音文創會員即可快速結帳<br></br>
-                                    現在起結帳成功後系統將自動為您升級為會員!<br></br>
-                                    將喜愛的商品放入購物車完成訂購步驟，<br></br>
-                                    最後留下個人資料，系統將自動為您升級為會員。<br></br>
                                     立即享受，如此輕鬆的快速線上購物!<br></br>
+                                    快快加入知音會員吧!<br></br>
                                 </p>
                                 <br></br>
                                 <div className="O_sign_up_btn">
@@ -117,7 +123,7 @@ class Sign_in_member extends Component {
                                 </div>
                             </div>
                         </div>                   
-                        <a href="http://localhost:3000/home" className="O_to_home">回首頁</a>
+                        <Link to="/home" className="O_to_home">回首頁</Link>
                     </div>
                 </div>
             </React.Fragment>
