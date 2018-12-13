@@ -48,7 +48,11 @@ class NavRwd extends Component {
 
             {/* icon的nav */}
             <ul className="F_nav_icon F_log F_nav_icon_rwd">
-
+            <li className="F_nav_item_rwd_log">
+                <Link className="nav-link_text nav-link_text_rwd nav-link_text_rwd_logout" to="/home">
+                [登出]             
+                </Link>
+              </li>
               <li className="F_nav_item_rwd_log">
                 <Link className="nav-link_text nav-link_text_rwd" to="/sign_in_member">
                 [登錄]             
@@ -62,7 +66,7 @@ class NavRwd extends Component {
             </ul>
 
             <ul className="F_nav_icon F_nav_icon_rwd">
-              <li className="F_nav_item_icon F_nav_item_icon_rwd">
+              <li className="F_nav_item_icon F_nav_item_icon_rwd F_member_list_icon">
                 <Link className="nav-link nav-link_icon" to="/member_list">
                   <img src="/images/members.svg" alt="會員" />
                 </Link>

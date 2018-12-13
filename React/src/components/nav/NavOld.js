@@ -49,7 +49,7 @@ class NavOld extends Component {
             {/* icon的nav */}
             <ul className="F_nav_icon">
               <li className="F_nav_item_icon">
-                <Link className="nav-link nav-link_icon" to="/member_list">
+                <Link className="nav-link nav-link_icon F_member_list_icon" to="/member_list">
                   <img src="/images/members.svg" alt="會員" />
                 </Link>
               </li>
@@ -61,6 +61,11 @@ class NavOld extends Component {
               <li className="F_nav_item_icon F_icon_buyitems">
                 <Link className="nav-link nav-link_icon" to="/cart">
                   <img src="/images/buyitems.svg" alt="購物車" />
+                </Link>
+              </li>
+              <li className="F_nav_item_icon F_icon_logout">
+                <Link className="nav-link nav-link_icon F_icon_logout_link" to="/sign_in_member">
+                <img src="/images/logout.svg" alt="登出" />             
                 </Link>
               </li>
               <li className="F_nav_item_icon F_icon_login">
