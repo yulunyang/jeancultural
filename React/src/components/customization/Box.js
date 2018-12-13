@@ -26,7 +26,7 @@ class Box extends Component {
     }
 
     getCustomization() {
-        fetch("/api/customization")
+        fetch("http://localhost:3000/api/customization")
             .then(res => res.json())
             .then(customization => {
                 //console.log(customization)

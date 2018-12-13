@@ -75,6 +75,7 @@ class MuiseData extends Component {
     }
 
     render() {
+        console.log(this.props.custommuise)
         return (
             <React.Fragment>
                 {/* <div className="F_bigbox"> */}
