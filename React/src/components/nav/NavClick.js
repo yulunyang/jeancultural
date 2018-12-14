@@ -51,15 +51,27 @@ class NavClick extends Component {
       $(".F_three_line3").toggleClass("F_three_line3_click");
 
       $(".F_nav_box").toggleClass("height");
-    })
-    
-    //點去其他地方
-    $(".F_nav_item").click(function(e){
-      $(".F_nav_box").removeClass("height");
+
+      //點去其他地方
+      $(".F_nav_item").click(function (e) {
+        $(".F_nav_box").removeClass("height");
+        //一開始
+        $(".F_three_line1").removeClass("F_three_line1_click");
+        $(".F_three_line2").removeClass("F_three_line2_click");
+        $(".F_three_line3").removeClass("F_three_line3_click");
+      })
+      $(".F_nav_item_icon").click(function (e) {
+        $(".F_nav_box").removeClass("height");
+        //一開始
+        $(".F_three_line1").removeClass("F_three_line1_click");
+        $(".F_three_line2").removeClass("F_three_line2_click");
+        $(".F_three_line3").removeClass("F_three_line3_click");
+      })
     })
 
-    
-    
+
+
+
 
   }
 
@@ -68,6 +80,11 @@ class NavClick extends Component {
     this.nowHandle();
 
   }
+  componentDidUpdate = () => {
+    //一開始
+    this.nowHandle();
+  }
+
 
 
 
