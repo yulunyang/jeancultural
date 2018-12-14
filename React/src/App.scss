@@ -44,11 +44,15 @@ $gray_color:#606060;
     {
     display: flex;
 }
-
-.F_nav_icon {
-    margin: 0px 50px 0 10px;
+.F_nav_box{
+    align-items: center;
 }
-
+.F_nav_icon {
+    margin: 0px 30px 0 100px;
+}
+.F_nav_item{
+    display: inline-block;
+}
 .nav-link_text {
     padding: 26px;
     color: $orange_color;
@@ -262,11 +266,11 @@ $gray_color:#606060;
 }
 
 //會員的登入登出變化
-.F_member_list_icon {
+.F_nav_item_icon_member {
     display: none;
 }
 
-.F_member_list_icon.F_go_login {
+.F_nav_item_icon_member.F_go_login {
     display: block;
 }
 
@@ -286,15 +290,3 @@ $gray_color:#606060;
     display: block;
 }
 
-//rwd的登錄登出
-.nav-link_text_rwd_logout {
-    display: none;
-}
-
-.nav-link_text_rwd.F_logining {
-    display: none;
-}
-
-.nav-link_text_rwd_logout.F_logouting {
-    display: block;
-}
