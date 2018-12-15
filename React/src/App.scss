@@ -12,20 +12,23 @@ $orange_color:#e8aa67;
 $lightgreen_color:#c7cc62;
 $darkgreen_color:#879d4d;
 $gray_color:#606060;
-
-.F_container{
+.F_container {
     overflow: hidden;
 }
-.F_big_body{
+
+.F_big_body {
     width: 100vw;
     margin: 0;
     overflow-x: hidden;
 }
-.container{
+
+.container {
     width: 85%;
 }
+
 /*nav*/
-.F_index_nav_box{
+
+.F_index_nav_box {
     height: 25px;
     z-index: 10;
 }
@@ -37,32 +40,45 @@ $gray_color:#606060;
 
 .F_index_nav,
 .F_nav_box,
-.F_nav_icon, {
+.F_nav_icon,
+    {
     display: flex;
 }
-.F_nav_icon{
-    margin: 0px 50px 0 10px;
+.F_nav_box{
+    align-items: center;
 }
-.nav-link_text{
+.F_nav_icon {
+    margin: 0px 30px 0 100px;
+}
+.F_nav_item{
+    display: inline-block;
+}
+.nav-link_text {
     padding: 26px;
     color: $orange_color;
     font-size: 18px;
 }
-.F_icon_login_link{
+
+.F_icon_login_link {
     margin: 10px 10px;
 }
-.F_icon_login_link,.F_icon_registered_link img{
+
+.F_icon_login_link,
+.F_icon_registered_link img {
     width: 100%;
 }
+
 .F_nav_item :hover {
     background: url(./components/images/background.png)repeat 0 0;
     color: #e69238;
 }
-.F_spacial_a.F_spacial_color{
+
+.F_spacial_a.F_spacial_color {
     background: url(./components/images/background.png)repeat 0 0;
     color: #e69238;
 }
-.F_nav_item_spacial :hover{
+
+.F_nav_item_spacial :hover {
     background: url(./components/images/background_light.png)repeat 0 0;
 }
 
@@ -74,32 +90,37 @@ $gray_color:#606060;
     box-shadow: 0px 0px 12px rgba(0, 0, 0, .07);
     width: 100vw;
 }
-.F_index_nav.F_index_nav_to_fixed{
+
+.F_index_nav.F_index_nav_to_fixed {
     position: fixed;
-    top:0;
-    right:0;
-    left:0;
+    top: 0;
+    right: 0;
+    left: 0;
 }
-.F_nav_item_icon{
+
+.F_nav_item_icon {
     width: 40px;
     padding: 5px;
     margin: 0 3px;
     margin-top: 10px;
 }
 
-.nav-link_icon{
+.nav-link_icon {
     width: 40px;
 }
-.F_icon_registered,.F_icon_login{
+
+.F_icon_registered,
+.F_icon_login {
     width: 50px !important;
 }
 
-.F_nav_logo_black{
+.F_nav_logo_black {
     z-index: 10;
 }
 
 /*隱藏nav*/
-.F_none_block{
+
+.F_none_block {
     background: url(./components/images/background.png)repeat 0 0;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, .07);
     width: 100vw;
@@ -107,30 +128,39 @@ $gray_color:#606060;
     z-index: 1;
     height: 0;
 }
-.F_none_block.F_none_block_fixed{
+
+.F_none_block.F_none_block_fixed {
     position: fixed;
     left: 0;
     top: 68px;
 }
-.F_none_block.F_none_block_height{
+
+.F_none_block.F_none_block_height {
     height: initial;
 }
-.F_none_block ul{
+
+.F_none_block ul {
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 500px;
 }
-.F_none_block ul li{
-    padding:24px 30px;
+
+.F_none_block ul li {
+    padding: 24px 30px;
 }
+
 /*點擊的*/
-.F_three_box{
+
+.F_three_box {
     display: none;
 }
+
 /*nav*/
+
 /*footer*/
+
 .F_footer {
     background-color: $darkgreen_color;
     color: #eee;
@@ -173,14 +203,17 @@ $gray_color:#606060;
     margin: 30px 0;
 }
 
-.F_footer_text_box ul li ,.F_nav-link{
+.F_footer_text_box ul li,
+.F_nav-link {
     font-size: 15px;
     line-height: 24px;
     color: #eee;
 }
-.F_nav-link:hover{
+
+.F_nav-link:hover {
     color: #fff;
 }
+
 .F_footer_logo {
     width: 170px;
     margin: 20px 20px 0;
@@ -197,7 +230,8 @@ $gray_color:#606060;
     overflow: hidden;
     display: inline-block;
 }
-.F_icon_range img:hover{
+
+.F_icon_range img:hover {
     object-position: 0px -51px;
 }
 
@@ -217,7 +251,7 @@ $gray_color:#606060;
     padding: 8px;
 }
 
-.F_footer_gray span{
+.F_footer_gray span {
     position: absolute;
     right: 40px;
     font-weight: bold;
@@ -226,6 +260,33 @@ $gray_color:#606060;
 }
 
 //rwdnav&footer//
-.F_nav_box_forrwd,.F_footer_rwd{
+.F_nav_box_forrwd,
+.F_footer_rwd {
     display: none;
 }
+
+//會員的登入登出變化
+.F_nav_item_icon_member {
+    display: none;
+}
+
+.F_nav_item_icon_member.F_go_login {
+    display: block;
+}
+
+//登入登出變化
+.F_icon_logout {
+    white-space: nowrap;
+    width: 50px !important;
+    display: none;
+}
+
+//記得個別把標籤名提取出來
+.nav-link_icon.F_logining {
+    display: none;
+}
+
+.F_icon_logout.F_logouting {
+    display: block;
+}
+

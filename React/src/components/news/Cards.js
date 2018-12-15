@@ -28,7 +28,6 @@ class Cards extends Component {
 
         }
         this.state = {
-            new: [],
             state: [],
             new: [],
             type: 'add',
@@ -46,7 +45,7 @@ class Cards extends Component {
 
     }
     getNews() {
-        fetch("http://localhost:3000/api/news/")
+        fetch("/api/news/")
             .then(res => res.json())
             .then(news => this.setState({
                 news: news,
@@ -79,7 +78,7 @@ class Cards extends Component {
 
     detail = (sid) => {
         // alert(sid)
-                fetch("http://localhost:3000/api/news/"+ sid, {
+                fetch("/api/news/"+ sid, {
                     method: 'GET'
                 }).then(res => res.json())
                     .then(data => {                     
@@ -181,19 +180,18 @@ class Cards extends Component {
                     
                     this.state.showme ?
                         <div className="">
-                            <div onClick={() => this.showhide_i()} className="Y_newsIframe"></div>
+                            <div className="Y_newsIframe"></div>
                             {/* <iframe className="Y_newsIframe_inner" src="<NewsCard />" ></iframe> */}
                             <div className="Y_newsIframe_inner Y_newsIframe_inner_r">
                             <div className="">
                                 <NewsCard new={this.state.new} NewsCard={this.state.NewsCard}/>
 
-                                
-                            </div>
-                            <div className="Y_newsIframe_inner_ab"
+                                 <div className="Y_newsIframe_inner_ab"
                                 onClick={() => this.showhide_i()
                                 } 
                                 id="Y_newsIframe_fas"><a href="#"><i class="fas fa-times Y_newsIframe_fas"></i></a>
                                 </div>
+                            </div>
                             
                             </div>
                            

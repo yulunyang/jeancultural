@@ -58,9 +58,9 @@ class Drop extends Component{
         var id = evt.dataTransfer.getData("text/plain");
         getMove();
         //不能複製
-        // console.log(window.dragTarget);
+        console.log(window.dragTarget);
         if(window.dragTarget){
-            // console.log('::', window.dragTarget.getAttribute("data-clone"));
+            console.log('::', window.dragTarget.getAttribute("data-clone"));
             if(window.dragTarget.getAttribute("data-clone") != '1'){
                 clone = window.dragTarget.cloneNode(true);
                 clone.setAttribute("data-clone", "1");
@@ -149,7 +149,7 @@ class Drop extends Component{
                     target.setAttribute('data-y', y);
                     // target.style.left=data-x+'px';
                     // target.style.top =data-y+'px';
-                    //console.log(target);
+                    console.log(target);
                   }
               
                 // this is used later in the resizing and gesture demos

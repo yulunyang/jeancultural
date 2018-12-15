@@ -82,44 +82,33 @@ class Play_nav extends Component {
             cell4.appendChild(txt4);//<td>1</td> 
 
             // var subtotal = price.replace(<i class="fas fa-times"></i>);
-            var cell5 = document.createElement("a");
-            var txt5 = document.createTextNode('X');
-            cell5.appendChild(txt5);//<td>9,900</td> 
+            // var cell4 = document.createElement("p");
+            // var txt4 = document.createTextNode('X');
+            // cell4.appendChild(txt4);//<td>9,900</td> 
 
             var row = document.createElement("li");//<tr></tr>
             row.appendChild(cell4);
             row.appendChild(cell1); //<tr><td>CASIO Exilim PRO EX-P505</td> </tr>
             row.appendChild(cell2);//<tr><td>CASIO Exilim PRO EX-P505</td><td>1</td>  </tr>
             row.appendChild(cell3);
-            row.appendChild(cell5);
 
 
             docFrag.appendChild(row)
             // docFrag.appendChild(myCart.lastChild);
             // total += subtotal;
-            // localStorage.clear();
-
-
         }
         // docFrag.appendChild(myCart.lastChild)
         $(".c-dropdown__list>li").first().siblings().remove();
         myCart.appendChild(docFrag)
-        
-//remove List
-        $(".c-dropdown__list li a").click(function(){
-            var msg = "確定要忍心刪除?"; 
-                if (window.confirm(msg)==true){ 
-                    $(this).parent().remove();
-                }else{ 
-                return false; 
-                } 
-        })
-        
+        // localStorage.clear();
+        // localStorage.removeItem(id);
+        // document.querySelector('#total>span').innerHTML = commafy(total);
+
+        // console.log("storage:" + localStorage.getItem("id"))
 
     }
 
     handleClick() {
-        
         $(".c-dropdown__list>li").first().remove();
         var myList = [];
         $(".c-dropdown__list>li").each(function (n) {
@@ -127,10 +116,10 @@ class Play_nav extends Component {
             var sid = $(this).find("p:first").text();
             var qty = $(this).find("p:nth(2)").next().text();
             var myList = JSON.stringify({ "sid": sid, "qty": qty });
-            // console.log(myList)
+            console.log(myList)
 
             // var data = JSON.stringify({"sid":"7","qty":"2"})
-            fetch("http://localhost:3000/api/cart", {
+            fetch("/api/cart", {
                 method: 'POST',
                 mode: 'cors',
                 body: myList,               
@@ -143,7 +132,7 @@ class Play_nav extends Component {
                     console.log(data)
                 })
         });
-        $(".c-dropdown__list>li").first().remove();
+        $(".c-dropdown__list>li").remove();
         localStorage.clear();
 
 
@@ -154,7 +143,6 @@ class Play_nav extends Component {
     handleClick_wish() {
         alert('加入收藏');
     }
-
     render() {
         return (
             <React.Fragment>
@@ -170,7 +158,7 @@ class Play_nav extends Component {
                         <div className="c-dropdown__lis_wrap">
                             <ul class="c-dropdown__list">
                                 <li class="c-dropdown__item" ><p id="itemName1">編號</p><p id="itemName2">名稱</p><p id="itemName3">價格</p>
-                                    <p id="itemName4">數量</p><p id="itemName5">刪除</p>
+                                    <p id="itemName4">數量</p>
                                     {/* <i class="fas fa-times"></i> */}
                                 </li>
 

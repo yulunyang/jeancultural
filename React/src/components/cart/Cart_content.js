@@ -17,16 +17,16 @@ class Cart_content extends Component {
         });
         this.props.onGoodsNumChange(evt.target.value);       
     };
-    // delGoods =()=>{
-    //     let tr = $(this).closest('tr');
-    // }
-    render() {
+
+
+
+    render(){
         return (
             <React.Fragment>
                    
                 {this.props.cart.map(cart =>
-                    <tr>
-                        <td>1</td>
+                    <tr id="listNum">
+                        <td></td>
                         <td>
                             <figure className="K_product_pic_l">
                                 <img src="/images/musicbell.jpg" alt="音樂鈴" />
@@ -38,17 +38,17 @@ class Cart_content extends Component {
                             <p>{cart.size}</p>
                         </td>
                         <td>
-                        <select id="goodsNum" name="goodsNum" value={cart.goodsNum} onChange={this.changeNameHandler}>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
+                        <div className="K_form-group_cart_info">
+                            <input type="text" name="goodsNum" id="goodsNum" value={cart.quantity} onChange={this.changeNameHandler}></input>
+                        </div>
                         </td>
                         <td>{cart.price}</td>
                         <td>{cart.discount_price}</td>
-                        <td>{cart.discount_price}</td>
+                        <td>{cart.quantity*cart.discount_price}</td>
                         <td><img className="K_table_icon" src="/images/likes_gray.svg" alt="icon_likes_gray" /></td>
-                        <td><img className="K_table_icon" src="/images/cancel.svg" alt="icon_cancel" onClick={this.delGoods} /></td>
+                        <td className="cancel" onClick={this.props.cancelGood} data-sid={cart.sid}>
+                            <img className="K_table_icon" src="/images/cancel.svg" alt="icon_cancel" onClick={this.delGoods} />
+                        </td>
                     </tr>
                 )}
                 

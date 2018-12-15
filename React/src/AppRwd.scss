@@ -5,42 +5,54 @@ $gray_color:#606060;
 @media screen and (max-width: 1330px) {
     * {
         //border: solid 1px;
+    } //重寫
+    .F_nav_box {
+        position: absolute;
+        width: 100vw;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        top: 60px;
+        right: 0;
+        background-color: rgba(245, 245, 245, .95);
+        height: 95vh;
+        height: 0;
+        overflow: hidden;
     }
- 
+    .F_nav_box.height{
+        height: 95vh;
+    }
+    .F_nav_item {
+        width: 100vw;;
+        text-align: center;
+        padding: 24px;
+        margin-top: -40px;
+    }
+    .F_nav_item_about{
+        margin-top: 10px;
+    }
+    .nav-link_text {
+        width: 100vw;
+        margin: auto;
+        text-align: center;
+    }
+    .F_nav_item:hover {
+        background: url(./components/images/background.png)repeat 0 0 !important;
+    } 
+    
+    //icon
+    .F_nav_icon{
+        margin:auto; 
+        margin-top: -40px; 
+    }
+  
     //nav//整大塊
     .F_index_nav_box,
     .F_index_nav {
         overflow: visible;
-    }
-   //設定的
-    .F_nav_box_forrwd {
-        display: block;
-        width: 100vw;
-        position: absolute;
-        background-color: rgba(245, 245, 245, .95);
-        top: 0;
-        right: 0;
-        padding: 76px 0;
-        z-index: 15;
-        overflow: hidden;
-    }
-    .F_nav_box,
-    .F_nav_icon {
-        width: 0;
-        overflow: hidden;
-    }
-    .F_nav_box_rwd {
-        width: 100%;
-        display: block;
-    }
-    .F_nav_icon_rwd {
-        width: 100%;
-        margin: 0;
-        justify-content: center;
-    }
-    .F_nav_icon_rwd_log {
-        margin-top: -20px;
-    }
+    } 
+    //設定的
+    
     .F_none_block {
         display: none;
     }

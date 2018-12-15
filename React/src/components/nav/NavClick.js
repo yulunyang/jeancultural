@@ -8,7 +8,7 @@ class NavClick extends Component {
     super(props);
   }
 
-  clickHandle(){
+  clickHandle() {
     //沒在頂端被點開
     if ($(".F_three_line1").addClass("F_three_line1_click")) {
       $(".F_index_nav").addClass("F_index_nav_to_fixed");
@@ -20,7 +20,6 @@ class NavClick extends Component {
   nowHandle() {
     $(document).ready(function () {
       //一開始
-      $(".F_nav_box_forrwd").hide();
       $(".F_three_line1").removeClass("F_three_line1_click");
       $(".F_three_line2").removeClass("F_three_line2_click");
       $(".F_three_line3").removeClass("F_three_line3_click");
@@ -51,27 +50,28 @@ class NavClick extends Component {
       $(".F_three_line2").toggleClass("F_three_line2_click");
       $(".F_three_line3").toggleClass("F_three_line3_click");
 
-      $(".F_nav_box_forrwd").toggle("fast");
+      $(".F_nav_box").toggleClass("height");
 
+      //點去其他地方
+      $(".F_nav_item").click(function (e) {
+        $(".F_nav_box").removeClass("height");
+        //一開始
+        $(".F_three_line1").removeClass("F_three_line1_click");
+        $(".F_three_line2").removeClass("F_three_line2_click");
+        $(".F_three_line3").removeClass("F_three_line3_click");
+      })
+      $(".F_nav_item_icon").click(function (e) {
+        $(".F_nav_box").removeClass("height");
+        //一開始
+        $(".F_three_line1").removeClass("F_three_line1_click");
+        $(".F_three_line2").removeClass("F_three_line2_click");
+        $(".F_three_line3").removeClass("F_three_line3_click");
+      })
     })
 
-    //  //禁止滾輪
-    //  if ($(".F_three_line2").removeClass("F_three_line2_click")) {
-    //   var w1 = $(window).width();
-    //   $('body').addClass('fancybox-lock-test');
-    //   var w2 = $(window).width();
-    //   $("<style type='text/css'>.fancybox-margin{margin-right:" + (w2 - w1) + "px;}</style>").appendTo("head");
-    // }else if($(".F_nav_box_forrwd").hide()){
-    //   $('body').removeClass('fancybox-lock-test');
-    // }
 
 
-    //點去其他地方
-    if ($(".F_nav_item").click()) {
-      $(".F_nav_box_forrwd").hide();
-    }
-    //如果被點開就往上
-    //this.clickHandle()
+
 
   }
 
@@ -80,6 +80,11 @@ class NavClick extends Component {
     this.nowHandle();
 
   }
+  componentDidUpdate = () => {
+    //一開始
+    this.nowHandle();
+  }
+
 
 
 

@@ -25,7 +25,7 @@ class Product_page extends Component {
       this.getAllProducts();
     }
     getProducts_brand() {
-      fetch("http://localhost:3000/api/products_brand/")
+      fetch("/api/products_brand/")
         .then(res => res.json())
         .then(data => {
           console.log(JSON.stringify(data));
@@ -36,7 +36,7 @@ class Product_page extends Component {
     }
   
     getAllProducts() {
-      fetch("http://localhost:3000/api/goods")
+      fetch("/api/goods")
         .then(res => res.json())
         .then(data => {
           // console.log(data)
@@ -47,7 +47,7 @@ class Product_page extends Component {
     }
   
     getCategoryProducts() {
-      fetch("http://localhost:3000/api/goods/:category")
+      fetch("/api/goods/:category")
         .then(res => res.json())
         .then(data => {
           // console.log(data)

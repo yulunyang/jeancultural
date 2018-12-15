@@ -11,9 +11,11 @@ class Cart extends Component{
     constructor(props){
         super(props);
         this.initState={
+            sid:"",
             good_name:"",
             material:"",
             size:"",
+            quantity:"",
             price:"",
             discount_price:"",
         }
@@ -33,10 +35,6 @@ class Cart extends Component{
         this.setState({
             [inputName]: inputValue
         });
-    };
-    onGoodsNumChange = (data)=>{
-        this.setState({goodsNum:data});
-        console.log(data) 
     };
     changeSelectHandler =(evt)=>{
         const discountCoupon = evt.target.value
@@ -65,33 +63,43 @@ class Cart extends Component{
         console.log(this.state);
         evt.preventDefault();
     };
-    componentDidMount() {
-        // this.getCartList();
-        // this.getCartContent();
+    getCartContent() {
+        fetch("/api/cart",{
+            method: 'GET',
+            mode: 'cors',
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            this.setState({
+                cart: data,
+                cartProducts: this.initState
+            })
+        })
     };
-    // getCartList() {
-    //     fetch("http://localhost/jeancultural/cart.php",{
-    //         credentials:"include"
-    //     })
-    //     .then(res => res.json())
-    //     .then(data=>{
-    //         console.log(data);
-    //         this.setState({
-    //             cart: data,
-    //             cartProducts: this.initState
-    //         })
-    //     })
-    // };
-    // getCartContent(data) {
-    //     fetch("http://localhost:3000/api/cart")
-    //     .then(res=>res.json())
-    //     .then(data =>{
-    //         this.setState({
-    //             cart: data,
-    //             cartList: this.initState
-    //       })
-    //     })
-    // };
+    cancelGood=(e)=>{
+        var itemSid = e.currentTarget.dataset.sid,
+            cancelItemSid = JSON.stringify({"sid": itemSid}),
+            cancelItem = e.currentTarget.parentNode;
+            cancelItem.parentNode.removeChild(cancelItem);  //刪除頁面上此商品
+
+        //刪除資料庫裡的此產品
+        fetch("/api/cart", {
+            method: 'DELETE',
+            mode: 'cors',
+            body: cancelItemSid,
+            headers: new Headers({
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            })
+        }).then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
+    };
+    componentDidMount=()=> {
+        this.getCartContent();
+    };
     render(){
         return(
         <React.Fragment>
@@ -111,7 +119,7 @@ class Cart extends Component{
                             </tr>
                         </thead>
                         <tbody>
-                        <Cart_content cart={this.state.cart} onGoodsNumChange={this.onGoodsNumChange}/>
+                        <Cart_content cart={this.state.cart} cancelGood={this.cancelGood}/>
                         </tbody>
                     </table>
                     <figure className="K_free_shipping">
@@ -156,7 +164,7 @@ class Cart extends Component{
                             <div className="K_total_pay">
                                 <div className="K_total_pay_detail">
                                     <h5>小計</h5>
-                                    <span>$2,270</span>
+                                    <span> </span>
                                 </div>
                                 <div className="K_total_pay_detail">
                                     <h5>運費</h5>

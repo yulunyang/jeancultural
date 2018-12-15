@@ -36,7 +36,7 @@ class Buy_items extends Component {
     this.getProducts_filter(sid);
   }
   getProducts_filter = (sid) => {
-    fetch("http://localhost:3000/api/goods_list/"+sid)
+    fetch("/api/goods_list/"+sid)
       .then(res => res.json())
       .then(Products_filter => this.setState({
         Products_filter:Products_filter,
@@ -46,7 +46,7 @@ class Buy_items extends Component {
   }
 
   getProducts_brand() {
-    fetch("http://localhost:3000/api/products_brand/")
+    fetch("/api/products_brand/")
       .then(res => res.json())
       .then(data => {
         console.log(JSON.stringify(data));
@@ -57,7 +57,7 @@ class Buy_items extends Component {
   }
 
   getAllProducts() {
-    fetch("http://localhost:3000/api/goods")
+    fetch("/api/goods")
       .then(res => res.json())
       .then(data => {
         // console.log(data)
@@ -68,7 +68,7 @@ class Buy_items extends Component {
   }
 
   getGoods_list = (sid) => {
-    fetch("http://localhost:3000/api/goods_list/"+sid)
+    fetch("/api/goods_list/"+sid)
       .then(res => res.json())
       .then(Goods_list => this.setState({
         Goods_list: Goods_list,
@@ -76,7 +76,7 @@ class Buy_items extends Component {
   }
 
   getCategoryProducts() {
-    fetch("http://localhost:3000/api/goods/:category")
+    fetch("/api/goods/:category")
       .then(res => res.json())
       .then(data => {
         // console.log(data)

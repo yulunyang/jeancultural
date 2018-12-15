@@ -45,7 +45,7 @@ class Nav extends Component {
             {/* 文字的nav */}
             <NavOld />
             <NavClick />
-            <NavRwd />
+            {/* <NavRwd /> */}
           </nav>
 
           <NavSmall />

@@ -8,8 +8,8 @@ var connection = mysql.createConnection({
   user:'root',
   password:'',
   database:'jeancultural',
-  // port:8889
 });
+
 // connection.connect();
 connection.connect(function(err) {
   if (err) {
@@ -34,11 +34,22 @@ router
        if (error) throw error;
        res.json({ message: "新增成功" });
     })
-  }); 
+  });
+
+
+// var _email= req.body.member_email;
+// connection.query("select * from members where member_email=?", _email,function(error){
+//   if (error) throw error;
+//   if (_email >=1){
+//     res.json({ message: "此帳號已被註冊" });
+//   }
+//  })
+
+
 router
   .route("/members/:id")
   .get(function(req, res) {
-    connection.query("select * from members where id=?", req.params.id,function(error,row){
+    connection.query("select * from members where sid=?", req.params.id,function(error,row){
       if(error) throw error;
       res.json(row);
     });
@@ -47,20 +58,17 @@ router
   .put(function(req, res) {//修改資料
        var _member = req.body;  
        var id = req.params.id;
-       connection.query("update members set ? where id=?",[_member, id],function(error){
+       connection.query("update members set ? where sid=?",[_member, id],function(error){
           if(error) throw error;
           res.json({ message: "修改成功" });
        })
 
   }) 
   .delete(function(req, res) {//刪除資料
-    connection.query("delete from members where id=?",req.params.id,function(error){
+    connection.query("delete from members where sid=?",req.params.id,function(error){
       if(error) throw error;
       res.json({ message: "刪除成功" });
     })
   }); 
-
-
-
 
 module.exports = router;

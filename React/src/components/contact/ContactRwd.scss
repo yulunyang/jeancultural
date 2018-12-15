@@ -8,28 +8,32 @@ $gray_color:#606060;
         width: 85%;
         overflow: hidden;
     }
-
     .F_left_contact,
     .F_right_contact {
         width: 90%;
         margin: 0 auto;
     }
-    .F_right_contact{
+    .F_right_contact {
         width: 70%;
-        margin-bottom: 100px; 
+        margin-bottom: 140px;
+    } //信大小
+    .F_mail_pic {
+        width: 100%;
+        top: -10%;
+        left: 0%;
     }
-    .F_left_contact_opacity{
+    .F_left_contact_opacity {
         left: 50%;
         transform: translateX(-50%);
         line-height: 40px;
-    } 
-    .F_left_contact{
+    }
+    .F_left_contact {
         text-align: center;
     }
     .F_left_contact h3 {
         margin: 50px auto;
     }
-    .F_contact_icon_box_inline{
+    .F_contact_icon_box_inline {
         display: inline-block;
         margin: auto
     }
@@ -38,6 +42,11 @@ $gray_color:#606060;
 //container
 @media screen and (max-width: 720px) {
     .F_left_contact_opacity {
-        opacity: 0;    
+        opacity: 0;
+    } //信大小
+    .F_mail_pic {
+        width: 110%;
+        top: 10%;
+        left: -3%;
     }
 }
