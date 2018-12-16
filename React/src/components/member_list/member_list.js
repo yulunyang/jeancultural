@@ -24,7 +24,7 @@ class Member_list extends Component {
                             </div>
                             <Order_list_form />
                             <div>
-                                <Link to="/order_list/order_list"> <p className="O_latest_order_p">查看更多訂單</p></Link>
+                                <Link to="/order_list"> <p className="O_latest_order_p">查看更多訂單</p></Link>
                             </div>
                             <div className="O_member_data_T">
                                 <h2>會員資料</h2>

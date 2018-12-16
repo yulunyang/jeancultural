@@ -3,6 +3,8 @@ var router = express.Router();
 var mysql = require("mysql");
 var session = require('express-session');
 
+const moment = require("moment")
+
 //建立連線
 var connection = mysql.createConnection({
   host:'localhost',
@@ -58,7 +60,8 @@ router
           req.session.spent=results[0].amount_spent;
           req.session.password=results[0].member_password;
 
-          res.json({ message: "登入成功"});
+          res.json({ message: "登入成功",session:req.session.login});
+          // res.json({message:req.session.address})
         } else{
           res.json({ message: "密碼錯誤"})
         }
@@ -67,7 +70,7 @@ router
 })
 
 
-//從session抓資料出來
+// 從session抓資料出來
 // .get(function(req, res) {
 //   if(req.session.sid){
 //     res.json({ message: req.session.sid})
@@ -77,12 +80,21 @@ router
 // })
 
 
-/* 使用者登出頁面. */
-// router.get('/logout', function(req, res, next) {
-//   req.session.login = false;
-//   res.json({ message: "登出成功"})
-//   res.end();
-// });
+/* 使用者登出頁面. */                                                       
+/* GET logout page. */
+router
+.route("/logout")
+.get(function(req,res){    // 到達 /logout 路徑則註銷， session清除
+  
+  req.session.destroy();
+  // console.log(req.session)
+  if(!req.session){
+    res.json({message:"登出成功"});
+    // res.redirect("/home");
+  }else{
+  res.json({message:"登出失敗，請重新嘗試"});}
+  
+});         
 
 
 /* 忘記密碼頁面. */

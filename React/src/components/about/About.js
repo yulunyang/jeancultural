@@ -18,7 +18,7 @@ class About extends Component {
             <React.Fragment>
                 <div className="F_customization_banner">
                     <figure className="F_about_banner_pic">
-                        <img src="images/brand/Wooderful Life-99s.jpg" alt="客製化banner" />
+                        <img src="images/brand/99s.jpg" alt="客製化banner" />
                     </figure>
                     <h2>關於我們
                 <br />
@@ -36,7 +36,7 @@ class About extends Component {
                         <div className="F_about_us">
                         <div className="F_about_pic_tipe_rwd"><img src="/images/brand_logo/LOGO_orange.svg" alt="關於我們膠帶" /></div>
                             <div className="F_about_pic_box">
-                                <div className="F_about_pic_top"><img src="/images/brand/Wooderful Life3.jpg" alt="關於我們主圖" /></div>
+                                <div className="F_about_pic_top"><img src="/images/life3.jpg" alt="關於我們主圖" /></div>
                                 <img className="F_about_pic_small" src="/images/brand/about_small_pic.png" alt="關於我們小圖" />
                                 <div className="F_about_pic_tipe"><img src="/images/brand_logo/LOGO_orange.svg" alt="關於我們膠帶" /></div>
                             </div>
@@ -60,9 +60,9 @@ class About extends Component {
                             <div className="F_brand_pic_box F_brand_pic_box_left">
                                 <div className="F_brand_pic F_brand_pic_left">
                                     <ul className="F_brand_pic_long_box">
-                                        <li><img src="/images/brand/Wooderful Life1.jpg" alt="照片1" /></li>
-                                        <li><img src="/images/brand/Wooderful Life2.jpg" alt="照片2" /></li>
-                                        <li><img src="/images/brand/Wooderful Life3.jpg" alt="照片3" /></li>
+                                        <li><img src="/images/life1.jpg" alt="1" /></li>
+                                        <li><img src="/images/life2.jpg" alt="2" /></li>
+                                        <li><img src="/images/life3.jpg" alt="3" /></li>
                                     </ul>
                                 </div>
                                 <ul className="F_brand_circle_all">

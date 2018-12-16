@@ -6,14 +6,60 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 class Member_data extends Component{
     constructor(props){
         super(props);
-   
+        this.initState = {
+            member_email:"",
+            member_name:"",
+            member_birthday: "",
+            member_mobile: "",
+            member_address: "",            
+        }
+        this.state = {
+            Memberinfo:[],
+            member_email:"",
+            member_name:"",
+            member_birthday: "",
+            member_mobile: "",
+            member_address: "",                    
+        }
     }
+
+    // showTime=()=>{
+        // var moment = require('moment');
+        // var date = moment().format("YYYY-MM-DD");
+        // var dd = document.getElementById("O_date");
+        // dd.innerHTML = date
+
+        // var ddd = this.state.member_birthday
+        // console.log(ddd)
+        
+    // }
+
+    getMemberinfo = () => {
+        fetch("/api/members/",{
+            method: 'GET',
+            mode: 'cors'
+        })
+          .then(res => res.json())
+          .then(Memberinfo => {
+            console.log(Memberinfo);
+            this.setState({
+                // Memberinfo: Memberinfo,
+                ...Memberinfo[0] 
+            });
+          });
+      };
+
+      componentDidMount=()=> {
+        this.getMemberinfo();
+        // this.showTime();
+        // console.log(this.state)
+    };
     
 
     render(){
         return(
             <React.Fragment>
-                
+          
                     <div className="O_member_info">
                         <ul>
                             <li>帳號</li>
@@ -23,15 +69,15 @@ class Member_data extends Component{
                             <li>聯絡地址</li>
                         </ul>
                         <ul>
-                            <li>ya123456@gmail.com</li>
-                            <li>王小名</li>
-                            <li>1978/09/25</li>
-                            <li>0987987987</li>
-                            <li>台北市大安區106復興南路一段390號2樓</li>
+                            <li>{this.state.member_email}</li>
+                            <li>{this.state.member_name}</li>
+                            <li id="O_date">{this.state.member_birthday}</li>
+                            <li>{this.state.member_mobile}</li>
+                            <li>{this.state.member_address}</li>
                         </ul>
-                        
+                        {/* <li id="O_date"><script type="text">{this.state.member_birthday}</script></li>*/}
                     </div>
-                    
+                <div><img src="images/O_grey.png" className="O_greyP"></img></div>
             </React.Fragment>
 
         )

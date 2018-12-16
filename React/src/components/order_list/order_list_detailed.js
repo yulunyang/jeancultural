@@ -7,8 +7,47 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 class Order_list_detailed extends Component{
     constructor(props){
         super(props);
-   
+        this.initState={
+            order_detail_sid:"",
+            order_number:"",
+            good_sid:"",
+            good_name:"",
+            price:"",
+            discount_price:"",
+            quantity:"",
+            member_sid:"",
+            total:""
+        }
+         this.state = {
+            detail:[],
+            details:this.initState
+         }
+        // this.order_detail = props.match.params.order_detail
     }
+
+    componentDidMount=()=> {
+        
+        let orderid = this.props.match.params.orderid
+        console.log(orderid)
+        this.getOrderListDetailed(orderid);
+        // console.log(this.state)
+    };
+
+    getOrderListDetailed=(orderid)=> {
+        
+        fetch("/api/orderList/"+orderid)
+        .then(res => res.json())
+        .then(detail => {
+            
+        console.log(detail);
+        this.setState({
+            detail: detail,
+            details:this.initState
+        });
+        })
+    };
+  
+
 
     render(){
         return(
@@ -24,7 +63,7 @@ class Order_list_detailed extends Component{
                                     <tr>
                                         <th>編號</th>
                                         <th>商品名稱</th>
-                                        <th></th>
+                                        <th>圖片</th>
                                         <th>單價</th>
                                         <th>折扣價</th>
                                         <th>數量</th>
@@ -32,41 +71,25 @@ class Order_list_detailed extends Component{
                                         
                                     </tr>
                                 </thead>
+                               
                                 <tbody>
+                                 {this.state.detail.map(detail=>
                                     <tr>
-                                        <td>1</td>
-                                        <td> <img src="/images/play_wood.jpg" className="O_order_detailed_img"></img> </td>
-                                        <td>雙旋上下動音樂鈴/DN三眼怪<br></br>商品編號:<br></br>H0000000001</td> 
-                                        <td>$1680</td>
-                                        <td>$1130</td>
-                                        <td>1</td>
-                                        <td>$1130</td>
+                                        <td>{detail.order_number}</td>
+                                        <td>{detail.good_name}</td>
+                                        <td>{}</td>
+                                        <td>{detail.price}</td>
+                                        <td>{detail.discount_price}</td>
+                                        <td>{detail.quantity}</td>
+                                        <td>{detail.total}</td>
                                         
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td> <img src="/images/play_wood.jpg" className="O_order_detailed_img"></img> </td>
-                                        <td>雙旋上下動音樂鈴/DN三眼怪<br></br>商品編號:<br></br>H0000000001</td> 
-                                        <td>$1680</td>
-                                        <td>$1130</td>
-                                        <td>1</td>
-                                        <td>$1130</td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td> <img src="/images/play_wood.jpg" className="O_order_detailed_img"></img> </td>
-                                        <td>雙旋上下動音樂鈴/DN三眼怪<br></br>商品編號:<br></br>H0000000001</td> 
-                                        <td>$1680</td>
-                                        <td>$1130</td>
-                                        <td>1</td>
-                                        <td>$1130</td>
-                                        
-                                    </tr>
+                                 )}
                                 </tbody>
+                                
                             </table>
                             <div className="O_order_detailed_count">                            
-                                <h3><div className="O_order_detailed_count_line"></div>訂單總額:$5750</h3>
+                                <h3><div className="O_order_detailed_count_line"></div>訂單總額:</h3>
                             </div>
                         </div>
                     </div>

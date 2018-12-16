@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 
 import './Cart_steps.scss';
+import $ from 'jquery';
 
 class  Cart_steps extends Component{
     constructor(props){
         super(props);
     };
+
     render(){
         return(
             <React.Fragment>

@@ -8,21 +8,25 @@ import Cart_info_creditcard from './Cart_info_creditcard.js';
 
 import './Cart_info.scss';
 import $ from 'jquery';
+import { parse } from 'uri-js';
 
 class Cart_info extends Component{
     constructor(props){
         super(props);
         this.state = {
             deliveryStore:{},
+            deliveryStoreState:"",
             deliveryHome:{},
+            deliveryHomeState:"",
             creditCard:{},
+            creditCardState:"",
             selectedOption:"paper",
             addressCountyReceipt:"Taipei",
             addressDistrict:"Daan district",
             address:"",
             tax_id:"",
             acceptChecked:false,
-            stepStyle2:true,
+            stepStyle2:true            
         };
     };
     optionChangeHandle = (evt)=>{
@@ -61,81 +65,223 @@ class Cart_info extends Component{
             acceptChecked: !this.state.acceptChecked
         });
     };
-    checkForm = ()=>{
-        // var errorMsg = document.querySelectorAll(".errorMsg"),
-        //     mobile_pattern = /^[09]{2}[0-9]{8}$/,
-        //     tax_id_pattern = /^\d{8}$/,
-        //     creditNum_pattern = /^\d{4}-\d{4}-\d{4}-\d{4}$/,
-        //     creditMonth_pattern = /^\d{2}$/,
-        //     creditYear_pattern = /^\d{2}$/,
-        //     creditCVC_pattern = /^\d{3}$/,
-        //     isPass = true;
-
-        // errorMsg.forEach(function(el){
-        //     el.style.display = "none";
-        // });
+    // checkForm = ()=>{
         
-        // if(! document.form2.userName.value){                   
-        //     errorMsg[0].style.display = "block"; 
-        //     isPass = false;
-        // };
+        // var 
+        // errorMsg = document.querySelectorAll(".errorMsg"),
+    //         mobile_pattern = /^[09]{2}[0-9]{8}$/,
+    //         tax_id_pattern = /^\d{8}$/,
+    //         creditNum_pattern = /^\d{4}-\d{4}-\d{4}-\d{4}$/,
+    //         creditMonth_pattern = /^\d{2}$/,
+    //         creditYear_pattern = /^\d{2}$/,
+    //         creditCVC_pattern = /^\d{3}$/,
+            // isPass = true;
 
-        // if(! mobile_pattern.test(document.form2.mobile.value)){                   
-        //     errorMsg[1].style.display = "block"; 
-        //     isPass = false;
-        // };
+    //     errorMsg.forEach(function(el){
+    //         el.style.display = "none";
+    //     });
         
-        // if(! document.form2.receipt.value){                   
-        //     errorMsg[1].style.display = "block";
-        //     isPass = false; 
-        // };
+    //     if(! document.form2.userName.value){                   
+    //         errorMsg[0].style.display = "block"; 
+    //         isPass = false;
+    //     };
 
-        // if(! document.form2.address.value){                   
-        //     errorMsg[3].style.display = "block"; 
-        //     isPass = false;
-        // };
-
-        // if(! tax_id_pattern.test(document.form2.tax_id.value)){                   
-        //     errorMsg[4].style.display = "block"; 
-        //     isPass = false;
-        // };
-
-        // if(! document.form2.creditName.value){                   
-        //     errorMsg[5].style.display = "block"; 
-        //     isPass = false;
-        // };
+    //     if(! mobile_pattern.test(document.form2.mobile.value)){                   
+    //         errorMsg[1].style.display = "block"; 
+    //         isPass = false;
+    //     };
         
-        // if(! creditNum_pattern.test(document.form2.creditNum.value)){                   
-        //     errorMsg[6].style.display = "block"; 
-        //     isPass = false;
-        // };
+    //     if(! document.form2.receipt.value){                   
+    //         errorMsg[1].style.display = "block";
+    //         isPass = false; 
+    //     };
 
-        // if(! creditMonth_pattern.test(document.form2.creditMonth.value)){                   
-        //     errorMsg[7].style.display = "block"; 
-        //     isPass = false;
-        // };
+    //     if(! document.form2.address.value){                   
+    //         errorMsg[3].style.display = "block"; 
+    //         isPass = false;
+    //     };
 
-        // if(! creditYear_pattern.test(document.form2.creditYear.value)){                   
-        //     errorMsg[8].style.display = "block"; 
-        //     isPass = false;
-        // };
+    //     if(! tax_id_pattern.test(document.form2.tax_id.value)){                   
+    //         errorMsg[4].style.display = "block"; 
+    //         isPass = false;
+    //     };
 
-        // if(! creditCVC_pattern.test(document.form2.creditCVC.value)){                   
-        //     errorMsg[9].style.display = "block"; 
-        //     isPass = false;
-        // };
+    //     if(! document.form2.creditName.value){                   
+    //         errorMsg[5].style.display = "block"; 
+    //         isPass = false;
+    //     };
+        
+    //     if(! creditNum_pattern.test(document.form2.creditNum.value)){                   
+    //         errorMsg[6].style.display = "block"; 
+    //         isPass = false;
+    //     };
 
-        // if(!document.form2.check.checked){
-        //     errorMsg[10].style.display = 'block';
-        //     isPass = false;
-        // }
+    //     if(! creditMonth_pattern.test(document.form2.creditMonth.value)){                   
+    //         errorMsg[7].style.display = "block"; 
+    //         isPass = false;
+    //     };
+
+    //     if(! creditYear_pattern.test(document.form2.creditYear.value)){                   
+    //         errorMsg[8].style.display = "block"; 
+    //         isPass = false;
+    //     };
+
+    //     if(! creditCVC_pattern.test(document.form2.creditCVC.value)){                   
+    //         errorMsg[9].style.display = "block"; 
+    //         isPass = false;
+    //     };
+
+    //     if(!document.form2.check.checked){
+    //         errorMsg[10].style.display = 'block';
+    //         isPass = false;
+    //     }
     
     //    return isPass;
-    };
+    // };
+
+    //回上一頁
+    backPage= (evt)=>{
+        evt.preventDefault();
+    }
+
+    //確認配送方式
+    checkDeliveryWay=()=>{
+        if(sessionStorage.session_deliveryWayVal === "宅配"){
+            this.state.deliveryStoreState = false;
+            this.state.deliveryHomeState = true;
+        }else{
+            this.state.deliveryStoreState = true;
+            this.state.deliveryHomeState = false;
+        }
+    }
+
+    //確認付款方式
+    checkPayWay=()=>{
+        
+        if(sessionStorage.session_payWayVal === "線上付款"){
+            this.state.creditCardState = true;
+        } else{
+            this.state.creditCardState = false;
+        }       
+    }
+    //建立訂單
     submitHandle = (evt)=>{
-        console.log(this.state);
-        evt.preventDefault();   
+        
+        evt.preventDefault();
+        var isPass = true;  
+        var mobile = document.getElementById("mobile").value
+        if ($(mobile).length == 0){
+            isPass=false;
+            $("#mobile_lab").addClass("O_error");
+            $("#store_mobile_lab").addClass("O_error");
+            $("#mobile").focus();
+            
+            
+        }else{
+            $("#mobile_lab").removeClass("O_error");
+            $("#mobile").blur();
+            isPass = true
+        }
+        var userName = document.getElementById("userName").value
+        if ($(userName).length == 0){
+            isPass=false;
+            $("#name_lab").addClass("O_error");
+            $("#store_name_lab").addClass("O_error");
+            $("#userName").focus();
+            
+        }else{
+            $("#name_lab").removeClass("O_error");
+            $("#userName").blur();
+            
+        }
+        var address = document.getElementById("address").value
+        if ($(address).length == 0){
+            isPass=false;
+            $("#address_lab").addClass("O_error");
+            $("#address").focus();
+            
+        }else{
+            $("#address_lab").removeClass("O_error");
+            $("#address").blur();
+            
+        }    
+        var addressCR = document.getElementById("addressCountyReceipt").value
+        if ($(addressCR).length == 0){
+            isPass=false;
+            $("#YA").addClass("O_error");
+            $("#address").focus();
+            
+        }else{
+            
+            $("#YA").removeClass("O_error");
+            $("#address").blur();
+            
+        }    
+        
+
+
+
+        
+
+        if($("#acceptChecked").attr('checked')){
+            isPass=true
+        }else{
+            
+            isPass = false;
+            alert("請閱讀知音文創服務條款和隱私權政策，並勾選");
+            
+        }
+            
+        if(isPass==true){
+            
+        let cart = JSON.parse(sessionStorage.session_cart),        
+            orderList = JSON.stringify({
+            "quantity": sessionStorage.session_cartNum,
+            "deliveryWay": sessionStorage.session_deliveryWayVal,
+            "couponNum": sessionStorage.session_couponNum,
+            "couponCost": sessionStorage.session_couponCost,
+            "payWay": sessionStorage.session_payWayVal,
+            "total": sessionStorage.session_finalCost,
+            "cart": cart
+        })
+        console.log(orderList)
+        
+        fetch("/api/order", { // 新增訂單與訂單內容
+            method: 'POST',
+            mode: 'cors',
+            body: orderList,               
+            headers: new Headers({
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            })
+        })
+        .then(res => res.json())
+        .then(sessionStorage.clear())   //清除session資料
+        .then(data => {
+            console.log(data.cartListSid)
+            sessionStorage.setItem("cartListSid",data.cartListSid)            
+        })
+        .then(console.log(this.state.cartListSid))
+        .then(document.location.href="/cart/Cart_success")
+        
+        // evt.preventDefault();  
+    } 
     };
+
+    
+
+
+
+
+    componentDidMount=()=> {
+    }
+    componentDidUpdate=()=> {
+    };
+    componentWillMount=()=> {
+        this.checkDeliveryWay();
+        this.checkPayWay(); 
+    };
+
     render(){
         return(
             <React.Fragment>
@@ -146,8 +292,8 @@ class Cart_info extends Component{
                             <h3>訂購資料</h3>
                             <div className="K_line_cart_info"></div>
                             <form name="form2" onSubmit= {this.submitHandle} >
-                                <Cart_info_delivery_home onDeliveryHomeChange={this.changeNameHandler_deliveryHome}/>
-                                {/* <Cart_info_delivery_store onDeliveryStoreChange={this.changeNameHandler_deliveryStore}/> */}
+                                <Cart_info_delivery_home onDeliveryHomeChange={this.changeNameHandler_deliveryHome} deliveryHomeState={this.state.deliveryHomeState}/>
+                                <Cart_info_delivery_store onDeliveryStoreChange={this.changeNameHandler_deliveryStore} deliveryStoreState={this.state.deliveryStoreState}/>
                                 <div className="K_line_cart_info"></div>
                                 <div className="K_form-group_cart_info">
                                     <label htmlFor="receipt">發票資訊</label>
@@ -174,7 +320,7 @@ class Cart_info extends Component{
                                     <span className="errorMsg">請選擇發票資訊</span> 
                                 </div>
                                 <div className="K_form-group_cart_info addressReceipt">
-                                    <label htmlFor="addressCountyReceipt">中獎發票寄送地址</label>
+                                    <label htmlFor="addressCountyReceipt" id="YA">中獎發票寄送地址</label>
                                     
                                     <select id="addressCountyReceipt" name="addressCountyReceipt"
                                     value={this.state.addressCountyReceipt} onChange={this.changeNameHandler}>
@@ -200,7 +346,7 @@ class Cart_info extends Component{
                                 </div>
                                 <h4>核准文號：北區國稅北縣三字第1000002660號，電子發票說明。</h4>
                                 <h4>依統一發票使用辦法規定：發票一經開立不得任意更改或改開發票。</h4>
-                                <Cart_info_creditcard onCreditCardChange={this.changeNameHandler_creditCard}/>
+                                <Cart_info_creditcard onCreditCardChange={this.changeNameHandler_creditCard} creditCardState={this.state.creditCardState}/>
                                 <div className="K_form-group_cart_info">
                                     <input type="checkbox" id="acceptChecked" name="acceptChecked"
                                     defaultChecked={this.state.acceptChecked}
@@ -217,9 +363,9 @@ class Cart_info extends Component{
                                     <br/>如發現惡意取消訂單達三次者，本公司將停止提供您的預訂服務。
                                 </p>
                                 <div className="K_cart_info_btn">
-                                    <button><Link to="/cart">重選付款方式</Link></button>
-                                    <button type="submit" onClick={this.checkForm}>確認訂購</button>
-                                    {/* <button type="submit"><Link to="/cart/Cart_success">確認訂購</Link></button> */}
+                                    <button onClick={this.backPage}><Link to="/cart">重選付款方式</Link></button>
+                                    <button type="submit" id="K_button" onClick={this.submitHandle}>確認訂購</button>
+                                    {/* <Link to="/cart/Cart_success"></Link> */}
                                 </div>
                             </form>
                         </div>

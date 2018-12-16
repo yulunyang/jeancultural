@@ -6,22 +6,16 @@ $gray_color: #606060;
   width: $w;
   height: $h;
 }
-// *{
-//   border: #606060 1px solid;
-// }
 .T_buy_items_banner {
   height: 350px;
   text-align: center;
-  color: #fff;
+  color: #fff ;
   letter-spacing: 5px;
 }
 .T_buy_items_banner_pic {
   width: 100%;
-  height: 350px;
   overflow: hidden;
   position: absolute;
-  top: 0;
-  left: 0;
   z-index: -1;
 }
 .T_buy_items_banner_pic img {
@@ -69,26 +63,35 @@ $gray_color: #606060;
 }
 .T_shop_all {
   width: 100%;
+  padding-bottom: 8%;
 }
+
 //商品篩選器↓
 .T_products_select_box {
-  border: $orange_color 1px solid;
-  position: absolute;
-  left: 18%;
+  border: solid 1px $orange_color;
+  display: flex;
+  justify-content: space-around;
+  color: $orange_color;
+  width: 300px;
+  overflow: hidden;
+  left: 8%;
   border-radius: 1em 1em 1em 1em;
-  top: 6%;
+  margin-top: 5%;
 }
-.T_products_select_list {
-  text-align: center;
-  font-weight: 600;
-  width: 40px;
-  float: right;
-  padding: 5px 6px 5px 6px;
-  color: $gray_color;
-}
-.T_products_select_box .T_products_select_list:hover {
-  background: $orange_color;
+.T_products_select {
   cursor: pointer;
+  width: 33%;
+  height: 25px;
+  text-align: center;
+  border-right: solid 1px #eee;
+}
+.T_products_select.T_products_select_click {
+  background-color: $orange_color;
+  color: #fff;
+}
+.T_products_select:hover {
+  background-color: $orange_color;
+  color: #eee;
 }
 //側邊選單
 .T_products_sidemenu {
@@ -100,141 +103,94 @@ $gray_color: #606060;
   display: block;
   padding: 5px;
   color: #e27b0c;
-  // border-bottom: 1px solid transparent;
-  // transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   font-size: 1.2rem;
 }
-.T_sidemenu_list_li{
+.T_sidemenu_list_li a {
   line-height: 2rem;
   color: $gray_color;
 }
-.T_sidemenu_list_li:hover {
+.T_sidemenu_list_li a:hover {
   padding: 5px;
   color: #fff;
   background: $orange_color;
 }
-
 //商品
 .T_product_all {
   padding-top: 5%;
   display: flex;
   width: 80%;
   flex-wrap: wrap;
-  justify-content: center; 
-} 
+  justify-content: center;
+}
 .T_product_body {
   margin: 15px 20px;
   cursor: pointer;
   width: 250px;
 }
-
-.T_item_pic.T_item_box_choice {
-  border: solid 10px #eee;
-  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, .1);
-}
-
 .T_product_pic {
   overflow: hidden;
-  
 }
-.T_item_pic_item{
-  height: 230px;
+.T_Product_text {
 }
-
-.T_item_pic img {
-  width: 100%;
-  object-fit: cover;
-}
-
-.T_item_pic_filter_img.T_item_pic_filter_img_click {
-  filter: brightness(.4);
-}
-
-.T_Product_name{
+.T_Product_name {
   color: $gray_color;
-  line-height: 14px;
-  margin: 50px auto 0px;
-  padding: 0 5px;
-}
-.T_which_box{
-  line-height: 24px;
-}
-
-.T_how_long{
-  padding: 0 20px;
 }
 .T_Product_price {
-  font-size: 20px;
+  color: rgb(138, 136, 136);
+  text-decoration: line-through;
+  line-height: 1.5rem;
+}
+.T_Product_sele {
+  color: #e95c6a;
+  font-size: 18px;
   display: flex;
+  line-height: 1rem;
 }
 
 //頁碼
-.T_pages_items_box {
+.T_page_main {
   display: flex;
-}
-.T_page_items_list {
-  justify-content: center;
+  width: 100%;
+  justify-content: space-around;
+  align-items: flex-start;
   margin: 0 auto;
-  width: 15%;
+  padding-top: 3%;
 }
-.T_page_item {
-  font-size: 1.5rem;
-  padding: 10px;
-  display: inline-flex;
-  width: 10px;
-  text-align: center;
-}
-.T_page_item a {
+
+.T_page {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   color: $gray_color;
 }
-.T_page_item a:hover {
-  color: $orange_color;
+.T_page a {
+  color: $gray_color;
 }
 
+.T_page li {
+  float: left;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: $gray_color;
+  cursor: pointer;
 
-//pages-Pagination
-.T_page_main{
-  display: flex;
-  width:100%;
-  justify-content:space-around;
-  align-items:flex-start;
-}
-
-.T_page{
-  list-style: none;
-  padding:0;
-  margin:0;
-}
-.T_page li{
-      float:left;
-      width:30px;
-      height:30px;
-      border:1px solid #e6e6e6;
-      text-align: center;
-      line-height: 30px;
-      color:#333;
-      cursor:pointer;
-
-      &:first-of-type,&:last-of-type{
-          width:auto;
-          padding:0 5px;
-      }
-
-      &:first-of-type{
-          margin-right:10px;
-      }
-
-      &:last-of-type{
-          margin-left:10px;
-      }
-
-      &::selection {
-          background-color: transparent;
-      }
+  &:first-of-type,
+  &:last-of-type {
+    width: auto;
+    padding: 0 5px;
   }
 
-.active{
-  color: $gray_color;
-  border-bottom: 3px solid $orange_color;
-}
+  &:first-of-type {
+    margin-right: 10px;
+  }
 
+  &:last-of-type {
+    margin-left: 10px;
+  }
+
+  &::selection {
+    background-color: transparent;
+  }
+}

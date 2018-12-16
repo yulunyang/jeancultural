@@ -4,25 +4,47 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import cookie from 'react-cookies'
 import $ from 'jquery';
 
+import ReactDOM from "react-dom";
+import ReCAPTCHA from "react-google-recaptcha";
+
+
+const SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";//別人測試用
+// const SITE_KEY = "6LcFWIEUAAAAANVT1aHwTvPuNFRf9t6h3WHw8ht3";//自己不能用
+// const secret_key= "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe";
+
+
 class Sign_in_member extends Component {
     constructor(props) {
         super(props);
         this.state = { 
             member_email:"",
             member_password:"",
+            login:""
+            // callback: "not fired",
         }
-        
+        this._reCaptchaRef = React.createRef();
     }
     
 
+
+    // --------Captcha涵式
+    Captcha_handleChange = value => {
+        console.log("Captcha value:", value);
+        this.setState({ value });
+    };
+
+    // asyncScriptOnLoad = () => {
+    //     this.setState({ callback: "called!" });
+    //     console.log("scriptLoad - reCaptcha Ref-", this._reCaptchaRef);
+    // };
+
+
+
+
+    // ----------按下登入按鈕
     check_Member = (evt) =>{
         evt.preventDefault();
         console.log(this.state)
-        // var email = this.state.member_email;
-        // console.log(email)
-        // var password = this.state.member_password;
-        //  console.log(password)
-        // var userData = JSON.stringify({ "member_email": email, "member_password": password });
         var userData = JSON.stringify(this.state);
         console.log(userData);
 
@@ -39,11 +61,20 @@ class Sign_in_member extends Component {
         .then(data => {
             if(data.message=="登入成功"){
                 alert(data.message)
+                $(".F_nav_item_icon_member").addClass("F_go_login")  //人像出現
+                $(".F_icon_logout").addClass("F_logouting")  //登出字出現
+                $(".F_icon_login").addClass("F_logining")  //登入字消失
+                $(".F_icon_registered").addClass("F_logining")  //註冊字消失
+                // console.log(data.session)
                 this.props.history.push("/home");
+                // document.location.href="/home";---失敗
             }else{
+                
                 alert(data.message)
+               
             }
         })
+      
     }
 
 
@@ -85,15 +116,25 @@ class Sign_in_member extends Component {
                                  placeholder="&nbsp;&nbsp; Password 請輸入密碼" name="member_password"
                                  value={this.state.member_password} onChange={this.onChange} />
 
-                                <input type="text" id="Verification_code" className="O_form-control O_input"
-                                 placeholder="&nbsp;&nbsp;Verification_code 請輸入驗證碼" name="Verification_code"  />
+                                {/* <input type="text" id="Verification_code" className="O_form-control O_input"
+                                 placeholder="&nbsp;&nbsp;Verification_code 請輸入驗證碼" name="Verification_code"  /> */}
 
                                 <br></br>
-                                <button className="O_sign_in_form_left_btn">驗證碼</button>
-                                <div className="O_checkbox">
+                                <ReCAPTCHA
+                                    style={{ display: "inline-block" }}
+                                    theme="light"
+                                    ref={this._reCaptchaRef}
+                                    sitekey={SITE_KEY}
+                                    // secretkey={secret_key}
+                                    onChange={this.Captcha_handleChange}
+                                    // asyncScriptOnLoad={this.asyncScriptOnLoad}
+                                />
+                                <br></br>
+                                <br></br>
+                                {/* <div className="O_checkbox">
                                     <input type="checkbox" className="O_checkbox_input"></input>
-                                    <label for="remember" className="O_checkbox_label">記住我</label>
-                                </div>
+                                    <label htmlFor="remember" className="O_checkbox_label">記住我</label>
+                                </div> */}
 
                                 <button type="click" className="O_sign_btn" onClick={this.check_Member}>立即登入</button>
 
@@ -116,7 +157,7 @@ class Sign_in_member extends Component {
                                 </p>
                                 <br></br>
                                 <div className="O_sign_up_btn">
-                                    <Link to="buy_item"> <button className="O_register_btn"><img src="./images/play-button.svg"></img> 前往購物</button></Link>
+                                    <Link to="buy_items_list"> <button className="O_register_btn"><img src="./images/play-button.svg"></img> 前往購物</button></Link>
                                     <br></br>
                                     <br></br>
                                     <Link to="add_member"><button className="O_register_btn"><img src="./images/play-button.svg"></img> 立即註冊</button></Link> 

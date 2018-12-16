@@ -21,6 +21,7 @@ var products_brandRouter = require("./routes/products_brand");
 var goods_listRouter = require("./routes/goods_list");
 //鄒
 var cartRouter = require("./routes/cart");
+var orderRouter = require("./routes/order");
 //君
 var sessionRouter = require('./routes/session');
 var membersRouter = require('./routes/members');
@@ -43,9 +44,7 @@ app.use(cors({
 app.use(session({
     secret:"jeanculturl",
     resave: true,
-    saveUninitialized: true,
-    duration: 24 * 60 * 60 * 1000,
-    activeDuration: 1000 * 60 * 5
+    saveUninitialized: true
 }));
 
 app.use(logger('dev'));
@@ -68,6 +67,7 @@ app.use("/api", products_brandRouter);
 app.use("/api", goods_listRouter);
 //鄒
 app.use("/api", cartRouter);
+app.use("/api", orderRouter);
 //君
 app.use('/api', sessionRouter);
 app.use('/api', membersRouter);

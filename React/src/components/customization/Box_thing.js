@@ -27,7 +27,7 @@ class Box_thing extends Component {
     }
 
     getCustomthing() {
-        fetch("http://localhost:3000/api/customthing")
+        fetch("/api/customthing")
             .then(res => res.json())
             .then(customthing => {
                 //console.log(customthing)

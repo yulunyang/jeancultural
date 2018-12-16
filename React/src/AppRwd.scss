@@ -36,10 +36,13 @@ $gray_color:#606060;
         margin: auto;
         text-align: center;
     }
-    .F_nav_item:hover {
+    // .nav-link_text:hover {
+    //     background: url(./components/images/background.png)repeat 0 0 !important;
+    // } 
+    
+    .F_nav_item.hover{
         background: url(./components/images/background.png)repeat 0 0 !important;
     } 
-    
     //icon
     .F_nav_icon{
         margin:auto; 

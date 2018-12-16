@@ -26,6 +26,8 @@ router.route("/goods").get(function(req, res) {
   });
 });
 
+
+
 //產品分類
 // router.route("/goods/:category").get(function(req, res) {
 //   connection.query("select * from goods where category =?", 

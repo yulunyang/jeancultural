@@ -79,6 +79,13 @@ class Nav extends Component {
       $(".F_step_green_box1").css("backgroundColor", "#879d4d");
     })
 
+    //hover{
+      $(".nav-link_text").hover(function(){
+        $(".F_nav_item").removeClass("hover")
+        $(this).parents(".F_nav_item").addClass("hover")
+      },function(){
+        $(".F_nav_item").removeClass("hover")
+      })
 
   }
   componentDidUpdate = () => {

@@ -1,19 +1,60 @@
 import React, { Component } from 'react';
 import "./order_list_form.scss";
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import $ from 'jquery';
 
 
 
+// var moment = require('moment');
+// var now = moment().format('LL');
 class Order_list_form extends Component{
     constructor(props){
         super(props);
-   
+       
+        this.state = {
+            orders:[],
+            // details:[],
+            url:""
+        }
     }
     
 
+
+    componentDidMount=()=> {
+        this.getOrderList();
+        
+    };
+    
+
+    
+    getOrderList=()=> {
+        
+        fetch("/api/orderList/",{
+            method: 'GET',
+            mode: 'cors'
+        })
+        .then(res => res.json())
+        .then(orders => {
+            // console.log(data);
+        // console.log(orders[0]);
+            this.setState({
+                orders:orders,
+            
+                ...orders[0]       //將資料展開丟入表格           
+            })
+        })
+    };
+
+    
+    
+
+    
+
     render(){
+
         return(
             <React.Fragment>
+                 
                 <div className="O_latest_order">
                     <table className="O_latest_order_table">
                         <thead>
@@ -29,39 +70,24 @@ class Order_list_form extends Component{
                             </tr>
                         </thead>
                         <tbody>
+                        {this.state.orders.map(orders =>
                             <tr>
-                                <td className="O_latest_order_table_td">1</td>
-                                <td className="O_latest_order_table_td">2018/08/27<br></br>11:48:30</td>
-                                <td className="O_latest_order_table_td_a"><Link to="/order_list_detailed"> HA00000003</Link></td> 
-                                <td className="O_latest_order_table_td">$1480</td>
-                                <td className="O_latest_order_table_td">信用卡付款</td>
-                                <td className="O_latest_order_table_td">3</td>
-                                <td className="O_latest_order_table_td">2018/08/27<br></br>11:48:30<br></br> <u>訂單處理中</u> </td>
-                                
+                                <td className="O_latest_order_table_td" >{orders.sid}</td>
+                                <td className="O_latest_order_table_td" name="order_at" >{orders.order_at}</td>
+                                <td className="O_latest_order_table_td_a" name="sid" ><Link to={`/order_list/${orders.sid}`}> {orders.sid} </Link></td> 
+                                <td className="O_latest_order_table_td" name="total" >{orders.total}</td>
+                                <td className="O_latest_order_table_td"name="payWay" >{orders.payWay}</td>
+                                <td className="O_latest_order_table_td"name="quantity" >{orders.quantity}</td>
+                                <td className="O_latest_order_table_td"name="Processing_status">{orders.Processing_status}</td>
+                                 
                             </tr>
-                            <tr>
-                                <td className="O_latest_order_table_td">2</td>
-                                <td className="O_latest_order_table_td">2018/09/08<br></br>21:26:40</td>
-                                <td className="O_latest_order_table_td_a"><Link to="/order_list_detailed"> HA00000003</Link></td> 
-                                <td className="O_latest_order_table_td">$2880</td>
-                                <td className="O_latest_order_table_td">信用卡付款</td>
-                                <td className="O_latest_order_table_td">5</td>
-                                <td className="O_latest_order_table_td">2018/09/09<br></br>10:28:35<br></br> <u>訂單處理中</u> </td>
-                                
-                            </tr>
-                            <tr>
-                                <td className="O_latest_order_table_td">3</td>
-                                <td className="O_latest_order_table_td">2018/10/17<br></br>17:06:17</td>
-                                <td className="O_latest_order_table_td_a"><Link to="/order_list_detailed"> HA00000003</Link></td> 
-                                <td className="O_latest_order_table_td">$480</td>
-                                <td className="O_latest_order_table_td">信用卡付款</td>
-                                <td className="O_latest_order_table_td">1</td>
-                                <td className="O_latest_order_table_td">2018/10/17<br></br>21:48:30<br></br> <u>訂單處理中</u> </td>
-                                
-                            </tr>
+                        )}
                         </tbody>
                     </table>
+                   
                 </div>
+            
+                
             </React.Fragment>
 
         )

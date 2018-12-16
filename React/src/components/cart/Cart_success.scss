@@ -24,13 +24,12 @@ $lightgray_color:#eeeeee;
 .go_shopping_btn{   
     margin: 0px auto 100px auto;
     font-size: 20px;
-    color: $orange_color;
     border: 1px solid $orange_color;
     border-radius: 5px;
     cursor: pointer;
     padding: 20px 24px;
     background-color: #fff;
 }
-.go_shopping_btn :visited{
+.go_shopping_btn :link, .go_shopping_btn :visited, .go_shopping_btn :active{
     color: $orange_color;
 }

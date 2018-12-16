@@ -21,6 +21,8 @@ class Sticky extends Component {
                     "買一點廢廢萌萌的小東西放在桌上吧~",
                     "嗚嗚嗚嗚嗚嗚嗚嗚嗚",
                     "我覬覦你的錢包",
+                    "人生好難，debug好累",
+                    "請給我工作(伸手",
                     "開玩笑啦~");
 
                 ar.sort(function (a, b) {

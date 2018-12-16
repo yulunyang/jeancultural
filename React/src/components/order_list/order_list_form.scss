@@ -63,3 +63,52 @@ $white_color: #EEEEEE;
     .O_latest_order_table_td_a a:hover:after {
     width: 100%;
     }
+
+
+    .O_page_main {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        align-items: flex-start;
+        margin: 0 auto;
+        padding-top: 3%;
+      }
+      
+      .O_page {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color: $gray_color;
+      }
+      .O_page a {
+        color: $gray_color;
+      }
+      
+      .O_page li {
+        float: left;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #e6e6e6;
+        text-align: center;
+        line-height: 30px;
+        color: $gray_color;
+        cursor: pointer;
+      
+        &:first-of-type,
+        &:last-of-type {
+          width: auto;
+          padding: 0 5px;
+        }
+      
+        &:first-of-type {
+          margin-right: 10px;
+        }
+      
+        &:last-of-type {
+          margin-left: 10px;
+        }
+      
+        &::selection {
+          background-color: transparent;
+        }
+      }

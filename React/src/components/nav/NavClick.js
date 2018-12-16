@@ -67,6 +67,13 @@ class NavClick extends Component {
         $(".F_three_line2").removeClass("F_three_line2_click");
         $(".F_three_line3").removeClass("F_three_line3_click");
       })
+      $(".F_nav_logo").click(function (e) {
+        $(".F_nav_box").removeClass("height");
+        //一開始
+        $(".F_three_line1").removeClass("F_three_line1_click");
+        $(".F_three_line2").removeClass("F_three_line2_click");
+        $(".F_three_line3").removeClass("F_three_line3_click");
+      })
     })
 
 

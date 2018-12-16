@@ -26,8 +26,8 @@ class Order_VIP extends Component{
                         <tbody>
                             <tr>
                                 <td>目前等級</td>
+                                <td><img src="./images/crown.svg"></img></td>
                                 <td></td>
-                                <td> <img src="./images/crown.svg"></img> </td>
                                 <td></td>
                             </tr>
                             <tr>

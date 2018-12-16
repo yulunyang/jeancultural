@@ -10,26 +10,73 @@ $gray_color: #606060;
   width: 85%;
   margin: auto;
 }
-.T_product_box {
+//商品
+.T_jn_product_box {
   width: 100%;
   display: flex;
 }
-//商品
-.T_product_pic {
-  width: 90%;
-  padding-top: 10%;
+.T_back_icon {
+  width: 100%;
+  color: $darkgreen_color;
+  font-size: 25px;
+  margin-top: 10%;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.T_jn_product_big_body {
+  flex-wrap: wrap-reverse;
+  margin-top: 20px;
+  width: 80%;
+  height: 600px;
+  background-color: #fff;
+  border-radius: 30px;
+  border-top: 30px solid $orange_color;
+  border-bottom: 30px solid $orange_color;
+  overflow-y: scroll;
+}
+.T_jn_product_big_body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: $darkgreen_color;
+}
+.T_jn_product_big_body::-webkit-scrollbar {
+  border-radius: 50%;
+}
+.T_jn_product_big_body::-webkit-scrollbar {
+  width: 15px;
+  height: 10px;
+  background-color: #fff;
+}
+.T_jn_product_body {
+  width: 80%;
+  padding: 5%;
+  margin: 0 auto;
+}
+.T_jn_product_pic {
+  width: 100%;
+}
+.T_jn_mainpic_dir {
+  width: 100%;
+  object-fit: cover;
+  padding-top: 10px;
 }
 .T_product_pic img {
   width: 100%;
   object-fit: cover;
 }
+.T_jn_secondpic_dir {
+  width: 100%;
+  object-fit: cover;
+  padding-top: 15px;
+}
+.T_jn_product_about_text {
+  color: $gray_color;
+}
 //商品細節
 .T_product_type {
-  padding-top: 8%;
-  width: 50%;
+  width: 48%;
 }
 .T_product_logo {
-  width: 30%;
+  width: 40%;
   object-fit: cover;
   margin: 0 auto;
 }
@@ -54,9 +101,6 @@ $gray_color: #606060;
   color: $gray_color;
   text-align: left;
   font-size: 15px;
-}
-.T_product_price {
-  margin-top: 10px;
 }
 .T_product_describe hr {
   margin-top: 10px;
@@ -86,29 +130,70 @@ $gray_color: #606060;
 .T_product_select_quantity {
   padding: 10px;
 }
+.T_product_select_amount_P {
+  color: $gray_color;
+  font-size: 0.9rem;
+  margin-right: 10px;
+  letter-spacing: 0.1rem;
+}
+
 .T_product_select_size,
 .T_product_select_amount {
   width: 40%;
   color: $gray_color;
+  margin-top: 3%;
 }
 .T_product_add {
   display: flex;
   margin: 10px;
 }
 .T_product_add_cart,
-.T_product_add_likes {
+.T_product_add_buy {
   background: none;
   border-radius: 10%;
   border: 1px solid $gray_color;
   padding: 8px;
   color: $gray_color;
-  margin-right: 20px;
+  margin-right: 10px;
+}
+.T_product_add_likes {
+  font-size: 25px;
+  color: #888484;
+}
+.T_product_add_likes:hover {
+  font-size: 25px;
+  -webkit-text-fill-color: #e95c6a;
 }
 .T_product_add_cart:hover,
-.T_product_add_likes:hover {
+.T_product_add_buy:hover {
   background: $orange_color;
   color: #fff;
   border: none;
+}
+//商品寄送資訊
+.T_product_send {
+  width: 100%;
+  display: flex;
+  vertical-align: bottom;
+}
+.T_product_send_p {
+  color: $gray_color;
+  justify-items: initial;
+}
+.T_product_send_icon {
+  width: 20px;
+  padding: 5px;
+}
+.T_product_about_send {
+  width: 100%;
+}
+.T_product_send_text {
+  color: $gray_color;
+}
+.T_product_send_pay {
+  color: $gray_color;
+  font-size: 13px;
+  line-height: 1rem;
 }
 //商品資訊
 .T_about_productbox {
@@ -116,14 +201,16 @@ $gray_color: #606060;
   height: 500px;
   margin: 0 auto;
   overflow: hidden;
+  margin-top: 5%;
 }
- .T_product_tabs li {
+.T_product_tabs li {
   display: inline-flex;
-  background: #fff;
+  background: transparent;
   cursor: pointer;
   border-radius: 5px 5px 0 0;
-  padding:2px 4px 1px 4px;
+  padding: 2px 4px 1px 4px;
   margin-right: 10px;
+  color: $gray_color;
 }
 .T_about_product_words {
   margin-top: 10px;
@@ -136,9 +223,6 @@ $gray_color: #606060;
   width: 300px;
   height: 200px;
   border-radius: 5%;
-}
-.T_product_tabs1 {
-  background-color: $gray_color;
 }
 .T_product_tabs.T_product_tabs_click {
   background-color: $gray_color;

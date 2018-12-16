@@ -71,7 +71,7 @@ class App extends Component {
             {/* 購物清單//購物細節//購物車步驟2-3*/}
             <Route exact path="/Pag_items_list/:sid" component={Buy_items} />
             <Route path="/buy_items_list" component={Buy_items_list} />
-            <Route path="/Product_page/:productid" component={Product_page} />
+            <Route path="/Product_page/:product_id" component={Product_page} />
             {/* 最新消息和玩玩的部分*/}
             <Route path="/news" component={News} />
             <Route path="/play" component={Play} />

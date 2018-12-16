@@ -6,6 +6,7 @@ class Pag_items extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // Discount_price:[],
       goods: [],
       totalPage: 0,
       currentPage: 1,
@@ -59,6 +60,7 @@ class Pag_items extends Component {
   }
   componentDidMount() {
     this.getProducts(1);
+    // this.getDiscount_price();
   }
   componentDidUpdate() {
     $("ul li.active").removeClass('active');
@@ -77,7 +79,6 @@ class Pag_items extends Component {
           totalPage: Math.ceil(goods.TotalCount / this.state.perPage), //計算出總共幾頁
           currentPage: page
         })
-
         //計算 prev next 按鈕是否出現
         this.setState({isNextBtnActive: 'disabled'});
         this.setState({isPrevBtnActive: 'disabled'});
@@ -141,17 +142,17 @@ class Pag_items extends Component {
       renderNextBtn = <li className="T_page-item"><a className="T_page-link" href='#' id="btnNext" onClick={this.btnNextClick}> 》 </a></li>
     }
     return (
+      <React.Fragment>
+      <ul className="T_products_select_box">
+      <li className="T_products_select T_products_select1">價格</li>
+      <li className="T_products_select T_products_select2" >最新</li>
+      <li className="T_products_select T_products_select3" >熱銷</li>
+      <li className="T_products_select T_products_select4" >預設</li>
+     </ul> 
       <div className="T_product_all">
-     
-        {/* <div className="T_product_all"> */}
-          {this.state.goods.map(goods =>
-            // <div className="page">
-            //   <div className="card-body">
-            //   <img src={require(`./images/${goods.mainpic_dir}`)} alt="商品圖" />
-            //   </div>
-            // </div>
-     <div className="T_product_body"> 
-
+           {/* {this.state.Discount_price.map(Discount_price =>  */}
+          {this.state.goods.map(goods =>     
+         <div className="T_product_body" >    
             {/* 連結到商品內頁*/}
           <Link className="00" to={(`/Product_page/${goods.sid}`)}>
           <div className="T_product_pic" 
@@ -160,28 +161,26 @@ class Pag_items extends Component {
           <img src={require(`./images/${goods.mainpic_dir}`)} alt="商品圖" />
           </div></Link>  
 
-          <div className="T_Product_name">
-               <div className="T_which_box">
-               <p className="T_which_box_name" data-sid={goods.price}>{goods.good_name}</p>
-               </div><br/>
-               <div className="T_Product_price">NT$
-               <p className="T_how_much_pay" id="T_how_much_pay" data-sid={goods.sid}>{goods.price}</p>
-               </div>
-          </div>
+          <div className="T_Product_text"> 
+               <p className="T_Product_name" data-sid={goods.price}>{goods.good_name}</p>
+               <p className="T_Product_price" data-sid={goods.price}>${goods.price}</p>
+               <div className="T_Product_sele">NT$
+               <p className="T_how_much_pay" id="T_how_much_pay" data-sid={goods.sid}>{goods.discount_price}</p>
+               </div>               
+          </div>    
      </div> 
-          )}
-
-        {/* </div> */}
-        <nav aria-label="T_page_main">
-          <ul className="T_page">
-            {renderPrevBtn}
-            {pageDecrementBtn}
-            {renderPageNumbers}
-            {pageIncrementBtn}
-            {renderNextBtn}
-          </ul>
-        </nav>
+      )}  
+     <nav className="T_page_main">
+     <ul className="T_page">
+       {renderPrevBtn}
+       {pageDecrementBtn}
+       {renderPageNumbers}
+       {pageIncrementBtn}
+       {renderNextBtn}
+       </ul>
+       </nav>    
       </div>
+      </React.Fragment>
     );
   }
 }

@@ -48,7 +48,7 @@ $gray_color:#606060;
     align-items: center;
 }
 .F_nav_icon {
-    margin: 0px 30px 0 100px;
+    margin: 0px 30px 0 200px;
 }
 .F_nav_item{
     display: inline-block;
@@ -282,7 +282,8 @@ $gray_color:#606060;
 }
 
 //記得個別把標籤名提取出來
-.nav-link_icon.F_logining {
+.F_nav_item_icon.F_logining {
+    overflow: hidden;
     display: none;
 }
 

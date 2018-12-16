@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import $ from 'jquery';
 
 
+
 class Add_member extends Component{
     constructor(props){
         super(props);
@@ -36,11 +37,19 @@ class Add_member extends Component{
         var pwd1 = document.getElementById("member_password").value;
         var pwd2 = document.getElementById("member_password2").value;
         var chk_passwordf = document.getElementById("chk_password");
-
+        
+              
 
         var errorMsg = document.querySelectorAll(".O_errorMsg"),
             errorMail = document.querySelector(".O_errorMsg_mail2"),
+            errorMobile = document.querySelector(".O_errorMsg_mobile2"),
             isPass = true;
+
+        var email = document.getElementById('email').value;
+        var emailRegxp = /^([\w]+)(.[\w]+)*@([\w]+)(.[\w]{2,3}){1,2}$/;
+        // var emailRegxp =/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([az]{2,6}(?:\.[a-z]{2})?)$/i;
+        var phone = document.getElementById('mobile').value;
+        var mobileRegxp =/^09\d{8}$/;
 
         errorMsg.forEach(function(el){
             el.style.display = "none";
@@ -50,7 +59,14 @@ class Add_member extends Component{
             
             errorMsg[0].style.display = "inline-block"; 
             isPass = false;
+        }else if(emailRegxp.test(email) != true){
+            errorMail.style.display = "inline-block"; 
+            isPass = false;
+        }else{
+            errorMsg[0].style.display = "none"; 
+            errorMail.style.display = "none"; 
         }
+
         if(!document.O_form_1.name.value){
             
             errorMsg[1].style.display = "inline-block"; 
@@ -63,13 +79,15 @@ class Add_member extends Component{
             isPass=true;
         }
         if(!document.O_form_1.member_password2.value){
-            
             errorMsg[3].style.display = "inline-block"; 
             isPass = false;
         }
         if(pwd1 !== pwd2) 
          {  chk_passwordf.style.display = "inline-block"; 
             isPass=false;
+        }else{
+            chk_passwordf.style.display = "none";
+            isPass=true;
         }
       
 
@@ -77,14 +95,28 @@ class Add_member extends Component{
            
             errorMsg[4].style.display = "inline-block"; 
             isPass = false;
+        }else if(mobileRegxp.test(phone) != true){
+            errorMobile.style.display = "inline-block"; 
+            isPass = false;
+        }else{
+            errorMsg[4].style.display = "none"; 
+            errorMobile.style.display = "none";
         }
 
-        var email = document.getElementById('email').value;
-        var emailRegxp = /^([\w]+)(.[\w]+)*@([\w]+)(.[\w]{2,3}){1,2}$/;
-            if (emailRegxp.test(email) != true){
-                errorMail.style.display = "inline-block"; 
-                isPass = false;
-	    }
+        // var email = document.getElementById('email').value;
+        // var emailRegxp = /^([\w]+)(.[\w]+)*@([\w]+)(.[\w]{2,3}){1,2}$/;
+        //     if (emailRegxp.test(email) != true){
+        //         errorMail.style.display = "inline-block"; 
+        //         isPass = false;
+        // }
+        // var phone = document.getElementById('mobile').value;
+        // var mobileRegxp =/^09\d{8}$/;
+        //     if(mobileRegxp.test(phone) != true){
+        //         errorMobile.style.display = "inline-block"; 
+        //         isPass = false;
+        //     }
+
+
         // return isPass;
         
         if (isPass) {
@@ -128,12 +160,13 @@ class Add_member extends Component{
                         <h2 className="O_emailSignUpT">電子郵件註冊</h2>
                         <div >
                             <form className="O_form_big" name="O_form_1">
+                            <h2>*號為必填項目</h2>
                                 <div className="O_form" >
                                     <label className="O_label" htmlFor="email">*電子郵件</label>
                                     <input type="email" id="email" className="form-control O_input" name="member_email" value={this.state.member_email}
                                     placeholder="&nbsp;&nbsp;請輸入電子郵件"  onChange={this.changeNameHandler}/>
                                     <span className="O_errorMsg O_errorMsg_email">&nbsp;&nbsp;&nbsp;&nbsp;請輸入正確電子郵件</span> 
-                                    <span className="O_errorMsg_mail2" id="O_errorMsg_email2">&nbsp;&nbsp;&nbsp;&nbsp;電子郵件格式不正確</span> 
+                                    <span className="O_errorMsg_mail2" id="O_errorMsg_email2">&nbsp;&nbsp;&nbsp;&nbsp;電子郵件格式不正確，請輸入包含@之電子郵件</span> 
 
                                 </div>          
                                 <div className="O_form">
@@ -157,7 +190,7 @@ class Add_member extends Component{
                                 </div>
                                 <div className="O_form_data">
                                     <label className="O_label" htmlFor="birthday">&nbsp;生日</label>
-                                    <input type="date" id="member_birthday" name="member_birthday" className="form-control O_input"
+                                    <input type="date" id="member_birthday"  name="member_birthday" className="form-control O_input"
                                      value={this.state.member_birthday} onChange={this.changeNameHandler} />
                                 </div>
                                 <div className="O_form_data">
@@ -165,6 +198,7 @@ class Add_member extends Component{
                                     <input type="mobile" id="mobile" className="form-control O_input" name="member_mobile" value={this.state.member_mobile}
                                     placeholder="&nbsp;&nbsp;請輸入手機"onChange={this.changeNameHandler}/>
                                     <span className="O_errorMsg">&nbsp;&nbsp;&nbsp;&nbsp;請輸入正確手機號碼</span>
+                                    <span className="O_errorMsg_mobile2" id="O_errorMsg_mobile2">&nbsp;&nbsp;&nbsp;&nbsp;手機格式不正確，請輸入包含09開頭之10碼</span> 
 
                                 </div>
                                 <div className="O_form_data">

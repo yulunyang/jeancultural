@@ -32,19 +32,19 @@ class CardBox extends Component {
                         <div className="F_buy_car_title">配件:</div>
                         <div className="F_buy_car_details">
                             <p className="F_number F_number_item F_number_item_1" id="F_number_item_1"></p>
-                            <p className="F_hidden_qty1"></p>
+                            <p className="F_hidden_qty F_hidden_qty1"></p>
                             <p className="F_pay F_pay_item F_pay_item_1" id="F_pay_item_1"></p>
                             <p className="F_del F_del_item F_del_item_1" id="F_del_item_1" ></p>
                         </div>
                         <div className="F_buy_car_details">
                             <p className="F_number F_number_item F_number_item_2" id="F_number_item_2"></p>
-                            <p className="F_hidden_qty2"></p>
+                            <p className="F_hidden_qty F_hidden_qty2"></p>
                             <p className="F_pay F_pay_item F_pay_item_2" id="F_pay_item_2"></p>
                             <p className="F_del F_del_item F_del_item_2" id="F_del_item_2" ></p>
                         </div>
                         <div className="F_buy_car_details">
                             <p className="F_number F_number_item F_number_item_3" id="F_number_item_3"></p>
-                            <p className="F_hidden_qty3"></p>
+                            <p className="F_hidden_qty F_hidden_qty3"></p>
                             <p className="F_pay F_pay_item F_pay_item_3" id="F_pay_item_3"></p>
                             <p className="F_del F_del_item F_del_item_3" id="F_del_item_3" ></p>
                         </div>
@@ -83,35 +83,33 @@ class CardBox extends Component {
 
         } else {
 
-            $(".F_buy_car_details").each(function (n) {
+            // $(".F_buy_car_details").each(function (n) {
 
-                let sid = $(this).find(".F_number").text();
-                console.log("sid:" + sid)
-                var myList = JSON.stringify({ "sid": sid });
+                // let sid = $(this).find(".F_number").text();
+                // console.log("sid:" + sid)
+            var List = JSON.stringify({ "sid": 1000, "qty": 1 });
 
-                fetch("http://localhost/jeancultural/cart.php", {
-                    method: 'POST',
-                    mode: 'cors',
-                    body: myList,
-                    headers: new Headers({
-                        "Content-Type": "text/plain",
-                        "Accept": "application/json"
-                    })
-                }).then(res => res.json())
-                    .then(data => {
-                        console.log(data)
-                    })
-            })
+            fetch("/api/cart", {
+                method: 'POST',
+                mode: 'cors',
+                body: List,               
+                headers: new Headers({
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                })
+            })  .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                })
+            // })
+            console.log("確認一下:" + myList)
+            $(".F_number").text("");
+            $(".F_pay").text("");
+            $(".F_del").text("");
+            $(".F_hidden_qty").text("")
+            localStorage.clear();
+            alert('加到購物車');
         }
-
-        //console.log("確認一下:" + myList)
-        //$(".F_number_box").text("");
-        // $(".F_pay").text("");
-        // $(".F_del").text("");
-        //alert('加到購物車');
-        //     var qty = $(this).find("p:nth(2)").next().text();
-        //     var myList = JSON.stringify({ "sid": sid, "qty": qty });
-
     }
     // handleClick() {
     //     $(".c-dropdown__list>li").first().remove();

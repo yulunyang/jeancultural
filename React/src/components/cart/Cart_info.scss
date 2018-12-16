@@ -79,7 +79,7 @@ $lightgray_color:#eeeeee;
     padding: 10px;
     margin: 0 100px;
 }
-.K_cart_info_btn button :visited{
+.K_cart_info_btn button :link,.K_cart_info_btn button :visited,.K_cart_info_btn button :active{
     color: #fff;
 }
 .K_line_cart_info{
@@ -99,3 +99,35 @@ $lightgray_color:#eeeeee;
 .tax_id{
     display: none;
 }
+
+.K_step_show{
+    display: block;
+}
+.K_step_hidden{
+    display: none;
+}
+
+.O_error{
+    color: #ff0000;
+
+}
+.O_no{
+    color: $gray_color;
+    box-shadow:none;
+    border:none;
+}
+#mobile:focus,#userName:focus,#address:focus{
+    outline: none !important;
+    border:1px solid red;
+    box-shadow: 0 0 5px red;
+}
+// #userName:focus{
+//     outline: none !important;
+//     border:1px solid red;
+//     box-shadow: 0 0 5px red;
+// }
+// #address:focus{
+//     outline: none !important;
+//     border:1px solid red;
+//     box-shadow: 0 0 5px red;
+// }

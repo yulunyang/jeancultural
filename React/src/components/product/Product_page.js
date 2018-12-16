@@ -1,155 +1,214 @@
 import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
-import "./Product_pag.scss"
-import $ from 'jquery';
+import "./Product_pag.scss";
+import $ from "jquery";
 
 class Product_page extends Component {
   constructor(props) {
     super(props);
-      this.initState = {
-        Brand: "",
-        parent_sid: "",
-        level: ""
-      };
-  
-      this.state = {
-        products_brand: [],
-        product_all: []
-        // product_test: []
-        // products_brand: this.initState,
-        // type: "add"
-      };
-    }
-    componentDidMount() {
-      this.getProducts_brand();
-      this.getAllProducts();
-    }
-    getProducts_brand() {
-      fetch("/api/products_brand/")
-        .then(res => res.json())
-        .then(data => {
-          console.log(JSON.stringify(data));
-          this.setState({
-            Products_brand: data
-          });
+
+    this.getProduct_items(this.props.match.params.product_id);
+    this.state = {
+      Product_items: []
+    };
+    console.log("constructor：" + this.props.match.params.product_id);
+  }
+
+  getProduct_items = sid => {
+    fetch("/api/goods_contnet/" + sid)
+      .then(res => res.json())
+      .then(Product_items => {
+        console.log(Product_items);
+        this.setState({
+          Product_items: Product_items
         });
-    }
-  
-    getAllProducts() {
-      fetch("/api/goods")
-        .then(res => res.json())
-        .then(data => {
-          // console.log(data)
-          this.setState({
-            product_all: data
-          });
-        });
-    }
-  
-    getCategoryProducts() {
-      fetch("/api/goods/:category")
-        .then(res => res.json())
-        .then(data => {
-          // console.log(data)
-          this.setState({
-            product_all: data
-          });
-        });
-    }
+      });
+  };
+
+
+//   fetch("/api/cart", {
+//     method: 'POST',
+//     mode: 'cors',
+//     body: myList,               
+//     headers: new Headers({
+//         "Content-Type": "application/json",
+//         "Accept": "application/json"
+//     })
+// }).then(res => res.json())
+//     .then(data => {
+//         console.log(data)
+//     })
+// });
+//  goBuyCard(){
+//   var sid = ;
+//   var qty = ;
+//   var myList = JSON.stringify({ "sid": sid, "qty": qty });
+//   console.log(myList)
+
+
+
+//  }
+
+  goBack(){
+    window.history.back();
+  }
+
+
   render() {
     return (
       <React.Fragment>
-        <div className="T_container">
-        <div className="T_product_box">
-        <div className="T_product_pic">
-        {/* <img src={require(`./images/${ct.mainpic_dir}`)} alt="商品圖" /> */}
-        </div>
-        {/* 商品圖↑ */}
-        <div className="T_product_type">
-        <div className="T_product_logo">
-        <img className="T_product_logo img" src="/images/toropic/funtape_logo.jpg"alt="Funtape"/>
-        </div>
-        <p className="T_product_titles">
-        知音文創｜100選色紙膠帶<br/>
-        全色系 X 100捲各一入</p>
-        <div className="T_product_describe">
-            <p className="T_product_text">知音文創｜100選色 ‧ 個人的色彩學
-               ［100種顏色紙膠帶］<br /> 
-                100種色彩的心理<br/>
-                100種 生活的模樣<br/>
-                100種 收藏的欲望<br/>
-                It Is Your COLOR<br/>
-                That Determines Your Altitude
-            </p>
-            <h3 className="T_product_price"> NT$<span>3000</span></h3>
-            <hr/>
-            <div className="T_product_select_color">
-            <button className="T_product_select_color coloritem1" />
-            <button className="T_product_select_color coloritem2" />
-            <button className="T_product_select_color coloritem3" />
-            </div>
-            <div className="T_product_select_quantity">
-            <select className="T_product_select_size">
-              <option className="T_product_select_size1" value="30*150">30*150</option>
-              <option className="T_product_select_size2" value="35*150">35*150</option>
-              <option className="T_product_select_size3" value="40*150">40*150</option>
-            </select>
-            <select className="T_product_select_amount">
-            <option className="T_product_select_amount1" value={Number}>1</option>
-            <option className="T_product_select_amount2" value={Number}>2</option>
-            <option className="T_product_select_amount3" value={Number}>3</option>
-            </select>
-            </div>
-      {/* 加入購物車按鈕 */}
-            <div className="T_product_add">
-            <button class="T_product_add_cart" type="submit" data-price="3000">加入購物車</button>
-            <button class="T_product_add_likes" type="submit" data-price="3000">加入購物清單</button>
-            </div>
-      </div>
-         {/* 商品資訊 */}
-          <div className="T_about_productbox">
-              <ul class="T_product_tabs">
-	          		<li class="T_product_tabs T_product_tabs1">商品規格</li>
-		          	<li class="T_product_tabs T_product_tabs2">詳細說明</li>
-	           		<li class="T_product_tabs T_product_tabs3">素材產地</li>
-	          	</ul>
-                     <div className="T_product_tab_container">
-                        <ul className="T_tab_content">
-                             <li><p className="T_about_product_words">
-                             【紙膠帶注意事項】 <br /> 因膠可能會損壞物品表面，請在黏貼前先作重複黏貼的測試
-                              ‧可使用有機溶劑清理物品表面的殘膠 ‧請勿黏貼於貴重物品
-                              ‧建議使用鉛筆或油性筆書寫 【退換貨須知】
-                              購買前請確實瞭解退換貨說明，以保障您的權益。 購物說明頁面
-                             http://www.pcstore.com.tw/balagogo/HM/payinfo.htm
-                             </p></li>
-                             <li> <p className="T_about_product_words">
-                                   因拍攝及螢幕會產生些微色差，故圖片僅供參考，
-                                   顏色請以實際收到的商品為準。
-                            </p></li>
-                             <li><p className="T_about_product_words">
-                             素材產地 / Taiwan 加工產地 / Taiwan</p></li>
-                        </ul>
-                     </div>                             
-          </div>
-               
-            </div>
-          </div>
+        <div className="T_container">         
+          <p className="T_back_icon" onClick={this.goBack}>
+          <i class="fas fa-angle-double-left"></i>回商品列表</p>
+
+          {this.state.Product_items.map(Product_items => (
+            <div className="T_jn_product_box">
+              <div className="T_jn_product_big_body">
+                <div className="T_jn_product_body">
+                  <div className="T_jn_product_pic">
+                    <img className="T_jn_mainpic_dir"src={require(`../buy_items/images/${ Product_items.mainpic_dir}`)}alt="商品圖"/>
+                  </div>
+
+                  {/* 判斷類別顯示次要圖片 */}
+                  { Product_items.category === 4|| Product_items.category === 5 || Product_items.category === 6 || Product_items.category === 7?
+                   <img className="T_jn_secondpic_dir"src={require(`../buy_items/images/${ Product_items.secondpic_dir }`)} alt="次商品圖"/> 
+                  :
+                  <span></span>
+                  }
+
+                 <div className="T_jn_product_about_text" dangerouslySetInnerHTML={{__html: Product_items.description}}/>
+                 </div>
+              </div>
+         
+            <div className="T_product_type">
+                <div className="T_product_logo">
+                <img className="T_product_logo img" src={require(`../buy_items/images/${Product_items.brand}`)}alt="商品Logo"/>
+                </div>
+                <p className="T_product_titles">{Product_items.good_name}</p>
+                <div className="T_product_describe">
+                <p className="T_product_text" dangerouslySetInnerHTML={{__html: Product_items.narrative}}/>
+                <p className="T_Product_price">{Product_items.price}</p>
+                <div className="T_Product_sele">NT$ {Product_items.discount_price}</div>
+                <hr/>
+ 
+                {/* 判斷類別選色 */}
+                { Product_items.category === 4|| Product_items.category === 5 ?
+                  <div className="T_product_select_color">
+                  <button className="T_product_select_color coloritem1" />
+                  <button className="T_product_select_color coloritem2" />
+                  <button className="T_product_select_color coloritem3" />
+                  </div>
+                  :
+                  <span></span>               
+                  }
+             
+                  {/* 判斷類別選尺寸 */}  
+                  { Product_items.category === 4|| Product_items.category === 5 ?
+                
+                  <div className="T_product_select_quantity">
+                    <span className="T_product_select_amount_P">尺寸</span>
+                    <select className="T_product_select_size">
+                      <option className="T_product_select_size1" value="30*150">30*150</option>
+                      <option className="T_product_select_size2" value="35*150">35*150</option>
+                      <option className="T_product_select_size3" value="40*150">40*150</option>
+                    </select>
+                  </div>
+                  :
+                  <span></span>
+                  }
+                    <span className="T_product_select_amount_P">數量</span>
+                    <select className="T_product_select_amount">
+                    <option className="T_product_select_amount1" value={Number}>1</option>
+                    <option className="T_product_select_amount2" value={Number}>2</option>
+                    <option className="T_product_select_amount3" value={Number}>3</option>
+                    </select>
+                  
+
+                  {/* 加入購物車按鈕 */}
+                   <div className="T_product_add">
+                   <button class="T_product_add_cart" type="submit" onClick={this.goBuyCard}>   
+                   加入購物車
+                   </button>
+                   <button className="T_product_add_buy"type="submit"data-pay={Product_items.discount_price}>
+                   立即購買
+                   </button>
+                   <div className="T_product_add_likes" type="submit" data-pay={Product_items.discount_price}>
+                   <i class="fas fa-heart"/>
+                   </div>
+                  </div>
+
+
+                  <ul className="T_product_send">
+                      <li className="T_product_send_p">
+                      <h4>付款與運送 </h4>
+                      </li>
+                      <li className="T_product_send_li">
+                      <img className="T_product_send_icon" src="/images/send/familymart.jpg" alt="物流icon"/>
+                      </li>
+                      <li className="T_product_send_li">
+                      <img  className="T_product_send_icon"src="/images/send/seveneleven.jpg" alt="物流icon"/>
+                      </li>
+                      <li className="T_product_send_li">
+                      <img className="T_product_send_icon" src="/images/send/icon_deliver_home_v2.svg" alt="物流icon"/>
+                      </li>
+                  </ul>
+                  <hr />
+
+
+                  <div className="T_product_about_send">
+                     <h4 className="T_product_send_text">付款方式: </h4>
+                      <p className="T_product_send_pay">
+                      超商取貨付款．貨到付款．信用卡一次付款
+                      </p>
+                      <h4 className="T_product_send_text">運送方式: </h4>
+                      <p className="T_product_send_pay">
+                      全家取貨付款60元，7-11取貨付款60元
+                      <br />
+                      黑貓哥哥送到家，每筆150元
+                      <br />
+                      滿3000元(含以上)免運費喔~
+                      </p>
+                  </div>
+
+                </div>
+                {/* 商品資訊 */}
+                <div className="T_about_productbox">
+                  <ul class="T_product_tabs">
+                    <li class="T_product_tabs T_product_tabs1">商品規格</li>
+                    <li class="T_product_tabs T_product_tabs2">詳細說明</li>
+                    <li class="T_product_tabs T_product_tabs3">素材產地</li>
+                  </ul>    
+
+                <div className="T_product_tab_container">
+                  <ul className="T_tab_content">
+                    <li>
+                      <p className="T_about_product_words">{Product_items.size}</p>
+                    </li>
+                    <li>
+                      <p className="T_about_product_words"dangerouslySetInnerHTML={{__html: Product_items.items}}/>
+                    </li>
+                    <li>
+                      <p className="T_about_product_words"dangerouslySetInnerHTML={{ __html: Product_items.material }}/>
+                    </li>
+                 </ul>
+                </div>
+
+              </div>
+           </div>
+           </div>
+          ))}
         </div>
       </React.Fragment>
- );
+    );
+  }
 
-}
-componentDidMount = () => {
-         //商品內容頁籤
-    $(".T_product_tabs li").click(function () {
-        var slide = 0;
-        slide = $(this).index();
-        var width = 0 - 320 * slide + "px";
-        $(this).parent().siblings(".T_product_tab_container").children(".T_tab_content").css("left", width);
-      
-        $(this).siblings().css("backgroundColor","transparent")
-        .end().css("backgroundColor","#e8aa67").css("color","#fff");
+  componentDidMount = () => {
+    //商品內容頁籤
+    $(document).on("click", "li.T_product_tabs", function() { var slide = 0; slide = $(this).index();
+     var width = 0 - 320 * slide + "px"; 
+     $(this).parent().siblings(".T_product_tab_container").children(".T_tab_content").css("left", width);
+     $(this).siblings().css("backgroundColor", "transparent").css("color", "#606060").end().css("backgroundColor", "#e8aa67").css("color", "#fff");
     });
-}
+  };
 }
 export default Product_page;

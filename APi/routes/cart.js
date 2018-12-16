@@ -25,7 +25,7 @@ router
         var m_id = req.session.m_sid,   //會員sid
             sql_1 = "select * from goods where sid=? and on_sale=1",
             sql_2 = "select * from cart where good_sid=?",
-            sql_3 = "insert into cart (member_sid, good_sid, good_name, material, size, quantity, price, discount_price) values ?",
+            sql_3 = "insert into cart (member_sid, good_sid, product_id,good_name, material, size, quantity, price, discount_price) values ?",
             sid = req.body.sid,
             qty = req.body.qty ? req.body.qty : 0;
 
@@ -34,7 +34,7 @@ router
             if (results.length==0){
                 res.json({ message: "資料庫沒有這個產品" });
             } else{
-                var cart = [[m_id, sid, results[0].good_name, results[0].material, results[0].size,
+                var cart = [[m_id, sid, results[0].product_id, results[0].good_name, results[0].material, results[0].size,
                     qty, results[0].price, results[0].discount_price]];
 
                 connection.query(sql_3,[cart],function(error,results){
