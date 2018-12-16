@@ -55,7 +55,7 @@ class CardBox extends Component {
                     </div>
                     <div className="F_button_box">
                         <div className="F_button F_putin" onClick={this.goBuyCard}>加入購物車</div>
-                        <div className="F_button F_put_likes">加入最愛</div>
+                        <div className="F_button F_put_likes" onClick={this.delete}>刪除全部</div>
                     </div>
 
                 </div>
@@ -102,7 +102,7 @@ class CardBox extends Component {
                     console.log(data)
                 })
             // })
-            console.log("確認一下:" + myList)
+           
             $(".F_number").text("");
             $(".F_pay").text("");
             $(".F_del").text("");
@@ -111,35 +111,19 @@ class CardBox extends Component {
             alert('加到購物車');
         }
     }
-    // handleClick() {
-    //     $(".c-dropdown__list>li").first().remove();
-    //     var myList = [];
-    //     $(".c-dropdown__list>li").each(function (n) {
-
-    //         var sid = $(this).find("p:first").text();
-    //         var qty = $(this).find("p:nth(2)").next().text();
-    //         var myList = JSON.stringify({ "sid": sid, "qty": qty });
-    //         console.log(myList)
-
-    //         // var data = JSON.stringify({"sid":"7","qty":"2"})
-    //         fetch("http://localhost/jeancultural/cart.php", {
-    //             method: 'POST',
-    //             mode: 'cors',
-    //             body: myList,
-    //             headers: new Headers({
-    //                 "Content-Type": "text/plain",
-    //                 "Accept": "application/json"
-    //             })
-    //         }).then(res => res.json())
-    //             .then(data => {
-    //                 console.log(data)
-    //             })
-    //     });
-    //     $(".c-dropdown__list>li").remove();
-    //     alert('加到購物車');
-
-    // }
-
+    
+    //刪除全部
+    delete(){
+        $(".F_number").text("");
+            $(".F_pay").text("");
+            $(".F_del").text("");
+            $(".F_hidden_qty").text("")
+            localStorage.clear();
+            alert('刪除所有東西!');
+            $(".F_item_pic").removeClass("F_item_box_choice")
+            $(".F_buy_button").removeClass("F_buy_button_check");
+    }
+    
     //刪除
     delClick() {
         $(".F_del_item").click(function () {
