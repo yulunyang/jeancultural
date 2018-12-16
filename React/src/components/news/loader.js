@@ -8,9 +8,9 @@ $(function () {
         if ($(".Y_news_box:hidden").length == 0) {
             $("#Y_more").fadeOut('slow');
         }
-        $('html,body').animate({
-            scrollTop: $(this).offset().top
-        }, 2500);
+        // $('html,body').animate({
+        //     scrollTop: $(this).offset().top
+        // }, 2500);
     });
 });
 

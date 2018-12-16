@@ -35,7 +35,7 @@ class News extends Component{
         this.getNews();
     }
     getNews() {
-        fetch("/api/news")
+        fetch("http://localhost:3000/api/news")
             .then(res => res.json())
             .then(news => this.setState({ 
                 news: news,

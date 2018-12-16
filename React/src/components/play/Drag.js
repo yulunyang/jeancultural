@@ -32,7 +32,7 @@ class Drag extends Component{
       
             for(var i=0,max=items.length;i<max;i++){
                 items[i].addEventListener("dragstart",function(evt){
-                    console.log('dragstart:', evt.target, evt.currentTarget);
+                    // console.log('dragstart:', evt.target, evt.currentTarget);
                     window.dragTarget = evt.currentTarget;
                     evt.dataTransfer.setData("text/plain", evt.target.id);   
                     
@@ -42,7 +42,7 @@ class Drag extends Component{
                 
             }
 
-            var zones =  document.querySelectorAll("#tab-content-1");
+            var zones =  document.querySelectorAll(".tab-drop");
             for(var i=0,max=zones.length;i<max;i++){
                 zones[i].addEventListener("dragover",function(evt){
                     evt.preventDefault();    

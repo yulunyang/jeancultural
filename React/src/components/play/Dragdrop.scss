@@ -103,48 +103,63 @@ padding:0 15px;
 /*頁籤變換&第一筆*/
 #tab-1:target ~ #tab > ul li a[href$="#tab-1"] {
 background: #879d4d;
-// width:100px;
 color: white;
 box-shadow:5px 10px rgba(20%,20%,40%,0.5);
 }
 
 #tab-2:target ~ #tab > ul li a[href$="#tab-2"] {
 background: #F7AC1D;
-// width:100px;
 color: white;
 box-shadow:5px 10px rgba(20%,20%,40%,0.5);
 }
 
 #tab-3:target ~ #tab > ul li a[href$="#tab-3"] {
 background: #EE777B;
-// width:100px;
 color: white;
 box-shadow:5px 10px rgba(20%,20%,40%,0.5);
 }
 #tab-4:target ~ #tab > ul li a[href$="#tab-4"] {
 background: #606060;
-// width:100px;
 color: white;
 box-shadow:5px 10px rgba(20%,20%,40%,0.5);
 }
-
-/*頁籤內容顯示&第一筆*/span ~ #tab > div:first-of-type,
+// #tab-1:target ~ #tab > ul li a[href$="#tab-1"] {
+//     background: #879d4d;
+//     color: white;
+//     box-shadow:5px 10px rgba(20%,20%,40%,0.5);
+//     }
+    
+//     #tab-2:target ~ #tab > ul li a[href$="#tab-2"] {
+//     background: #F7AC1D;
+//     color: white;
+//     box-shadow:5px 10px rgba(20%,20%,40%,0.5);
+//     }
+    
+//     #tab-3:target ~ #tab > ul li a[href$="#tab-3"] {
+//     background: #EE777B;
+//     color: white;
+//     box-shadow:5px 10px rgba(20%,20%,40%,0.5);
+//     }
+//     #tab-4:target ~ #tab > ul li a[href$="#tab-4"] {
+//     background: #606060;
+//     color: white;
+//     box-shadow:5px 10px rgba(20%,20%,40%,0.5);
+//     }
+/*頁籤內容顯示&第一筆*/
+span ~ #tab > div:first-of-type,
 #tab-1:target ~ #tab > div.tab-content-1{
 visibility:visible;
 height:400px;
-// width: 600px;
 background: url(/images/yulun/table.svg);
 border-radius: 6px;
 background-size:cover; 
-// background-clip: padding-box;
 background-position: center center; 
-// position: absolute;
 }
 
 #tab-2:target ~ #tab > div.tab-content-2{
 visibility:visible;
 height:400px;
-background: url(/images/yulun/table2.png);
+background: url(/images/yulun/table2.svg);
 border-radius: 6px;
 background-size:cover; 
 // background-clip: border-box;
@@ -155,7 +170,7 @@ background-position: center center;
 #tab-3:target ~ #tab > div.tab-content-3{
 visibility:visible;
 height:400px;
-background: url(/images/yulun/table3.png);
+background: url(/images/yulun/table3.svg);
 border-radius: 6px;
 background-size:cover; 
 // background-clip: border-box;
@@ -164,7 +179,7 @@ background-position: center center;
 #tab-4:target ~ #tab > div.tab-content-4 {
 visibility:visible;
 height:400px;
-background: url(/images/yulun/table4.png);
+background: url(/images/yulun/table4.svg);
 border-radius: 6px;
 background-size:cover; 
 // background-clip: padding-box;
@@ -183,7 +198,7 @@ background-position: center center;
     width: 110px;
     height: 110px;
     margin: 16px;
-    transition: 0.3s;
+    // transition: 0.3s;
 }
 .Y_play_contents:hover{
     opacity: 0.6;
@@ -283,6 +298,7 @@ transform: translateY(30px);
 #tab .item{
     width: 100%;
     height: 100%;
+    // position: absolute;
 }
 #tab img{
     width: 80px;

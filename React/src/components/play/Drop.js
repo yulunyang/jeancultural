@@ -44,7 +44,8 @@ class Drop extends Component{
 
 
     getDrag() { 
-        var zone =  document.querySelector("#tab-content-1");   
+        var zone =  document.querySelector("#tab");   
+        // console.log(zone);
         zone.addEventListener("dragover",function(event){
             event.preventDefault();
             // localStorage.clear();
@@ -58,9 +59,9 @@ class Drop extends Component{
         var id = evt.dataTransfer.getData("text/plain");
         getMove();
         //不能複製
-        console.log(window.dragTarget);
+        // console.log(window.dragTarget);
         if(window.dragTarget){
-            console.log('::', window.dragTarget.getAttribute("data-clone"));
+            // console.log('::', window.dragTarget.getAttribute("data-clone"));
             if(window.dragTarget.getAttribute("data-clone") != '1'){
                 clone = window.dragTarget.cloneNode(true);
                 clone.setAttribute("data-clone", "1");
@@ -106,7 +107,7 @@ class Drop extends Component{
         
             //Move
             function getMove(){
-                interact('#tab-content-1 .Y_play_contents')
+                interact('.tab-drop .Y_play_contents')
                 .draggable({
                   // enable inertial throwing
                   inertia: true,
@@ -149,82 +150,36 @@ class Drop extends Component{
                     target.setAttribute('data-y', y);
                     // target.style.left=data-x+'px';
                     // target.style.top =data-y+'px';
-                    console.log(target);
+                    //console.log(target);
                   }
               
                 // this is used later in the resizing and gesture demos
                 window.dragMoveListener = dragMoveListener;
             }
     }
-    // getMove(){
-    //     interact('.Y_play_contents')
-    //     .draggable({
-    //       // enable inertial throwing
-    //       inertia: true,
-    //       // keep the element within the area of it's parent
-    //       restrict: {
-    //         restriction: "parent",
-    //         endOnly: true,
-    //         elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
-    //       },
-    //       // enable autoScroll
-    //       autoScroll: true,
-      
-    //       // call this function on every dragmove event
-    //       onmove: dragMoveListener,
-    //       // call this function on every dragend event
-    //       onend: function (event) {
-    //         var textEl = event.target.querySelector('p');
-      
-    //         textEl && (textEl.textContent =
-    //           'moved a distance of '
-    //           + (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
-    //                        Math.pow(event.pageY - event.y0, 2) | 0))
-    //               .toFixed(2) + 'px');
-    //       }
-    //     });
-      
-    //     function dragMoveListener (event) {
-    //       var target = event.target,
-    //           // keep the dragged position in the data-x/data-y attributes
-    //           x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-    //           y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-      
-    //       // translate the element
-    //       target.style.webkitTransform =
-    //       target.style.transform =
-    //         'translate(' + x + 'px, ' + y + 'px)';
-      
-    //       // update the posiion attributes
-    //       target.setAttribute('data-x', x);
-    //       target.setAttribute('data-y', y);
-    //     }
-      
-    //     // this is used later in the resizing and gesture demos
-    //     window.dragMoveListener = dragMoveListener;
-    // }
+ 
     render(){
         return(
             <React.Fragment> 
        <div  id="cart" className="Y_container  Y_pad">
             <span id="tab-1" >1</span>
-            {/* <span id="tab-2">2</span>
+            <span id="tab-2">2</span>
             <span id="tab-3" >3</span>
             <span id="tab-4" >4</span>
-              */}
+             
             <div id="tab" ondrop="drop(event)" ondragover="allowDrop(event)">
             
             <ul>
-              <li><a href="#tab-1">簡潔風格</a></li>
-              {/* <li><a href="#tab-2">優雅風格</a></li>
+              <li><a href="#tab-1" className="">簡潔風格</a></li>
+              <li><a href="#tab-2">優雅風格</a></li>
               <li><a href="#tab-3">獨特風格</a></li>
-              <li><a href="#tab-4">雅痞風格</a></li> */}
+              <li><a href="#tab-4">雅痞風格</a></li>
             </ul>
            
             <div id="tab-content-1" className="tab-content-1 tab-drop" ></div>
-            {/* <div className="tab-content-2 tab-drop"></div>
+            <div className="tab-content-2 tab-drop"></div>
             <div className="tab-content-3 tab-drop"></div>
-            <div className="tab-content-4 tab-drop"></div> */}
+            <div className="tab-content-4 tab-drop"></div>
             </div>
 
             </div>

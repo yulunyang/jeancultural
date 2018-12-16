@@ -1,25 +1,88 @@
 <?php
-require __DIR__. '/__connect_db.php';
-$pname = 'news'; // 自訂的頁面名稱
-if(!empty($_POST['title']) and !empty($_POST['simple_narrative'])){
+require __DIR__ . '/__connect_db.php';
+
+$pname = 'add_news'; // 自訂的頁面名稱
+if (!empty($_POST['title'])) {
+
+    // 檔案存放的目錄
+    $dir = "D:\\proj\\react-app\\src\\components\\news\\img\\";
+
+    if (!is_dir($dir)) {
+        die("沒有目錄");
+    }
+
+    if (!is_writeable($dir)) {
+        die("目錄無法寫入");
+    }
 
     
-    try {
+    if (($Slider1_1 = upload('Slider1_1', $dir)) === false) {
+        die("檔案上傳失敗！ 1-1");
+    }
 
-        // $sql = "INSERT INTO `news`(`title`, `simple_narrative`, `detailed_description`, `uptime`, `downtime`, `up`, `post_time`) VALUES (?, ?,?, ?, ?, ?, NOW())";
-        $sql = "INSERT INTO `news`(`title`, `simple_narrative`, `detailed_description`, `main_title`, `second_title`, 
-                            `article_title-1`, `second_title-1`, `content-1`, 
-                            `main_title-2`, `second_title-2`, `content-2`, 
-                            `shop_active`, `shop_content`, `news_pic`, 
-                            -- `Slider1-1`, `Slider1-2`, `Slider1-3`, `Slider2-1`, `Slider2-2`, `Slider2-3`,
-                             `post_time`,  `uptime`, `downtime`,`value`) 
-                             VALUES (?,?,?,?,?,
-                             ?,?,?,
-                             ?,?,?,
-                             ?,?,?,
-                             NOW(),?,?,?)";
+
+    if (($Slider1_2 = upload('Slider1_2', $dir)) === false) {
+        die("檔案上傳失敗！ 1-2");
+    }
+
+    if (($Slider1_3 = upload('Slider1_3', $dir)) === false) {
+        die("檔案上傳失敗！ 1-3");
+    }
+
+    if (($Slider2_1 = upload('Slider2_1', $dir)) === false) {
+        die("檔案上傳失敗！ 2-1");
+    }
+
+    if (($Slider2_2 = upload('Slider2_2', $dir)) === false) {
+        die("檔案上傳失敗！ 2-2");
+    }
+
+    if (($Slider2_3 = upload('Slider2_3', $dir)) === false) {
+        die("檔案上傳失敗！ 2-3");
+    }
+
+    if (($News_pic = upload('news_pic', $dir)) === false) {
+        die("檔案上傳失敗！ 2-3");
+    }
+
+    try {
+        $sql = "INSERT INTO `news`(
+            `title`,
+            `simple_narrative`, 
+            `detailed_description`,
+            `main_title`, 
+            `second_title`,
+            `article_title_1`, 
+            `second_title_1`,
+            `content-1`, 
+            `main_title_2`, 
+            `second_title_2`, 
+            `content_2`,
+            `shop_active`, 
+            `shop_content`, 
+            `news_pic`, 
+            `Slider1_1`,
+            `Slider1_2`, 
+            `Slider1_3`,
+            `Slider2_1`, 
+            `Slider2_2`, 
+            `Slider2_3`, 
+            `description1_1`, 
+            `description1_2`, 
+            `description1_3`,
+            `description2_1`, 
+            `description2_2`, 
+            `description2_3`,
+            `value`) 
+                             VALUES (?,?,?,?,
+                                    ?,?,?,?,
+                                    ?,?,?,?,
+                                    ?,?,?,?,
+                                    ?,?,?,?,
+                                    ?,?,?,?,?,?,
+                                   ?)";
         $stmt = $pdo->prepare($sql);
-        
+
         $stmt->execute([
             $_POST['title'],
             $_POST['simple_narrative'],
@@ -34,18 +97,25 @@ if(!empty($_POST['title']) and !empty($_POST['simple_narrative'])){
             $_POST['content-2'],
             $_POST['shop_active'],
             $_POST['shop_content'],
-            $_POST['detailed_description'],
-            $_POST['post_time'],
-            $_POST['uptime'],
-            $_POST['downtime'],
-            $_POST['value'],
-                    
-            
+            $News_pic,
+            $Slider1_1,
+            $Slider1_2,
+            $Slider1_3,
+            $Slider2_1,
+            $Slider2_2,
+            $Slider2_3,
+            $_POST['description1_1'],
+            $_POST['description1_2'],
+            $_POST['description1_3'],
+            $_POST['description2_1'],
+            $_POST['description2_2'],
+            $_POST['description2_3'],
+            $_POST['value']
         ]);
         // 新增圖片
         // for ($i=0; $i<count($_FILES["ap_picurl"]["name"]); $i++) {
         //     if ($_FILES["ap_picurl"]["tmp_name"][$i] != "") {
-        //         $query_insert = "INSERT INTO albumphoto (album_id, ap_date, ap_picurl, ap_subject) VALUES (?, NOW(), ?, ?)";
+        //         $query_insert = "INSERT INTO albumphoto (ap_date, ap_picurl, ap_subject) VALUES (?, NOW(), ?, ?)";
         //         $stmt = $db_link->prepare($query_insert);
         //         $stmt->bind_param("iss", 
         //          GetSQLValueString($album_pid, "int"),
@@ -57,18 +127,17 @@ if(!empty($_POST['title']) and !empty($_POST['simple_narrative'])){
         //     }
         //   }
 
-
         // echo "1";
         $result = $stmt->rowCount();
-        if($result==1){
+        if ($result == 1) {
             $info = [
                 'type' => 'success',
                 'text' => '資料新增完成'
             ];
             header('Location: ab_news.php');
 
-            
-        } elseif($result==0) {
+
+        } elseif ($result == 0) {
             $info = [
                 'type' => 'danger',
                 'text' => '資料沒有新增'
@@ -76,11 +145,12 @@ if(!empty($_POST['title']) and !empty($_POST['simple_narrative'])){
         }
 
 
-
-    } catch(PDOException $ex){
+    } catch (PDOException $ex) {
 
         // 如果 email 欄設定為唯一鍵, 不可重複輸入相同的 email
         // SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'aaa@bbb.com' for key 'email'
+
+print_r($e);
 
         echo $ex->getMessage();
         $info = [
@@ -89,25 +159,25 @@ if(!empty($_POST['title']) and !empty($_POST['simple_narrative'])){
         ];
     }
 }
-    
-    ?>
-<?php include __DIR__. '/_db_header.php'; ?>
-<?php include __DIR__. '/_db_nav.php'; ?>
+
+?>
+<?php include __DIR__ . '/_db_header.php'; ?>
+<?php include __DIR__ . '/_db_nav.php'; ?>
 
 
-<div class="container mb-5" style="margin-top: 20px">
-    <?php if(isset($info)): ?>
-    <div class="col-md-6">
-        <div class="alert alert-<?= $info['type'] ?>" role="alert">
-            <?= $info['text'] ?>
-        </div>
-    </div>
-    <?php endif; ?>
-    
+    <div class="container mb-5" style="margin-top: 20px">
+        <?php if (isset($info)): ?>
+            <div class="col-md-6">
+                <div class="alert alert-<?= $info['type'] ?>" role="alert">
+                    <?= $info['text'] ?>
+                </div>
+            </div>
+        <?php endif; ?>
+
         <div class="card ">
             <div class="card-body">
-                <h5 class="card-title">新增最新消息 <?= isset($result)? $result : '' ?></h5>
-                <form method="post" >
+                <h5 class="card-title">新增最新消息 <?= isset($result) ? $result : '' ?></h5>
+                <form method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="title">標題</label>
                         <input type="text" class="form-control"
@@ -174,8 +244,8 @@ if(!empty($_POST['title']) and !empty($_POST['simple_narrative'])){
                         <input type="textarea" class="form-control"
                                id="shop_content" name="shop_content" placeholder="Enter narrative">
                     </div>
-                    
-                    <div class="form-row">
+
+                    <!-- <div class="form-row">
                     
                         <div class="col-3">
                         <label for="uptime">上架時間</label>
@@ -187,7 +257,7 @@ if(!empty($_POST['title']) and !empty($_POST['simple_narrative'])){
                         <input type="date" class="form-control" id="downtime" name="downtime" placeholder="">
                         </div>               
 
-                    </div>
+                    </div> -->
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="inputGroupSelect01">選擇分類</label>
@@ -196,51 +266,94 @@ if(!empty($_POST['title']) and !empty($_POST['simple_narrative'])){
                             <option selected>選擇分類</option>
                             <option value="exhibition">國際展覽</option>
                             <option value="brand">品牌活動</option>
-                         
+
                         </select>
-                        </div>
-                    <!-- <div class="container">
-                    <p>Banner<input type="file" name="news_pic" id="news_pic" /></p>
-                  <p>Slider1-1<input type="file" name="Slider1-1" id="Slider1-1" />說明：<input type="text" name="ap_subject[]" id="ap_subject[]" /></p>
-                  <p>Slider2-1<input type="file" name="Slider1-2" id="Slider1-2" />說明：<input type="text" name="ap_subject[]" id="ap_subject[]" /></p>
-                  <p>Slider3-1<input type="file" name="Slider1-3" id="Slider1-3" />說明：<input type="text" name="ap_subject[]" id="ap_subject[]" /></p>
-                  <p>Slider2-1<input type="file" name="Slider2-1" id="Slider2-1" />說明：<input type="text" name="ap_subject[]" id="ap_subject[]" /> <p>
-                  <p>Slider2-2<input type="file" name="Slider2-2" id="Slider2-2" />說明：<input type="text" name="ap_subject[]" id="ap_subject[]" /> <p>
-                  <p>Slider2-3<input type="file" name="Slider2-3" id="Slider2-3" />說明：<input type="text" name="ap_subject[]" id="ap_subject[]" /> <p>
-                  </div> -->
-                    <div class="form-group d-flex justify-content-end">    
-                    <button type="submit" class="btn btn-primary " onclick = 'processData()'>Submit</button>
+                    </div>
+                    <div class="container">
+                        <p>Banner<input type="file" name="news_pic" id="news_pic"/></p>
+                        <p>Slider1-1<input type="file" name="Slider1_1" id="Slider1-1"/>說明：<input type="text"
+                                                                                                  name="description1_1"
+                                                                                                  id="description1_1"/>
+                        </p>
+                        <p>Slider1-2<input type="file" name="Slider1_2" id="Slider1-2"/>說明：<input type="text"
+                                                                                                  name="description1_2"
+                                                                                                  id="description1_2"/>
+                        </p>
+                        <p>Slider1-3<input type="file" name="Slider1_3" id="Slider1-3"/>說明：<input type="text"
+                                                                                                  name="description1_3"
+                                                                                                  id="description1_3"/>
+                        </p>
+                        <p>Slider2-1<input type="file" name="Slider2_1" id="Slider2-1"/>說明：<input type="text"
+                                                                                                  name="description2_1"
+                                                                                                  id="description2_1"/>
+                        <p>
+                        <p>Slider2-2<input type="file" name="Slider2_2" id="Slider2-2"/>說明：<input type="text"
+                                                                                                  name="description2_2"
+                                                                                                  id="description2_2"/>
+                        <p>
+                        <p>Slider2-3<input type="file" name="Slider2_3" id="Slider2-3"/>說明：<input type="text"
+                                                                                                  name="description2_3"
+                                                                                                  id="description2_3"/>
+                        <p>
+                    </div>
+                    <div class="form-group d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary " onclick='processData()'>Submit</button>
                     </div>
                 </form>
 
             </div>
         </div>
     </div>
-        <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous">
-        </script>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+    </script>
 
 
+    <!-- <script>
+        var title = $('#title'),
+            simple_narrative = $('#simple_narrative'),
+            i;
 
-        <script>
-            var title = $('#title'),
-                simple_narrative = $('#simple_narrative'),
-                i;
-
-            function formCheck(){
-            var isPass = true;
-                if(!title.val()){
-                    alert('請填寫標題');
-                    isPass = false;
-                }
-                if(!simple_narrative.val()){
-                    alert('請填寫敘述');
-                    isPass = false;
-                }
-                return isPass;
+        function formCheck(){
+        var isPass = true;
+            if(!title.val()){
+                alert('請填寫標題');
+                isPass = false;
             }
+            if(!simple_narrative.val()){
+                alert('請填寫敘述');
+                isPass = false;
+            }
+            return isPass;
+        }
 
-        </script>
-<?php include __DIR__. '/_db_foot.php';
+    </script> -->
+<?php include __DIR__ . '/_db_foot.php';
+
+/**
+ * 上傳檔案
+ *
+ * @param $key The file's key in $_FILES
+ * @param $dir 檔案放置的目錄位置
+ *
+ * @return bool|string
+ */
+function upload($key, $dir)
+{
+    if (isset($_FILES[$key]) && !empty($_FILES[$key]['name'])) {
+        // 上傳至暫存路徑錯誤
+        if ($_FILES[$key]['error'] !== 0) {
+            return false;
+        }
+
+        if (!move_uploaded_file($_FILES[$key]["tmp_name"], $dir . $_FILES[$key]["name"])) {
+            return false;
+        }
+
+        return $_FILES[$key]["name"];
+    }
+
+    return '';
+}

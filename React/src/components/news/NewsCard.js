@@ -13,7 +13,7 @@ class NewsCard extends Component{
     }
 
     detail (sid) {
-                fetch("/api/news/"+ sid, {
+                fetch("http://localhost:3000/api/news/"+ sid, {
                     method: 'GET'
                 }).then(res => res.json())
                     .then(news_titles => {                     
@@ -38,7 +38,7 @@ class NewsCard extends Component{
            <div className=" Y_NewsCard_container">   
                  
             <div className="Y_NewsCard_banner">
-            <img src={require(`./img/${news_title.news_pic}.jpg`)} alt="" /></div>
+            <img src={require(`./img/${news_title.news_pic}`)} alt="" /></div>
            
                 <div key={news_title.sid} className="Y_NewsCard_container_p">
                     <div className="Y_NewsCard_socialbar"></div> 
@@ -69,16 +69,16 @@ class NewsCard extends Component{
  <Carousel width={800}>
     
                 <div className="DemoCarousel">
-                    <img src={require(`./img/${news_title.Slider1_1}.jpg`)} />
-                    <p className="legend">Legend 1</p>
+                    <img src={require(`./img/${news_title.Slider1_1}`)} />
+                    <p className="legend">{news_title.description1_1}</p>
                 </div>
                 <div>
-                    <img src={require(`./img/${news_title.Slider1_2}.jpg`)} />
-                    <p className="legend">Legend 2</p>
+                    <img src={require(`./img/${news_title.Slider1_2}`)} />
+                    <p className="legend">{news_title.description1_2}</p>
                 </div>
                 <div>
-                    <img src={require(`./img/${news_title.Slider1_3}.jpg`)} />
-                    <p className="legend">Legend 3</p>
+                    <img src={require(`./img/${news_title.Slider1_3}`)} />
+                    <p className="legend">{news_title.description1_3}</p>
                 </div>
             {/* )} */}
             </Carousel></div>
@@ -98,15 +98,15 @@ class NewsCard extends Component{
 <div className="DemoCarousel_center">
  <Carousel width={800}>
                 <div className="DemoCarousel">
-                    <img src={require(`./img/${news_title.Slider2_1}.jpg`)} />
+                    <img src={require(`./img/${news_title.Slider2_1}`)} />
                     <p className="legend">Legend 1</p>
                 </div>
                 <div>
-                    <img src={require(`./img/${news_title.Slider2_2}.jpg`)} />
+                    <img src={require(`./img/${news_title.Slider2_2}`)} />
                     <p className="legend">Legend 2</p>
                 </div>
                 <div>
-                    <img src={require(`./img/${news_title.Slider2_3}.jpg`)} />
+                    <img src={require(`./img/${news_title.Slider2_3}`)} />
                     <p className="legend">Legend 3</p>
                 </div>
             </Carousel></div>

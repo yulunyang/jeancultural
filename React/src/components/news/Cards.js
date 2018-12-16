@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import './News.scss';
 import $ from 'jquery';
 import SelectBox from './select-box/SelectBox.js';
-import './loader.js';
+// import './loader.js';
 import ReactDOMServer from 'react-dom/server';
 import NewsCard from './NewsCard';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
@@ -28,6 +28,7 @@ class Cards extends Component {
 
         }
         this.state = {
+            new: [],
             state: [],
             new: [],
             type: 'add',
@@ -42,10 +43,34 @@ class Cards extends Component {
         this.getNews();
         // this.getNewsCard();
         this.getNewsFilter();
+        
 
     }
+    componentDidUpdate(){
+        this.getLoad();
+    }
+    getLoad(){
+        $(".Y_news_box").slice(0, 6).show();
+        $("#Y_more").on('click', function (e) {
+            e.preventDefault();
+            $(".Y_news_box:hidden").slice(0, 3).slideDown();
+            if ($(".Y_news_box:hidden").length == 0) {
+                $("#Y_more").fadeOut('slow');
+            }
+        });
+        // $(document).ready(function(){
+        //     $("#Y_know_more").click(function(){
+               
+        //         $(".Y_newsIframe_display").css("display","block");
+        //     });
+        //     $(".Y_newsIframe_fas").click(function(){
+               
+        //         $(".Y_newsIframe_display").css("display","none");
+        //     });
+        // });
+    }
     getNews() {
-        fetch("/api/news/")
+        fetch("http://localhost:3000/api/news/")
             .then(res => res.json())
             .then(news => this.setState({
                 news: news,
@@ -78,7 +103,7 @@ class Cards extends Component {
 
     detail = (sid) => {
         // alert(sid)
-                fetch("/api/news/"+ sid, {
+                fetch("http://localhost:3000/api/news/"+ sid, {
                     method: 'GET'
                 }).then(res => res.json())
                     .then(data => {                     
@@ -148,7 +173,7 @@ class Cards extends Component {
                                         <div className="Y_green_box"> New</div>
                                     </div>
                                     <figure className="Y_circle_pic">
-                                        <img src={require(`./img/${news.news_pic}.jpg`)} alt="" />
+                                        <img src={require(`./img/${news.news_pic}`)} alt="" />
                                         {/* <img src="/images/card.jpg" alt="卡片" /> */}
                                     </figure>
                                     {/* <h5> <Time value={news.post_time} format="YYYY/MM/DD" /></h5> */}
@@ -174,30 +199,26 @@ class Cards extends Component {
                     </div>
 
                 </div>
-
-                <script src="loader.js"></script> 
                 {
                     
                     this.state.showme ?
                         <div className="">
-                            <div className="Y_newsIframe"></div>
-                            {/* <iframe className="Y_newsIframe_inner" src="<NewsCard />" ></iframe> */}
-                            <div className="Y_newsIframe_inner Y_newsIframe_inner_r">
-                            <div className="">
-                                <NewsCard new={this.state.new} NewsCard={this.state.NewsCard}/>
-
-                                 <div className="Y_newsIframe_inner_ab"
-                                onClick={() => this.showhide_i()
-                                } 
-                                id="Y_newsIframe_fas"><a href="#"><i class="fas fa-times Y_newsIframe_fas"></i></a>
-                                </div>
+                            <div onClick={() => this.showhide_i()} className="Y_newsIframe"></div>            
+                            <div className="Y_newsIframe_inner_re">
+                                    <div className="Y_newsIframe_inner_ab"
+                                        onClick={() => this.showhide_i()} 
+                                        id="Y_newsIframe_fas">
+                                        <a href="#">
+                                        <i class="fas fa-times Y_newsIframe_fas"></i>
+                                        </a>
+                                        </div>
+                                    <div className="Y_newsIframe_inner ">                           
+                                        <div className="">
+                                            <NewsCard new={this.state.new} NewsCard={this.state.NewsCard}/>                                
+                                        </div>
+                                       
+                                    </div>
                             </div>
-                            
-                            </div>
-                           
-                            
-
-
                         </div>
                         : null
                 }
