@@ -61,8 +61,9 @@ class App extends Component {
             <Route path="/change_member_info" component={Change_member_info} />
             <Route path="/member_list" component={Member_list} />
             <Route path="/sign_in_member" component={Sign_in_member} />
-            <Route path="/order_list/order_list" component={Order_list} />
-            <Route path="/order_list_detailed" component={Order_list_detailed} />
+            <Route path="/order_list" component={Order_list} />
+            {/* <Route path="/order_list_detailed" component={Order_list_detailed} /> */}
+            <Route path="/order_list/:orderid" component={Order_list_detailed} />
             {/* 我的最愛//購物車1//購物車步驟2-3*/}
             <Route path="/likes" component={Likes} />
             <Route exact path="/cart" component={Cart} />

@@ -24,13 +24,11 @@ class Member_data extends Component{
     }
 
     // showTime=()=>{
-        // var moment = require('moment');
+        // var moment = require('moment');   moment js 用法
         // var date = moment().format("YYYY-MM-DD");
         // var dd = document.getElementById("O_date");
         // dd.innerHTML = date
 
-        // var ddd = this.state.member_birthday
-        // console.log(ddd)
         
     // }
 
