@@ -48,7 +48,13 @@ router
         var m_id = req.session.m_sid, //會員sid
             sql = "select * from cart where member_sid=?";
         connection.query(sql,[m_id],function(error,results){
-            res.json(results);
+            if (error) throw error;
+            if (results.length==0){
+                res.json({ message: "購物車沒有產品" });
+            }
+            else{
+                res.json(results);
+            }
         });
     })
 

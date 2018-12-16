@@ -58,7 +58,8 @@ router
           req.session.spent=results[0].amount_spent;
           req.session.password=results[0].member_password;
 
-          res.json({ message: "登入成功"});
+          res.json({ message: "登入成功",session:req.session.login});
+          // res.json({message:req.session.address})
         } else{
           res.json({ message: "密碼錯誤"})
         }
@@ -77,12 +78,33 @@ router
 // })
 
 
-/* 使用者登出頁面. */
-// router.get('/logout', function(req, res, next) {
-//   req.session.login = false;
-//   res.json({ message: "登出成功"})
-//   res.end();
-// });
+/* 使用者登出頁面. */                                                       
+/* GET logout page. */
+router
+.route("/logout")
+.get(function(req,res){    // 到達 /logout 路徑則註銷， session清除
+  
+  req.session.destroy();
+  // console.log(req.session)
+  if(!req.session){
+    res.json({message:"登出成功"});
+    // res.redirect("/home");
+  }else{
+  res.json({message:"登出失敗，請重新嘗試"});}
+  
+});
+
+router
+.route("/checklogin")
+.get(function(req,res){   
+  
+  if(req.session.login){
+    res.json({message:"登入狀態"});
+   
+  }else{
+    res.json({message:"登出狀態"});
+  } 
+});
 
 
 /* 忘記密碼頁面. */
