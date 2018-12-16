@@ -46,18 +46,26 @@ class Order_list_detailed extends Component{
         });
         })
     };
+
+    // plus=()=>{
+    //     var a = 
+    // }
   
 
 
     render(){
         return(
             <React.Fragment>
+                
                 <div className="O_order_detailed_white_background">
                     <div className="O_container">
+                    
                         <div className="O_order_detailed_info">
+                        
                             <div className="O_order_detailed_T">
                                 <h2>訂單詳情</h2>
                             </div>
+                           
                             <table className="O_order_detailed_table">
                                 <thead>
                                     <tr>
@@ -71,30 +79,34 @@ class Order_list_detailed extends Component{
                                         
                                     </tr>
                                 </thead>
-                               
+                                {this.state.detail.map(detail=>
                                 <tbody>
-                                 {this.state.detail.map(detail=>
+                                
                                     <tr>
                                         <td>{detail.order_number}</td>
                                         <td>{detail.good_name}</td>
-                                        <td>{}</td>
+                                        <td><img className="O_product_pic" src={require(`./images/${detail.product_id}.jpg`)} alt="產品圖片" /></td>
                                         <td>{detail.price}</td>
                                         <td>{detail.discount_price}</td>
                                         <td>{detail.quantity}</td>
-                                        <td>{detail.total}</td>
+                                        <td>{detail.discount_price}</td>
                                         
                                     </tr>
-                                 )}
+                                 
                                 </tbody>
-                                
-                            </table>
-                            <div className="O_order_detailed_count">                            
-                                <h3><div className="O_order_detailed_count_line"></div>訂單總額:</h3>
-                            </div>
+                                 )}
+                            </table> 
+                           
+                            <div className="O_order_detailed_count">   
+                                                   
+                                <h3><div className="O_order_detailed_count_line"></div>訂單總額:{this.state.details.reduce()}</h3>
+                               
+                                </div>
+                            
                         </div>
                     </div>
                 </div>
-       
+            
        
             </React.Fragment>
 
