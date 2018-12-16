@@ -170,7 +170,15 @@ class Play_nav extends Component {
     }
 
     handleClick_wish() {
-        alert('加入收藏');
+
+        var msg = "確定要忍心刪除清單?"; 
+        if (window.confirm(msg)==true){ 
+            $(".c-dropdown__list>li").first().siblings().remove();
+        }else{ 
+        return false; 
+        } 
+        
+        // alert('清空全部');
     }
 
     render() {
@@ -195,7 +203,7 @@ class Play_nav extends Component {
                             </ul>
                             <div className="Y_pricebutton">
                                 <button ref="addCart" className="Y_addCartbutton" onClick={this.handleClick}>加入購物車</button>
-                                <button ref="addWish" type="submit" className="Y_addListbutton" onClick={this.handleClick_wish}>加入收藏</button>
+                                <button ref="addWish" type="submit" className="Y_addListbutton" onClick={this.handleClick_wish}>刪除清單</button>
                             </div>
                         </div>
 
