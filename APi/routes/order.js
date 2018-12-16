@@ -37,7 +37,7 @@ router
             Processing_time = new Date(),            
             sql_1 = "insert into order_list (member_sid,order_at,quantity,discount_key,discount_off,deliveryWay,payWay,total,Processing_status,Processing_time) values ?",                    
             sql_2 = "select sid from order_list where member_sid=? order by sid desc limit 1",
-            sql_3 = "insert into order_detail (order_number,good_sid ,good_name,price,discount_price,quantity,member_sid,total) values ?",
+            sql_3 = "insert into order_detail (order_number,good_sid,product_id,good_name,price,discount_price,quantity,member_sid,total) values ?",
             sql_4 = "delete from cart where member_sid=?",
             orderList =[[m_id,order_at,quantity,couponNum,couponCost,deliveryWay,payWay,total,Processing_status,Processing_time]]
             
@@ -49,7 +49,7 @@ router
 
                     var cartListSid = results[0].sid
                     for(var i=0; i<cart.length; i++){
-                        var order_detail = [[cartListSid,cart[i].good_sid,cart[i].good_name,cart[i].price,cart[i].discount_price,cart[i].quantity,m_id,total]]
+                        var order_detail = [[cartListSid,cart[i].good_sid,cart[i].product_id,cart[i].good_name,cart[i].price,cart[i].discount_price,cart[i].quantity,m_id,total]]
                         connection.query(sql_3,[order_detail],function(error,results){ // 新增訂單內容(order_detail)
                             if (error) {throw error}                                       
                         }); 
@@ -65,9 +65,28 @@ router
                 });
             });
         })
-            
+
+
+router
+    .route("/orderList")
+    .get(function(req, res){    // 取得訂單清單
+        var m_id = req.session.m_sid, //會員sid
+            sql = "select * from order_list where member_sid=?";
+            connection.query(sql,[m_id],function(error,results){
+            if (error) throw error;   
+            res.json(results);
+        });
+    })
+
+
+router
+    .route("/orderList/:orderid")
+    .get(function(req, res){    // 取得訂單內容
+
+        connection.query("select * from order_detail where order_number=?",[req.params.orderid],function(error,row){
+            if(error) throw error;
+            res.json(row);
+        });
+    })
+                 
 module.exports = router;
-
-
-
-
