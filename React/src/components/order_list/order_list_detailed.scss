@@ -78,6 +78,7 @@ $lightgray: #D3CECA;
 
 
 .O_order_detailed_count{
+    right: 0px;
     text-align: right;
     background-color: $lightgray;
     padding: 10px 20px;
@@ -90,4 +91,11 @@ $lightgray: #D3CECA;
     width: 100px;
     border-top: 3px solid $gray_color;
     margin-right: 20px;
+}
+
+
+// -------20181216新增
+.O_product_pic{
+    width: 150px;
+    // height: 400px;
 }

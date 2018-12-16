@@ -22,7 +22,7 @@ class Order_list extends Component{
                             </div>
                             <Order_list_form/>
                             <p className="O_logistics_status">
-        共5筆訂單&nbsp;&nbsp;(未出貨:&nbsp;5，&nbsp;已到門市:&nbsp;0，已寄出:&nbsp;0)</p>
+        共1筆訂單&nbsp;&nbsp;(未出貨:&nbsp;1，&nbsp;已到門市:&nbsp;0，已寄出:&nbsp;0)</p>
                             {/* <div className="O_page_mark">
                                 <ul className="O_page_number">
                                     <li><a href="#">«</a></li>
