@@ -48,9 +48,9 @@ class Sidemenu extends Component {
     {"sid":7,"Brand":"十字繡","parent_sid":4,"level":2},
     {"sid":8,"Brand":"生活雜貨","parent_sid":4,"level":2},
     {"sid":9,"Brand":"i-Maker","parent_sid":5,"level":2},
-    {"sid":10,"Brand":"單色系列","parent_sid":6,"level":2},
-    {"sid":11,"Brand":"旅行系列","parent_sid":6,"level":2},
-    {"sid":12,"Brand":"節日系列","parent_sid":6,"level":2}
+    {"sid":10,"Brand":"花色系列","parent_sid":6,"level":2},
+    {"sid":11,"Brand":"100選色系列","parent_sid":6,"level":2},
+    {"sid":12,"Brand":"聯名系列","parent_sid":6,"level":2}
   ];
     let level1s = datas.filter(function (data) {
       return data.level === 1;

@@ -10,7 +10,7 @@ class Play_banner extends Component {
             <React.Fragment>
                 <div className="F_customization_banner">
                     <figure className="F_about_banner_pic">
-                        <img src="images/brand/Wooderful Life-99s.jpg" alt="客製化banner" />
+                        <img src="images/brand/99s.jpg" alt="客製化banner" />
                     </figure>
                     <h2>玩玩知音
                 <br />

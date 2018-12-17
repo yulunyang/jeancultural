@@ -75,7 +75,7 @@ class Product_page extends Component {
       }else if(data.message == "資料庫沒有這個商品"){
         alert('沒有此商品'); 
       }else{
-        alert('已加入購物車');
+        document.location.href="/cart"; 
       }
     })    
   }
@@ -105,7 +105,8 @@ class Product_page extends Component {
                   </div>
 
                   {/* 判斷類別顯示次要圖片 */}
-                  { Product_items.category === 4|| Product_items.category === 5 || Product_items.category === 6 || Product_items.category === 7?
+                  { Product_items.category === 4|| Product_items.category === 5 || Product_items.category === 6 || Product_items.category === 7
+                  || Product_items.category === 8 || Product_items.category === 10|| Product_items.category === 12?
                    <img className="T_jn_secondpic_dir"src={require(`../buy_items/images/${ Product_items.secondpic_dir }`)} alt="次商品圖"/> 
                   :
                   <span></span>
@@ -128,7 +129,7 @@ class Product_page extends Component {
                 <div className="T_Product_sele">NT$ {Product_items.discount_price}</div>
                 <hr/>
                 {/* 判斷類別選色 */}
-                { Product_items.category === 4|| Product_items.category === 5 ?
+                {/* { Product_items.category === 4|| Product_items.category === 5 ?
                   <div className="T_product_select_color">
                   <button className="T_product_select_color coloritem1" />
                   <button className="T_product_select_color coloritem2" />
@@ -136,7 +137,7 @@ class Product_page extends Component {
                   </div>
                   :
                   <span></span>               
-                  }
+                  } */}
              
                   {/* 判斷類別選尺寸 */}  
                   { Product_items.category === 4|| Product_items.category === 5 ?

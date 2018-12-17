@@ -16,6 +16,15 @@ class Contact extends Component {
     contactClick(item) {
         alert(item);
     }
+    email(){
+        alert("寄送成功")
+    }
+    clearcontent(){
+        $("#F_name_contact").val("");
+        $("#F_email_contact").val("");
+        $("#F_phone_contact").val("");
+        $("#F_contact_contact").val("");
+    }
 
     render() {
 
@@ -47,7 +56,7 @@ class Contact extends Component {
                     </div>
                     <div class="F_right_contact">
                         <div class="F_mail_pic"><img src="images/content_icon/mail.svg" alt="信件" /></div>
-                        <div class="F_mail_box">
+                        <form class="F_mail_box" >
                             <label for="name" class="F_contact_label F_contact_name">姓名</label>
                             <input type="text" name="name" id="F_name_contact" class="F_input_contact F_name_contact_input" />
                             <label for="name" class="F_contact_label contact_email">電子郵件</label>
@@ -56,10 +65,10 @@ class Contact extends Component {
                             <input type="text" name="phone" id="F_phone_contact" class="F_input_contact F_phone_contact_input" />
                             <label for="name" class="F_contact_label F_contact_contact">輸入內容</label>
                             <textarea rows="8" type="text" name="contact" id="F_contact_contact" class="F_input_contact F_contact_contact_input" />
-                        </div>
+                        </form>
                         <div class="F_button_box_contact">
-                            <div class="F_contact_btn F_clean">重新填寫</div>
-                            <div class="F_contact_btn F_post_contact">確認送出</div>
+                            <div class="F_contact_btn F_clean" onClick={this.clearcontent}>重新填寫</div>
+                            <div class="F_contact_btn F_post_contact" onClick={this.email} >確認送出</div>
                         </div>
                     </div>
                 </div>

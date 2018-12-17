@@ -44,13 +44,6 @@ class Cart_info extends Component{
             $(".tax_id").css("display","none");
         }   
     }
-    GoodsNumChange= (evt)=>{
-        var target123 =evt.target.value
-        this.setState({
-            target: target123
-        })
-        console.log(target123)
-    }
     changeNameHandler_deliveryStore = (data)=>{
         this.setState(data);
     }
@@ -72,79 +65,7 @@ class Cart_info extends Component{
             acceptChecked: !this.state.acceptChecked
         });
     };
-    // checkForm = ()=>{
-        
-        // var 
-        // errorMsg = document.querySelectorAll(".errorMsg"),
-    //         mobile_pattern = /^[09]{2}[0-9]{8}$/,
-    //         tax_id_pattern = /^\d{8}$/,
-    //         creditNum_pattern = /^\d{4}-\d{4}-\d{4}-\d{4}$/,
-    //         creditMonth_pattern = /^\d{2}$/,
-    //         creditYear_pattern = /^\d{2}$/,
-    //         creditCVC_pattern = /^\d{3}$/,
-            // isPass = true;
 
-    //     errorMsg.forEach(function(el){
-    //         el.style.display = "none";
-    //     });
-        
-    //     if(! document.form2.userName.value){                   
-    //         errorMsg[0].style.display = "block"; 
-    //         isPass = false;
-    //     };
-
-    //     if(! mobile_pattern.test(document.form2.mobile.value)){                   
-    //         errorMsg[1].style.display = "block"; 
-    //         isPass = false;
-    //     };
-        
-    //     if(! document.form2.receipt.value){                   
-    //         errorMsg[1].style.display = "block";
-    //         isPass = false; 
-    //     };
-
-    //     if(! document.form2.address.value){                   
-    //         errorMsg[3].style.display = "block"; 
-    //         isPass = false;
-    //     };
-
-    //     if(! tax_id_pattern.test(document.form2.tax_id.value)){                   
-    //         errorMsg[4].style.display = "block"; 
-    //         isPass = false;
-    //     };
-
-    //     if(! document.form2.creditName.value){                   
-    //         errorMsg[5].style.display = "block"; 
-    //         isPass = false;
-    //     };
-        
-    //     if(! creditNum_pattern.test(document.form2.creditNum.value)){                   
-    //         errorMsg[6].style.display = "block"; 
-    //         isPass = false;
-    //     };
-
-    //     if(! creditMonth_pattern.test(document.form2.creditMonth.value)){                   
-    //         errorMsg[7].style.display = "block"; 
-    //         isPass = false;
-    //     };
-
-    //     if(! creditYear_pattern.test(document.form2.creditYear.value)){                   
-    //         errorMsg[8].style.display = "block"; 
-    //         isPass = false;
-    //     };
-
-    //     if(! creditCVC_pattern.test(document.form2.creditCVC.value)){                   
-    //         errorMsg[9].style.display = "block"; 
-    //         isPass = false;
-    //     };
-
-    //     if(!document.form2.check.checked){
-    //         errorMsg[10].style.display = 'block';
-    //         isPass = false;
-    //     }
-    
-    //    return isPass;
-    // };
 
     //回上一頁
     backPage= (evt)=>{
@@ -175,82 +96,6 @@ class Cart_info extends Component{
     submitHandle = (evt)=>{
         
         evt.preventDefault();
-        var isPass = true;  
-        var mobile = document.getElementById("mobile").value
-        
-        if ($(mobile).length == 0){
-            isPass=false;
-            $("#mobile_lab").addClass("O_error");
-            $("#store_mobile_lab").addClass("O_error");
-            $("#mobile").focus();
- 
-        }else {
-            $("#mobile_lab").removeClass("O_error");
-            $("#store_mobile_lab").removeClass("O_error");
-            $("#mobile").blur();
-            isPass = true
-        }
-        
-        var userName = document.getElementById("userName").value
-        if ($(userName).length == 0){
-            isPass=false;
-            $("#name_lab").addClass("O_error");
-            $("#store_name_lab").addClass("O_error");
-            $("#userName").focus();
-            
-        }else{
-            $("#name_lab").removeClass("O_error");
-            $("#userName").blur();
-            isPass=true
-        }
-        var address = document.getElementById("address").value
-        if ($(address).length == 0){
-            isPass=false;
-            $("#address_lab").addClass("O_error");
-            $("#address").focus();
-            
-        }else{
-            $("#address_lab").removeClass("O_error");
-            $("#address").blur();
-            isPass=true
-        }    
-        var addressCR = document.getElementById("addressCountyReceipt").value
-        if ($(addressCR).length == 0){
-            isPass=false;
-            $("#YA").addClass("O_error");
-            $("#address").focus();
-            
-        }else{
-            
-            $("#YA").removeClass("O_error");
-            $("#address").blur();
-            isPass=true
-        }    
-        
-        var forCompany = document.getElementById("tax_id").value
-        
-        if ($("forCompany").length == 0){
-            isPass=false;
-            $("#O_forCompany").addClass("O_error");
-            $("#tax_id").focus();
-            
-        }else{
-            
-            $("#O_forCompany").removeClass("O_error");
-            $("#tax_id").blur();
-            isPass=true
-        }   
-
-        if($("#acceptChecked").attr('checked')){
-            isPass=true
-        }else{
-            isPass = false;
-            alert("請閱讀知音文創服務條款和隱私權政策，並勾選");
-        }
-
-        return isPass;
-            
-        if(isPass==true){
             
         let cart = JSON.parse(sessionStorage.session_cart),        
             orderList = JSON.stringify({
@@ -281,16 +126,13 @@ class Cart_info extends Component{
         })
         .then(console.log(this.state.cartListSid))
         .then(document.location.href="/cart/Cart_success")
-        
-        
-        } 
     };
 
 
-    componentDidMount=()=> {
-    }
-    componentDidUpdate=()=> {
-    };
+    // componentDidMount=()=> {
+    // }
+    // componentDidUpdate=()=> {
+    // };
     componentWillMount=()=> {
         this.checkDeliveryWay();
         this.checkPayWay(); 
