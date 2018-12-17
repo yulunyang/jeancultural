@@ -82,11 +82,12 @@ router
 /* GET logout page. */
 router
 .route("/logout")
-.get(function(req,res){    // 到達 /logout 路徑則註銷， session清除
+.get(function(req,res){    // 到達 /logout 修改req.session.login狀態
   
-  req.session.destroy();
+  req.session.login = false;
+  req.session.m_sid = "";
   // console.log(req.session)
-  if(!req.session){
+  if(req.session.login == false){
     res.json({message:"登出成功"});
     // res.redirect("/home");
   }else{
@@ -95,7 +96,7 @@ router
 });
 
 router
-.route("/checklogin")
+.route("/checkLogin")
 .get(function(req,res){   
   
   if(req.session.login){

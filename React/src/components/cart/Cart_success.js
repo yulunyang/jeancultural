@@ -25,7 +25,7 @@ class Cart_success extends Component{
                         <br/>歡迎您隨時到站上查詢到貨!
                         </h4>
                     </div>
-                    <button className="go_shopping_btn"><Link  to="/buy_item_list">KEEP SHOPPING</Link></button>                   
+                    <button className="go_shopping_btn"><Link  to="/buy_items_list">KEEP SHOPPING</Link></button>                   
                 </div>
             </div>
         </React.Fragment>

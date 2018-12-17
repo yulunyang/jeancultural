@@ -13,7 +13,7 @@ class NewsCard extends Component{
     }
 
     detail (sid) {
-                fetch("http://localhost:3000/api/news/"+ sid, {
+                fetch("/api/news/"+ sid, {
                     method: 'GET'
                 }).then(res => res.json())
                     .then(news_titles => {                     

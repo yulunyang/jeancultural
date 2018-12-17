@@ -44,6 +44,13 @@ class Cart_info extends Component{
             $(".tax_id").css("display","none");
         }   
     }
+    GoodsNumChange= (evt)=>{
+        var target123 =evt.target.value
+        this.setState({
+            target: target123
+        })
+        console.log(target123)
+    }
     changeNameHandler_deliveryStore = (data)=>{
         this.setState(data);
     }
@@ -170,18 +177,20 @@ class Cart_info extends Component{
         evt.preventDefault();
         var isPass = true;  
         var mobile = document.getElementById("mobile").value
+        
         if ($(mobile).length == 0){
             isPass=false;
             $("#mobile_lab").addClass("O_error");
             $("#store_mobile_lab").addClass("O_error");
             $("#mobile").focus();
-            
-            
-        }else{
+ 
+        }else {
             $("#mobile_lab").removeClass("O_error");
+            $("#store_mobile_lab").removeClass("O_error");
             $("#mobile").blur();
             isPass = true
         }
+        
         var userName = document.getElementById("userName").value
         if ($(userName).length == 0){
             isPass=false;
@@ -192,7 +201,7 @@ class Cart_info extends Component{
         }else{
             $("#name_lab").removeClass("O_error");
             $("#userName").blur();
-            
+            isPass=true
         }
         var address = document.getElementById("address").value
         if ($(address).length == 0){
@@ -203,7 +212,7 @@ class Cart_info extends Component{
         }else{
             $("#address_lab").removeClass("O_error");
             $("#address").blur();
-            
+            isPass=true
         }    
         var addressCR = document.getElementById("addressCountyReceipt").value
         if ($(addressCR).length == 0){
@@ -215,22 +224,31 @@ class Cart_info extends Component{
             
             $("#YA").removeClass("O_error");
             $("#address").blur();
-            
+            isPass=true
         }    
         
-
-
-
+        var forCompany = document.getElementById("tax_id").value
         
+        if ($("forCompany").length == 0){
+            isPass=false;
+            $("#O_forCompany").addClass("O_error");
+            $("#tax_id").focus();
+            
+        }else{
+            
+            $("#O_forCompany").removeClass("O_error");
+            $("#tax_id").blur();
+            isPass=true
+        }   
 
         if($("#acceptChecked").attr('checked')){
             isPass=true
         }else{
-            
             isPass = false;
             alert("請閱讀知音文創服務條款和隱私權政策，並勾選");
-            
         }
+
+        return isPass;
             
         if(isPass==true){
             
@@ -264,13 +282,9 @@ class Cart_info extends Component{
         .then(console.log(this.state.cartListSid))
         .then(document.location.href="/cart/Cart_success")
         
-        // evt.preventDefault();  
-    } 
+        
+        } 
     };
-
-    
-
-
 
 
     componentDidMount=()=> {
@@ -339,7 +353,7 @@ class Cart_info extends Component{
                                     <span className="errorMsg">請輸入地址</span>
                                 </div>
                                 <div className="K_form-group_cart_info display tax_id">
-                                    <label htmlFor="tax_id">統一編號</label>
+                                    <label htmlFor="tax_id" id="O_forCompany">統一編號</label>
                                     <input type="text" name="tax_id" id="tax_id"
                                     value={this.state.tax_id} onChange={this.changeNameHandler}></input>
                                     <span className="errorMsg">統一編號不可為空白或格式錯誤</span>
@@ -365,7 +379,6 @@ class Cart_info extends Component{
                                 <div className="K_cart_info_btn">
                                     <button onClick={this.backPage}><Link to="/cart">重選付款方式</Link></button>
                                     <button type="submit" id="K_button" onClick={this.submitHandle}>確認訂購</button>
-                                    {/* <Link to="/cart/Cart_success"></Link> */}
                                 </div>
                             </form>
                         </div>

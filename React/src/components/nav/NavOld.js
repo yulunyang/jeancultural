@@ -37,8 +37,34 @@ class NavOld extends Component {
             }
         })
   }
-
-
+  checkCart=(evt)=>{
+    evt.preventDefault();
+        
+    fetch("/api/checkLogin",{
+        method:"GET",
+        mode: 'cors',       
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.message=="登出狀態"){
+        document.location.href="/sign_in_member";
+      }else{
+        fetch("/api/cart",{
+          method:"GET",
+          mode: 'cors',       
+      }).then(res => res.json())
+      .then(
+        data => {
+          if(data.message=="購物車沒有產品"){
+            document.location.href="/cart/Cart_empty";
+          }else{
+            document.location.href="/cart";
+          }
+        }
+      )
+      }
+    })
+  }
 
   render() {
     return (
@@ -89,7 +115,7 @@ class NavOld extends Component {
               </Link>
             </li> */}
             <li className="F_nav_item_icon F_icon_buyitems">
-              <Link className="nav-link nav-link_icon" to="/cart">
+              <Link className="nav-link nav-link_icon" to="/cart" onClick={this.checkCart}>
                 <img src="/images/buyitems.svg" alt="購物車" />
               </Link>
             </li>

@@ -8,7 +8,7 @@ class Cart_content extends Component {
     constructor(props) {
         super(props);
         this.state={
-            quantity:{}
+            target: this.props.cart.map(cart=>cart.quantity)
         }
     };
     // changeNameHandler = (evt)=>{
@@ -23,6 +23,16 @@ class Cart_content extends Component {
     // },()=>this.props.GoodsNumChange(target.value)
     // )              
     // };
+    
+    GoodsNumChange= (evt)=>{
+        var goodNum = evt.target.value
+        // console.log(this.props.cart[0].quantity)
+        
+        this.setState({ target: goodNum })
+        
+        console.log(goodNum)
+        this.props.GoodsNumChange(evt.target.value);
+    }
 
     render(){
         return (
@@ -44,13 +54,13 @@ class Cart_content extends Component {
                         <td>
                         <div className="K_form-group_cart_info">
                             <input type="text" name="goodsNum" id="goodsNum" 
-                            value={cart.quantity} onChange={this.props.GoodsNumChange}></input>
+                            value={cart.quantity} onChange={this.GoodsNumChange}></input>
                         </div>
                         </td>
                         <td>{cart.price}</td>
                         <td>{cart.discount_price}</td>
                         <td>{cart.quantity*cart.discount_price}</td>
-                        <td><img className="K_table_icon" src="/images/likes_gray.svg" alt="icon_likes_gray" /></td>
+                        {/* <td><img className="K_table_icon" src="/images/likes_gray.svg" alt="icon_likes_gray" /></td> */}
                         <td className="cancel" onClick={this.props.cancelGood} data-sid={cart.sid}>
                             <img className="K_table_icon" src="/images/cancel.svg" alt="icon_cancel" onClick={this.delGoods} />
                         </td>

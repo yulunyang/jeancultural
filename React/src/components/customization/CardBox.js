@@ -100,15 +100,27 @@ class CardBox extends Component {
             })  .then(res => res.json())
                 .then(data => {
                     console.log(data)
+                    if(data.message == "登出狀態"){
+                        alert('請先登入會員');   
+                    }else if(data.message == "資料庫沒有這個商品"){
+                        alert('沒有此商品'); 
+                    }else{
+                        $(".F_number").text("");
+                        $(".F_pay").text("");
+                        $(".F_del").text("");
+                        $(".F_hidden_qty").text("")
+                        localStorage.clear();
+                        alert('加到購物車');
+                    }
                 })
             // })
            
-            $(".F_number").text("");
-            $(".F_pay").text("");
-            $(".F_del").text("");
-            $(".F_hidden_qty").text("")
-            localStorage.clear();
-            alert('加到購物車');
+            // $(".F_number").text("");
+            // $(".F_pay").text("");
+            // $(".F_del").text("");
+            // $(".F_hidden_qty").text("")
+            // localStorage.clear();
+            // alert('加到購物車');
         }
     }
     

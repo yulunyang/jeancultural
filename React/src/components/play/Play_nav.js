@@ -143,31 +143,38 @@ class Play_nav extends Component {
             //         console.log(data)
             //     })
 
-        //     fetch("/api/cart", {
-        //         method: 'POST',
-        //         mode: 'cors',
-        //         body: myList,               
-        //         headers: new Headers({
-        //             "Content-Type": "application/json",
-        //             "Accept": "application/json"
-        //         })
-        //     }).then(res => res.json())
-        //         .then(data => {
-        //             console.log(data)
-        //         })
-        // });
-        }
+            fetch("/api/cart", {
+                method: 'POST',
+                mode: 'cors',
+                body: myList,               
+                headers: new Headers({
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                })
+            }).then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if(data.message == "登出狀態"){
+                        alert('請先登入會員');   
+                    }else if(data.message == "資料庫沒有這個商品"){
+                        alert('沒有此商品'); 
+                    }else{
+                        $(".c-dropdown__list>li").remove();
+                        localStorage.clear();   
+                        alert('已加入購物車');
+                    }
+                })
+        });
+    }
+
+
     
         
     
-    );
-    $(".c-dropdown__list>li").remove();
-        localStorage.clear();
+    
+    
 
-
-        alert('加到購物車');
-
-    }
+    
 
     handleClick_wish() {
 

@@ -27,7 +27,7 @@ class Muise extends Component {
     }
 
     getCustommuise() {
-        fetch("http://localhost:3000/api/custommuise")
+        fetch("/api/custommuise")
             .then(res => res.json())
             .then(custommuise => {
                 //console.log(custommuise)

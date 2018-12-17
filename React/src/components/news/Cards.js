@@ -70,7 +70,7 @@ class Cards extends Component {
         // });
     }
     getNews() {
-        fetch("http://localhost:3000/api/news/")
+        fetch("/api/news/")
             .then(res => res.json())
             .then(news => this.setState({
                 news: news,
@@ -103,7 +103,7 @@ class Cards extends Component {
 
     detail = (sid) => {
         // alert(sid)
-                fetch("http://localhost:3000/api/news/"+ sid, {
+                fetch("/api/news/"+ sid, {
                     method: 'GET'
                 }).then(res => res.json())
                     .then(data => {                     

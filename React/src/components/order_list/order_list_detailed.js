@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./order_list_detailed.scss";
 import { BrowserRouter, Route, Link } from "react-router-dom";
-import $ from 'jquery';
+
 
 
 class Order_list_detailed extends Component{
@@ -31,7 +31,6 @@ class Order_list_detailed extends Component{
         console.log(orderid)
         this.getOrderListDetailed(orderid);
         // console.log(this.state)
-        // this.totalcount();
     };
 
     getOrderListDetailed=(orderid)=> {
@@ -51,7 +50,7 @@ class Order_list_detailed extends Component{
     // plus=()=>{
     //     var a = 
     // }
-   
+  
 
 
     render(){
@@ -70,7 +69,7 @@ class Order_list_detailed extends Component{
                             <table className="O_order_detailed_table">
                                 <thead>
                                     <tr>
-                                        <th id="test">編號</th>
+                                        <th>編號</th>
                                         <th>商品名稱</th>
                                         <th>圖片</th>
                                         <th>單價</th>
@@ -90,7 +89,7 @@ class Order_list_detailed extends Component{
                                         <td>{detail.price}</td>
                                         <td>{detail.discount_price}</td>
                                         <td>{detail.quantity}</td>
-                                        <td id="o_total">{detail.quantity*detail.discount_price}</td>
+                                        <td>{detail.discount_price}</td>
                                         
                                     </tr>
                                  
@@ -100,8 +99,8 @@ class Order_list_detailed extends Component{
                            
                             <div className="O_order_detailed_count">   
                                                    
-                                <h3><div className="O_order_detailed_count_line"></div>訂單總額:{this.state.detail.reduce((acc, item) => (acc += item.discount_price*item.quantity), 0)}</h3>
-                                
+                                <h3><div className="O_order_detailed_count_line"></div>訂單總額:</h3>
+                               
                                 </div>
                             
                         </div>

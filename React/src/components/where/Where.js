@@ -9,37 +9,6 @@ class Where extends Component {
         super(props)
     }
     render() {
-        const place = ["誠品各門市", "松菸小賣所", "有趣日月潭", "黃金博物館-金采", "昇恆昌各門市", "三創文具", "台隆手創館京站門市"];
-        const where = ["請洽各門市", "台北市信義區光復南路133號 ", "南投縣魚池鄉水社村中山路102號", "新北市瑞芳區金光路8號金瓜石", "請洽各門市", "8台北市中正區市民大道三段2號", "請洽各門市"];
-        const text = [
-            "",
-            "TEL : 02-6636-5555",
-            "",
-            "",
-            "",
-            "",
-            "",
-        ];
-        
-        //先建立一個空陣列
-        let lists = [];
-        
-        //用迴圈將代辦事項的內容一個個放進空陣列中
-        for(let i=0;i<=place.length-1;i++){
-            //記得在JSX中使用JS變數要用花括號包著
-            lists.push( <div className="F_where_small_text">
-            <i className="material-icons orange600 md-48">place</i>
-            <p className="F_where_palce">{place[i]}</p>
-            <div className="F_where_talk_box">
-                <div className="mwt_border">
-                    <span className="arrow_t_int"></span>
-                    <span className="arrow_t_out"></span>
-                    {where[i]} <br />{text[i]}
-                </div>
-            </div>
-        </div>)
-        }
-
         return (
             <React.Fragment>
                 <Where_banner />
@@ -78,9 +47,9 @@ class Where extends Component {
                             <div className="F_where_box F_where_box_rwd">
                                 <div className="F_where_pic"><img src="images/where/place2-1.jpg" alt="門市照片" /></div>
                                 <div className="F_where_text_box">
-                                    <a href="https://reurl.cc/OkzER" target="_blank">
-                                        <div className="F_map_icon_top"><img className="F_map_icon_img" src="images/where/mapicon.svg" alt="地圖" /></div>
-                                    </a>
+                                <a href="https://reurl.cc/OkzER" target="_blank">
+                                    <div className="F_map_icon_top"><img className="F_map_icon_img" src="images/where/mapicon.svg" alt="地圖" /></div>
+                                </a>
                                     <h3>Wooderful life台中歌劇院門市</h3>
                                     <h4>台中市西屯區惠來路二段101號</h4>
                                     <div className="F_where_text_box_detail">
@@ -104,9 +73,9 @@ class Where extends Component {
                             <div className="F_where_box F_where_box_rwd">
                                 <div className="F_where_pic"><img src="images/where/place3-1.jpg" alt="門市照片" /></div>
                                 <div className="F_where_text_box">
-                                    <a href="https://reurl.cc/GbQXp" target="_blank">
-                                        <div className="F_map_icon_top"><img className="F_map_icon_img" src="images/where/mapicon.svg" alt="地圖" /></div>
-                                    </a>
+                                <a href="https://reurl.cc/GbQXp" target="_blank">
+                                    <div className="F_map_icon_top"><img className="F_map_icon_img" src="images/where/mapicon.svg" alt="地圖" /></div>
+                                </a>
                                     <h3>繡〔Xiu〕Crafts-誠品松菸門市</h3>
                                     <h4>台北市信義區松菸路８８號２Ｆ</h4>
                                     <div className="F_where_text_box_detail">
@@ -127,7 +96,41 @@ class Where extends Component {
                         {/* /// */}
                         <div className="F_where_store_p F_where_store_p_small">其他銷售通路</div>
                         <div className="F_where_small_store_box">
-                           {lists}
+                            <div className="F_where_small_text">
+                                <i className="material-icons orange600 md-48">place</i>
+                                <p>誠品各門市</p>
+                            </div>
+                            <div className="F_where_small_text">
+                                <i className="material-icons orange600 md-48">place</i>
+                                <p className="F_where_palce F_where_palce1">松菸小賣所</p>
+                                <div className="F_where_talk_box F_where_talk_box_place1">
+                                    <div className="mwt_border">
+                                        <span className="arrow_t_int"></span>
+                                        <span className="arrow_t_out"></span>
+                                        台北市信義區光復南路133號 <br />TEL : 02-6636-5555
+                                        </div>
+                                </div>
+                            </div>
+                            <div className="F_where_small_text">
+                                <i className="material-icons orange600 md-48">place</i>
+                                <p>有趣日月潭</p>
+                            </div>
+                            <div className="F_where_small_text">
+                                <i className="material-icons orange600 md-48">place</i>
+                                <p>黃金博物館-金采</p>
+                            </div>
+                            <div className="F_where_small_text">
+                                <i className="material-icons orange600 md-48">place</i>
+                                <p>昇恆昌各門市</p>
+                            </div>
+                            <div className="F_where_small_text">
+                                <i className="material-icons orange600 md-48">place</i>
+                                <p>三創文具</p>
+                            </div>
+                            <div className="F_where_small_text">
+                                <i className="material-icons orange600 md-48">place</i>
+                                <p>台隆手創館京站門市</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -137,9 +140,10 @@ class Where extends Component {
     componentDidMount = () => {
 
         //顯示地點
-        $(".F_where_palce").click(function () {
-            $(this).siblings(".F_where_talk_box").slideToggle("fast");
+        $(".F_where_palce1").click(function () {
+            $(".F_where_talk_box_place1").slideToggle("fast");
         })
+
 
 
     }

@@ -26,22 +26,39 @@ router
             sql_1 = "select * from goods where sid=? and on_sale=1",
             sql_2 = "select * from cart where good_sid=?",
             sql_3 = "insert into cart (member_sid, good_sid, product_id,good_name, material, size, quantity, price, discount_price) values ?",
-            sid = req.body.sid,
-            qty = req.body.qty ? req.body.qty : 0;
+            sql_4 = "update cart set quantity=? where good_sid=?"
+            sid = req.body.sid, //商品sid
+            qty = req.body.qty ? req.body.qty : 0; //加入購物車的商品數量
 
         connection.query(sql_1,[sid],function(error,results){
             if (error) throw error;
-            if (results.length==0){
-                res.json({ message: "資料庫沒有這個產品" });
+            if (req.session.login==false || !req.session.login){
+                res.json({ message: "登出狀態" }); 
+            }
+            else if (results.length==0){
+                res.json({ message: "資料庫沒有這個商品" });
             } else{
                 var cart = [[m_id, sid, results[0].product_id, results[0].good_name, results[0].material, results[0].size,
                     qty, results[0].price, results[0].discount_price]];
 
-                connection.query(sql_3,[cart],function(error,results){
-                    res.json({ message: "新增購物車成功" });
-                });
-            };
-        });
+                connection.query(sql_2,[sid],function(error,results){
+                    
+                    if(results.length==0){  //如果購物車沒有此商品->新增一筆購物車
+                        connection.query(sql_3,[cart],function(error,results){
+                            res.json({ message: "新增購物車成功" });
+                        });
+                    }else{  //如果購物車已有此產品->新增購物車此商品數量
+                        var cartQuantity = parseInt(results[0].quantity),   //現有購物車的此商品數量
+                            addQuantity = parseInt(qty),                    //加入購物車的商品數量
+                            newQuantity = cartQuantity+addQuantity
+
+                        connection.query(sql_4,[newQuantity,sid],function(error,results){
+                            res.json({ message: "更新產品數量成功" });
+                        })
+                    }
+                })
+            }
+        })
     })
 
     .get(function(req, res){    // 取得購物車內容

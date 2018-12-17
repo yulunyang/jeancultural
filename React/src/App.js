@@ -24,6 +24,7 @@ import Order_list_detailed from './components/order_list/order_list_detailed';
 //小周的部分
 import Likes from './components/likes/Likes';
 import Cart from './components/cart/Cart';
+import Cart_empty from './components/cart/Cart_empty';
 import Cart_info from './components/cart/Cart_info';
 import Cart_success from './components/cart/Cart_success';
 
@@ -67,6 +68,7 @@ class App extends Component {
             {/* 我的最愛//購物車1//購物車步驟2-3*/}
             <Route path="/likes" component={Likes} />
             <Route exact path="/cart" component={Cart} />
+            <Route exact path="/cart/Cart_empty" component={Cart_empty} />
             <Route path="/cart/Cart_info" component={Cart_info} />
             <Route path="/cart/Cart_success" component={Cart_success} />
             {/* 購物清單//購物細節//購物車步驟2-3*/}

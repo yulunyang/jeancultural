@@ -28,15 +28,16 @@ class Cart extends Component{
             deliveryWay:"宅配",
             cart: [],
             cartProducts: this.initState,
-            stepStyle1: true,                   
+            stepStyle1: true,
+            quantity1:this.initState.quantity                   
         };
     }
-    // GoodsNumChange = (evt)=>{
-    //     let inputValue = evt.target.value;
-    //     this.setState({
-    //         cart: inputValue
-    //     });
-    // }
+
+    GoodsNumChange = (evt)=>{
+        console.log(evt)
+        // this.setState(evt);
+        this.setState({quantity1:evt});
+    }
     changeNameHandler = (evt)=>{
         const inputName = evt.target.name;
         let inputValue = evt.target.value;
@@ -121,8 +122,15 @@ class Cart extends Component{
             couponCost = parseInt(document.getElementById("K_couponCost").innerHTML),
             finalCost = document.getElementById("K_finalCost");
             finalCost.innerHTML = `NT$ ${totalCost+couponCost+deliveryCost}`;
-    };  
-    
+    }  
+    //計算小計
+    totalCost(){
+        var totalPriceCount = this.state.cart.reduce((acc, cart) => (acc += (cart.quantity*cart.discount_price)), 0),
+        totalCost = document.getElementById("K_totalCost")
+        totalCost.innerHTML = totalPriceCount
+    }
+
+
     //下一步
     submitHandle = (evt)=>{
         let cart =  JSON.stringify(this.state.cart),
@@ -147,7 +155,7 @@ class Cart extends Component{
         
         console.log(sessionStorage);
         evt.preventDefault();
-    };
+    }
 
     //顯示購物車內容
     getCartContent() {  
@@ -165,7 +173,7 @@ class Cart extends Component{
                 cartProducts: this.initState
             })
         })
-    };
+    }
 
     //刪除購物車內容
     cancelGood=(e)=>{
@@ -195,8 +203,8 @@ class Cart extends Component{
     componentDidMount=()=> {
         this.deliveryCount();
         this.getCartContent();
+        this.totalCost();
         this.totalCount();
-        
     };
     componentDidUpdate=()=> {
         this.deliveryCount();
@@ -217,7 +225,7 @@ class Cart extends Component{
                                 <th>單價</th>
                                 <th>折扣價</th>
                                 <th>小計</th>
-                                <th>收藏</th>
+                                {/* <th>收藏</th> */}
                                 <th>刪除</th>
                             </tr>
                         </thead>
@@ -267,7 +275,7 @@ class Cart extends Component{
                             <div className="K_total_pay">
                                 <div className="K_total_pay_detail">
                                     <h5>小計</h5>
-                                    <span id="K_totalCost">{this.state.cart.reduce((acc, cart) => (acc += (cart.quantity*cart.discount_price)), 0)}</span>
+                                    <span id="K_totalCost"></span>
                                 </div>
                                 <div className="K_total_pay_detail">    
                                     <h5>運費</h5>

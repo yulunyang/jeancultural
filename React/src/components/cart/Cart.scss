@@ -192,5 +192,30 @@ body{
     display: none;
 }
 
+/* -------------------Cart_empty start------------------- */
+.K_box_cart_empty{
+    background-color: #fff;
+    margin-top: 46px;
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.K_box_cart_empty h3{
+    font-size: 28px;
+    color: $orange_color;
+}
+.go_shopping_btn1{   
+    margin-top: 40px;
+    font-size: 20px;
+    border: 1px solid $orange_color;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 20px 24px;
+    background-color: #fff;
+}
+.go_shopping_btn1 :link, .go_shopping_btn1 :visited, .go_shopping_btn1 :active{
+    color: $orange_color;
+}
 
 

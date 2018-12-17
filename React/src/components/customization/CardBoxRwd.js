@@ -83,25 +83,37 @@ class CardBoxRwd extends Component {
 
         } else {
 
-            $(".F_buy_car_details").each(function (n) {
+            // $(".F_buy_car_details").each(function (n) {
 
-                let sid = $(this).find(".F_number").text();
-                console.log("sid:" + sid)
-                var myList = JSON.stringify({ "sid": sid });
+            //     let sid = $(this).find(".F_number").text();
+            //     console.log("sid:" + sid)
+            var List = JSON.stringify({ "sid": 1000, "qty": 1 });
 
-                fetch("http://localhost/jeancultural/cart.php", {
-                    method: 'POST',
-                    mode: 'cors',
-                    body: myList,
-                    headers: new Headers({
-                        "Content-Type": "text/plain",
-                        "Accept": "application/json"
-                    })
-                }).then(res => res.json())
-                    .then(data => {
-                        console.log(data)
-                    })
-            })
+            fetch("/api/cart", {
+                method: 'POST',
+                mode: 'cors',
+                body: List,               
+                headers: new Headers({
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                })
+            })  .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if(data.message == "登出狀態"){
+                        alert('請先登入會員');   
+                    }else if(data.message == "資料庫沒有這個商品"){
+                        alert('沒有此商品'); 
+                    }else{
+                        $(".F_number").text("");
+                        $(".F_pay").text("");
+                        $(".F_del").text("");
+                        $(".F_hidden_qty").text("")
+                        localStorage.clear();
+                        alert('加到購物車');
+                    }
+                })
+            // })
         }
 
         //console.log("確認一下:" + myList)
