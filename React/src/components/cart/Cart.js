@@ -128,6 +128,15 @@ class Cart extends Component{
         var totalPriceCount = this.state.cart.reduce((acc, cart) => (acc += (cart.quantity*cart.discount_price)), 0),
         totalCost = document.getElementById("K_totalCost")
         totalCost.innerHTML = totalPriceCount
+
+        totalCount();
+        function totalCount(){
+            var totalCost = parseInt(document.getElementById("K_totalCost").innerHTML),
+                deliveryCost = parseInt(document.getElementById("K_deliveryCost").innerHTML),
+                couponCost = parseInt(document.getElementById("K_couponCost").innerHTML),
+                finalCost = document.getElementById("K_finalCost");
+                finalCost.innerHTML = `NT$ ${totalCost+couponCost+deliveryCost}`;
+        };
     }
 
 
@@ -203,12 +212,14 @@ class Cart extends Component{
     componentDidMount=()=> {
         this.deliveryCount();
         this.getCartContent();
-        this.totalCost();
+        
         this.totalCount();
+        this.totalCost();
     };
     componentDidUpdate=()=> {
         this.deliveryCount();
         this.totalCount();
+        this.totalCost();
     };
 
     render(){
