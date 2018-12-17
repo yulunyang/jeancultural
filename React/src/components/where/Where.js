@@ -9,6 +9,24 @@ class Where extends Component {
         super(props)
     }
     render() {
+        const place=["誠品各門市","松菸小賣所","有趣日月潭","黃金博物館-金采","昇恆昌各門市","三創文具","台隆手創館京站門市"];
+        const where=["請洽各門","台北市信義區光復南路133號"," 南投市南投縣魚池鄉水社村中山路102號","新北市瑞芳區金光路8號金瓜石","請洽各門","台北市中正區市民大道三段2號","台北市大同區承德路一段1號京站時尚廣場3樓"];
+        const tel=["","TEL : 02-6636-5555","","","","",""];
+        const lists=[];
+        for(let i=0;i<=place.length-1;i++){
+            //記得在JSX中使用JS變數要用花括號包著
+            lists.push(<div className="F_where_small_text">
+            <i className="material-icons orange600 md-48">place</i>
+            <p className="F_where_palce">{place[i]}</p>
+            <div className="F_where_talk_box">
+                <div className="mwt_border">
+                    <span className="arrow_t_int"></span>
+                    <span className="arrow_t_out"></span>
+                    {where[i]} <br />{tel[i]}
+                    </div>
+            </div>
+        </div>)
+        }
         return (
             <React.Fragment>
                 <Where_banner />
@@ -96,7 +114,8 @@ class Where extends Component {
                         {/* /// */}
                         <div className="F_where_store_p F_where_store_p_small">其他銷售通路</div>
                         <div className="F_where_small_store_box">
-                            <div className="F_where_small_text">
+                        {lists}
+                            {/* <div className="F_where_small_text">
                                 <i className="material-icons orange600 md-48">place</i>
                                 <p>誠品各門市</p>
                             </div>
@@ -130,7 +149,7 @@ class Where extends Component {
                             <div className="F_where_small_text">
                                 <i className="material-icons orange600 md-48">place</i>
                                 <p>台隆手創館京站門市</p>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
@@ -140,8 +159,8 @@ class Where extends Component {
     componentDidMount = () => {
 
         //顯示地點
-        $(".F_where_palce1").click(function () {
-            $(".F_where_talk_box_place1").slideToggle("fast");
+        $(".F_where_palce").click(function () {
+            $(this).siblings(".F_where_talk_box").slideToggle("fast");
         })
 
 
